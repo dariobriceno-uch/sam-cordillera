@@ -6,7 +6,7 @@ SAM-Cordillera es un sistema que estima cada 6 horas el estado operacional de un
 
 El dashboard es un archivo HTML autocontenido: [`modelo_sam/salidas/dashboard_SAM_Cordillera.html`](modelo_sam/salidas/dashboard_SAM_Cordillera.html). Muestra la meteorología por tramo en bloques de 6 horas, el estado observado de cada ruta, los índices del sistema (severidad, peligro y balance de despeje) y su desempeño frente al Protocolo Lo Barnechea. Se abre con doble clic en cualquier navegador moderno y no necesita servidor, internet ni instalación.
 
-GitHub no muestra un HTML como página. Para verlo hay que descargar el archivo (botón *Download raw file*) y abrirlo en el navegador.
+También se puede ver en línea en **https://dariobriceno-uch.github.io/sam-cordillera/**, publicado con GitHub Pages.
 
 ## Cómo funciona
 
