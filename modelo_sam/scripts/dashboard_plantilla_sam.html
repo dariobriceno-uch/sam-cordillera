@@ -1,0 +1,1606 @@
+<title>SAM-Cordillera · 60-CH y G-21</title>
+<style id="fuentes">__FUENTES__</style>
+<style>
+:root{
+  --bg:#eceeed; --surface:#fbfcfb; --surface-2:#f4f6f4;
+  --ink:#101311; --ink-2:#4d534f; --muted:#858b86;
+  --grid:#e0e3e0; --rule:#c8ccc8; --ring:rgba(16,19,17,.12);
+  --s1:#2a78d6; --s2:#eb6834;
+  --cold-5:#0d366b; --cold-4:#184f95; --cold-3:#2a78d6; --cold-2:#6da7ec; --cold-1:#b7d3f6;
+  --mid:#eceae5;
+  --warm-1:#f6cfcf; --warm-2:#e59a9a; --warm-3:#d03b3b;
+  /* niveles del protocolo 1-2-3 */
+  --n1:#e6c43a; --n2:#ec8a2c; --n3:#d03b3b;
+  /* estado observado: abierto, restringido, cierre técnico, cerrado meteo, cerrado horario */
+  --e0:#a5d6ad; --e1:#e6b544; --e2:#a3a9a5; --e3:#d03b3b; --e4:#dcdfdc;
+  --q0:#d9d8d2; --q1:#1baf7a; --q2:#eda100; --q3:#2a78d6; --q4:#e34948; --q5:#4a3aa7;
+  --b-baja:rgba(42,120,214,.12); --b-alta:rgba(208,59,59,.07);
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e100f; --surface:#181a19; --surface-2:#1f2220;
+    --ink:#f2f4f1; --ink-2:#b7bdb8; --muted:#8a908b;
+    --grid:#272a28; --rule:#373b38; --ring:rgba(255,255,255,.12);
+    --s1:#3987e5; --s2:#d95926;
+    --cold-5:#9ec5f4; --cold-4:#6da7ec; --cold-3:#3987e5; --cold-2:#256abf; --cold-1:#184f95;
+    --mid:#2e312f;
+    --warm-1:#7a3230; --warm-2:#b04a48; --warm-3:#e66767;
+    --n1:#c9a72a; --n2:#d97a22; --n3:#e66767;
+    --e0:#3f7d4c; --e1:#b8902a; --e2:#5c625e; --e3:#e66767; --e4:#2c302d;
+    --q0:#4a4945; --q1:#2bc48c; --q2:#f0b52b; --q3:#4a90e2; --q4:#ef6461; --q5:#8070e6;
+    --b-baja:rgba(57,135,229,.16); --b-alta:rgba(230,103,103,.09);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e100f; --surface:#181a19; --surface-2:#1f2220;
+  --ink:#f2f4f1; --ink-2:#b7bdb8; --muted:#8a908b;
+  --grid:#272a28; --rule:#373b38; --ring:rgba(255,255,255,.12);
+  --s1:#3987e5; --s2:#d95926;
+  --cold-5:#9ec5f4; --cold-4:#6da7ec; --cold-3:#3987e5; --cold-2:#256abf; --cold-1:#184f95;
+  --mid:#2e312f;
+  --warm-1:#7a3230; --warm-2:#b04a48; --warm-3:#e66767;
+  --n1:#c9a72a; --n2:#d97a22; --n3:#e66767;
+  --e0:#3f7d4c; --e1:#b8902a; --e2:#5c625e; --e3:#e66767; --e4:#2c302d;
+  --q0:#4a4945; --q1:#2bc48c; --q2:#f0b52b; --q3:#4a90e2; --q4:#ef6461; --q5:#8070e6;
+  --b-baja:rgba(57,135,229,.16); --b-alta:rgba(230,103,103,.09);
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:40px 24px 80px;display:flex;flex-direction:column;gap:36px}
+
+/* ---------- encabezado ---------- */
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(30px,4.4vw,46px);line-height:1.05;font-weight:600;letter-spacing:-.02em;margin:10px 0 0;
+  text-wrap:balance;max-width:26ch}
+.nb{white-space:nowrap}
+.lede{margin:14px 0 0;max-width:66ch;color:var(--ink-2);font-size:16.5px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;margin-top:28px;
+  border-top:1px solid var(--rule)}
+.meta div{padding:12px 16px 12px 0;border-bottom:1px solid var(--grid)}
+.meta dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.meta dd{margin:3px 0 0;font-size:14px;color:var(--ink-2)}
+.meta dd b{color:var(--ink);font-weight:500}
+
+/* ---------- aviso ---------- */
+.aviso{border-left:2px solid var(--s2);padding:2px 0 2px 16px;color:var(--ink-2);font-size:14px;max-width:84ch}
+.aviso b{color:var(--ink);font-weight:600}
+.aviso ul{margin:8px 0 0;padding-left:18px}
+.aviso li{margin:0 0 4px}
+
+/* ---------- fichas ---------- */
+.fichas{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px}
+.ficha{background:var(--surface);border:1px solid var(--ring);padding:20px 22px 12px}
+.ficha header{display:flex;align-items:baseline;gap:10px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+.dot{width:10px;height:10px;flex:0 0 10px;border-radius:50%;transform:translateY(-1px)}
+.ficha h2{font-size:19px;font-weight:600;margin:0;letter-spacing:-.01em}
+.ficha .sub{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-left:auto;letter-spacing:.04em;white-space:nowrap}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+.stat{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:8px 0;
+  border-bottom:1px solid var(--grid)}
+.statgrupo{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);padding:14px 0 5px;border-bottom:1px solid var(--grid)}
+.statgrupo b{color:var(--ink-2);font-weight:500}
+.stat span{color:var(--ink-2);font-size:13px}
+.stat b{font-family:var(--mono);font-weight:500;font-size:15.5px;font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap}
+.stat b i{font-style:normal;font-size:11px;color:var(--muted);margin-left:3px}
+.stat .cuad{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:7px;vertical-align:-1px}
+
+/* ---------- controles ---------- */
+.controles{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding-bottom:2px}
+.controles .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.controles .sep{width:1px;height:22px;background:var(--rule);margin:0 8px}
+button{font:inherit;font-size:13.5px;color:var(--ink-2);background:var(--surface);border:1px solid var(--ring);
+  padding:6px 14px;cursor:pointer;transition:background .12s,color .12s}
+button:hover{background:var(--surface-2);color:var(--ink)}
+button[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+button:disabled{opacity:.4;cursor:default}
+button:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+.sticky{position:sticky;top:0;z-index:4;background:var(--bg);padding:10px 0;margin:-10px 0}
+
+.bloque{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin:6px 0 -14px;
+  font-size:16px;font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.bloque span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);font-weight:400}
+
+/* ---------- bloques de gráfico ---------- */
+figure{margin:0;background:var(--surface);border:1px solid var(--ring);padding:22px 22px 14px}
+figure.clave{border-color:var(--ink-2)}
+figcaption{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:6px}
+figcaption h3{font-size:17px;font-weight:600;margin:0;letter-spacing:-.01em}
+figcaption p{margin:0;color:var(--muted);font-size:13px;max-width:64ch}
+.leyenda{display:flex;flex-wrap:wrap;gap:8px 16px;margin:10px 0 6px;font-size:13px;color:var(--ink-2)}
+.leyenda span{display:inline-flex;align-items:center;gap:7px}
+.sw{width:14px;height:3px;border-radius:2px;flex:0 0 auto}
+.sw.box{height:12px;width:12px;border-radius:2px}
+.sw.dash{height:0;border-top:2px dashed var(--ink-2);background:none}
+.plot{position:relative;width:100%}
+.plot svg{display:block;width:100%;height:auto;overflow:visible}
+.facetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:26px;margin-top:8px}
+.facetas.una{grid-template-columns:1fr;gap:18px}
+.faceta h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-2);margin:0 0 6px;display:flex;align-items:center;gap:8px}
+.faceta h4 small{margin-left:auto;color:var(--muted);letter-spacing:.04em;text-transform:none;font-weight:400}
+
+/* ---------- tooltip ---------- */
+.tip{position:absolute;pointer-events:none;z-index:5;background:var(--surface);border:1px solid var(--rule);
+  padding:9px 11px;font-size:12.5px;line-height:1.45;box-shadow:0 6px 20px rgba(0,0,0,.14);
+  min-width:150px;max-width:300px;opacity:0;transition:opacity .09s}
+.tip.on{opacity:1}
+.tip .t{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--muted);
+  display:block;margin-bottom:5px;text-transform:uppercase}
+.tip .r{display:flex;justify-content:space-between;gap:14px;font-variant-numeric:tabular-nums}
+.tip .r em{font-style:normal;color:var(--ink-2);display:inline-flex;align-items:center;gap:6px}
+.tip .r b{font-family:var(--mono);font-weight:500;text-align:right}
+.tip .nota{display:block;margin-top:5px;color:var(--muted);font-size:11.5px;white-space:normal}
+
+/* ---------- tablas ---------- */
+.tablabox{overflow-x:auto;border:1px solid var(--ring);background:var(--surface);max-height:520px;overflow-y:auto}
+.tablabox.corta{max-height:none}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:7px 8px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--grid)}
+th{position:sticky;top:0;background:var(--surface);font-family:var(--mono);font-size:10px;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--muted);font-weight:500;text-align:right;border-bottom:1px solid var(--rule);z-index:2}
+td{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink-2)}
+td.txt,th.txt{text-align:left;font-family:var(--sans)}
+th.txt{font-family:var(--mono)}
+td.txt.wrap{white-space:normal;min-width:220px}
+tbody tr:hover td{background:var(--surface-2);color:var(--ink)}
+tbody tr.destacada td{color:var(--ink);background:color-mix(in srgb,var(--s1) 8%,transparent)}
+th.corte,td.corte{border-left:1px solid var(--rule)}
+th[data-col]{cursor:pointer;user-select:none}
+th[data-col]:hover{color:var(--ink)}
+th .fl{opacity:0;margin-left:5px}
+th[aria-sort] .fl{opacity:1;color:var(--ink)}
+.tabinfo{font-size:13px;color:var(--muted);margin:10px 0 0}
+.tabinfo b{color:var(--ink-2);font-weight:500;font-family:var(--mono)}
+.tabvacia{padding:26px 16px;color:var(--muted);font-size:14px}
+.pill{display:inline-block;padding:1px 7px;border-radius:3px;font-size:11.5px;font-family:var(--mono);color:var(--ink)}
+
+/* ---------- sección del modelo ---------- */
+.modelo{background:var(--surface);border:1px solid var(--ring);padding:26px 26px 18px;display:flex;flex-direction:column;gap:22px}
+.modelo h3{font-size:17px;font-weight:600;margin:0 0 6px;letter-spacing:-.01em}
+.modelo h4{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.modelo p{margin:0 0 10px;color:var(--ink-2);font-size:14.5px;max-width:80ch}
+.modelo p b{color:var(--ink);font-weight:500}
+.cuadro td{white-space:normal;font-family:var(--sans);text-align:left;vertical-align:top;color:var(--ink-2);min-width:140px}
+.cuadro th{text-align:left}
+.cuadro td:first-child{font-family:var(--mono);white-space:nowrap;color:var(--ink)}
+.formula{font-family:var(--mono);font-size:13px;line-height:1.7;background:var(--surface-2);border:1px solid var(--grid);
+  padding:12px 16px;margin:0;overflow-x:auto;color:var(--ink);white-space:pre}
+.formula i{font-style:normal;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px}
+.nivel-box{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+/* ---------- notas ---------- */
+.notas{border-top:1px solid var(--rule);padding-top:22px;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px}
+.notas h4{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.notas p,.notas li{color:var(--ink-2);font-size:13.5px;margin:0 0 8px}
+.notas ul{margin:0;padding-left:18px}
+.notas b{color:var(--ink);font-weight:500}
+code{font-family:var(--mono);font-size:.92em;background:var(--surface-2);padding:1px 5px;border:1px solid var(--grid)}
+.dicc td{white-space:normal;font-family:var(--sans);text-align:left;vertical-align:top}
+.dicc td:first-child{font-family:var(--mono);white-space:nowrap;color:var(--ink)}
+.dicc th{text-align:left}
+@media (max-width:640px){.dos{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">FONDEF IDeA &middot; SAM-Cordillera &middot; Validación retrospectiva, invierno de 2026</p>
+    <h1>Estado invernal de la <span class="nb">60-CH</span> y la <span class="nb">G-21</span></h1>
+    <p class="lede">Base de datos de las rutas 60-CH y G-21 entre el 1 de julio y el 31 de agosto de 2026, en bloques de 6
+      horas y por tramo. Reúne la meteorología de cada tramo, reconstruida con el reanálisis ERA5 / ERA5-Land ponderado
+      sobre el trazado del camino, el estado observado de las rutas según los comunicados oficiales, el nivel del Protocolo
+      Lo Barnechea y los índices y estados operacionales de SAM-Cordillera.</p>
+    <dl class="meta">
+      <div><dt>Periodo</dt><dd><b>1 jul &ndash; 31 ago 2026</b> · 248 bloques de 6 h por tramo</dd></div>
+      <div><dt>Meteorología</dt><dd><b>ERA5-Land</b> 0,1° y <b>ERA5</b> 0,25° · ponderados por largo de camino en cada celda</dd></div>
+      <div><dt>Modelo</dt><dd><b>SAM-Cordillera</b> · severidad, peligro, nieve por despejar y seis estados</dd></div>
+      <div><dt>Estado de ruta</dt><dd>Matrices de <b>viabilidad operativa</b> reconstruidas de comunicados oficiales</dd></div>
+      <div><dt>Resolución</dt><dd>Bloques de <b>6 h</b> en hora local <b>UTC&minus;4</b>: 00–06, 06–12, 12–18, 18–24</dd></div>
+    </dl>
+  </header>
+
+  <div class="aviso" id="aviso"></div>
+
+  <section class="fichas" id="fichas"></section>
+
+  <div class="controles sticky" id="controles">
+    <span class="lbl">Periodo</span>
+    <button data-mes="todo" aria-pressed="true">Julio + agosto</button>
+    <button data-mes="2026-07" aria-pressed="false">Julio</button>
+    <button data-mes="2026-08" aria-pressed="false">Agosto</button>
+    <span class="sep"></span>
+    <span class="lbl">Tramo</span>
+    <button data-tramo="alto" aria-pressed="true">Alto</button>
+    <button data-tramo="medio" aria-pressed="false">Medio</button>
+    <span id="tramo-desc" style="color:var(--muted);font-size:13px"></span>
+    <span style="color:var(--muted);font-size:13px;margin-left:auto">Detalle del bloque o del día al hacer clic · Esc para cerrar</span>
+  </div>
+
+  <figure class="clave">
+    <figcaption>
+      <h3>Cronología del invierno de 2026</h3>
+      <p>Índices de severidad de la tormenta (SV) y de peligro de avalancha o de remoción en masa (H) de SAM-Cordillera,
+        ambos de 0 a 5 y con sus umbrales de cierre parcial y de cierre, junto al estado observado de la ruta según los
+        comunicados oficiales, el nivel del Protocolo Lo Barnechea y el estado operacional que indica SAM-Cordillera. El
+        modelo no recibe el estado observado, de modo que toda coincidencia entre ambos proviene de la meteorología. Un
+        bloque cuenta como cerrado observado si hubo al menos una hora de cierre por meteorología.</p>
+    </figcaption>
+    <div class="leyenda" id="leg-cr"></div>
+    <div class="facetas una" id="facetas-cr"></div>
+  </figure>
+
+  <h2 class="bloque">Bloques de 6 horas <span>agregación de los datos horarios en bloques de 00–06, 06–12, 12–18 y 18–24 h</span></h2>
+
+  <figure>
+    <figcaption>
+      <h3>Datos horarios y su agregación en bloques</h3>
+      <p>Ventana de 4 o 7 días, desplazable entre el 1 de julio y el 31 de agosto, con accesos directos a cada cierre
+        observado. Las columnas sombreadas alternas delimitan los bloques. Las barras son la nieve de cada hora y la cifra
+        sobre cada bloque, su suma; en la temperatura, la línea fina corresponde a la serie horaria y el escalón, a la media
+        del bloque. Las franjas registran el estado observado hora a hora y por bloque, el nivel del Protocolo Lo Barnechea
+        y el estado de SAM-Cordillera.</p>
+    </figcaption>
+    <div class="controles" id="zoom-nav" style="margin:10px 0 0"></div>
+    <div class="controles" id="zoom-ep" style="margin:8px 0 4px"></div>
+    <div class="leyenda" id="leg-zoom"></div>
+    <div class="plot" id="plot-zoom"></div>
+  </figure>
+
+  <figure>
+    <figcaption>
+      <h3>Datos por bloque</h3>
+      <p>Valores de cada bloque de 6 horas, sin la serie horaria, con controles de ruta, ventana y fecha propios. Las barras
+        son la nieve caída en el bloque; en la temperatura, el trazo es la media del bloque y la barra clara, su mínima y su
+        máxima horaria. Las franjas registran el estado observado, el nivel del Protocolo Lo Barnechea y el estado de
+        SAM-Cordillera.</p>
+    </figcaption>
+    <div class="controles" id="sb-nav" style="margin:10px 0 0"></div>
+    <div class="controles" id="sb-ep" style="margin:8px 0 4px"></div>
+    <div class="leyenda" id="leg-sb"></div>
+    <div class="plot" id="plot-sb"></div>
+  </figure>
+
+  <figure>
+    <figcaption>
+      <h3>Nieve caída por bloque</h3>
+      <p>Centímetros de nieve fresca de la celda en cada bloque de 6 horas. El fondo rojo marca los bloques en que la ruta
+        estuvo cerrada por meteorología al menos una hora; los cierres largos se prolongan mucho más allá de las nevadas que
+        los inician.</p>
+    </figcaption>
+    <div class="leyenda" id="leg-nb"></div>
+    <div class="facetas una" id="facetas-nb"></div>
+  </figure>
+
+  <figure>
+    <figcaption>
+      <h3>Perfil diario por bloque horario</h3>
+      <p>Cada grupo reúne un mismo bloque horario de todos los días del periodo, sumado o promediado según la variable:
+        nieve caída, temperatura media, bloques con cierre observado, bloques con nivel 2 o 3 del Protocolo Lo Barnechea y
+        bloques en cierre según SAM-Cordillera.</p>
+    </figcaption>
+    <div class="leyenda" id="leg-pf"></div>
+    <div class="facetas" id="facetas-pf"></div>
+  </figure>
+
+  <h2 class="bloque">Meteorología por tramo <span>reanálisis ERA5 y ERA5-Land ponderado por largo de camino · sin estaciones</span></h2>
+
+  <figure>
+    <figcaption>
+      <h3>Temperatura del aire a 2 m</h3>
+      <p>Media de cada bloque de 6 horas, con ERA5-Land ponderado sobre el tramo; el área clara va de la mínima a la máxima
+        horaria del bloque. La línea de 0 °C separa los periodos en que la calzada puede congelarse.</p>
+    </figcaption>
+    <div class="leyenda" id="leg-t"></div>
+    <div class="plot" id="plot-t"></div>
+  </figure>
+
+  <figure>
+    <figcaption>
+      <h3>Isoterma 0 °C</h3>
+      <p>Altura media a la que el aire está a 0 °C en cada bloque, estimada en las celdas bajas de cada ruta e igual para
+        ambos tramos. Las bandas corresponden a las del Protocolo Lo Barnechea y las líneas punteadas, a la cota mínima y
+        máxima del camino. Cuando la isoterma baja de la cota mínima, todo el tramo queda bajo nieve; SAM-Cordillera
+        traduce esa relación en la fracción del camino bajo la línea de nieve, unos 300 m por debajo de la isoterma.</p>
+    </figcaption>
+    <div class="leyenda" id="leg-iso"></div>
+    <div class="plot" id="plot-iso"></div>
+  </figure>
+
+  <figure>
+    <figcaption>
+      <h3>Nieve caída en 12 horas (S)</h3>
+      <p>Nieve de ERA5-Land de dos bloques consecutivos, en centímetros de nieve fresca (1 mm de agua equivale a 1 cm). Es la
+        variable con que se evalúa el Protocolo Lo Barnechea, que fija sus umbrales de 1, 25 y 50 cm en 12 horas; los
+        índices de SAM-Cordillera trabajan con la nieve de cada bloque de 6 horas.</p>
+    </figcaption>
+    <div class="leyenda" id="leg-s"></div>
+    <div class="plot" id="plot-s"></div>
+  </figure>
+
+  <figure>
+    <figcaption>
+      <h3>Lluvia en 12 horas (R)</h3>
+      <p>Precipitación líquida de dos bloques consecutivos (precipitación total menos nieve). En el Protocolo Lo Barnechea,
+        con isoterma alta, 1 mm activa el nivel 2 y 20 mm el nivel 3.</p>
+    </figcaption>
+    <div class="leyenda" id="leg-r"></div>
+    <div class="plot" id="plot-r"></div>
+  </figure>
+
+  <figure>
+    <figcaption>
+      <h3>Manto de nieve</h3>
+      <p>Espesor del manto sobre la celda al cierre de cada bloque, en metros y ponderado sobre el tramo. Sube con cada
+        tormenta y baja con el derretimiento y la compactación, sin descontar lo que retira la maquinaria; esa cuenta
+        corresponde a la nieve por despejar de SAM-Cordillera.</p>
+    </figcaption>
+    <div class="leyenda" id="leg-sd"></div>
+    <div class="plot" id="plot-sd"></div>
+  </figure>
+
+  <figure>
+    <figcaption>
+      <h3>Nivel del Protocolo Lo Barnechea por día y bloque</h3>
+      <p>Cada columna es un día y cada fila, un bloque de 6 horas en hora local. El color es el nivel regularizado del
+        Protocolo Lo Barnechea, que actúa como piso del índice de severidad; la franja delgada en la base de cada celda es
+        el estado observado de la ruta en ese bloque.</p>
+    </figcaption>
+    <div class="leyenda" id="leg-h"></div>
+    <div class="facetas" id="facetas-h"></div>
+  </figure>
+
+  <figure>
+    <figcaption>
+      <h3>Nieve caída por día</h3>
+      <p>Centímetros de nieve fresca por día. El fondo rojo marca los días en que la ruta estuvo cerrada por meteorología al
+        menos una hora y el trazo inferior, los días cerrados completos.</p>
+    </figcaption>
+    <div class="leyenda" id="leg-nieve"></div>
+    <div class="facetas" id="facetas-nieve"></div>
+  </figure>
+
+  <h2 class="bloque">Resultados de SAM-Cordillera <span>desempeño · horas sin respaldo en la 60-CH · sensibilidad · episodios · nieve por despejar</span></h2>
+
+  <section class="modelo">
+    <div>
+      <h4>Desempeño de SAM-Cordillera y de las reglas alternativas, bloques de 6 horas</h4>
+      <div class="tablabox corta" id="tabla-metricas"></div>
+      <p class="tabinfo" id="info-metricas"></p>
+    </div>
+
+    <div>
+      <h4>Horas cerradas de la 60-CH según el estado que justifica la meteorología</h4>
+      <div class="tablabox corta" id="tabla-param"></div>
+      <p class="tabinfo">Cada una de las horas en que la 60-CH estuvo cerrada por meteorología se clasifica según el estado
+        que indica SAM-Cordillera en su bloque. Las horas en cierre parcial, restricción o apertura no tenían respaldo
+        meteorológico para un cierre total. Como la capacidad de despeje de esa ruta no se conoce, se comparan tres
+        escenarios; el de 6 cm/h corresponde a la capacidad calibrada en la G-21.</p>
+    </div>
+
+    <div>
+      <h4>Sensibilidad a los supuestos del modelo</h4>
+      <div class="tablabox corta" id="tabla-sens"></div>
+      <p class="tabinfo">Cada supuesto se modifica por separado, con los demás iguales a la propuesta base. La exposición del
+        tramo alto a avalanchas domina el resultado: con 0,75 en lugar de 1, el cierre por peligro desaparece y el cierre de
+        la 60-CH queda casi sin respaldo, por lo que fijar ese valor exige un catastro de trayectorias de avalancha.</p>
+    </div>
+
+    <div>
+      <h4>Episodios de cierre observados y estado que indicó el modelo</h4>
+      <div class="tablabox corta" id="tabla-ep"></div>
+      <p class="tabinfo">Los episodios se cuentan con la hora exacta de los comunicados. Las columnas E0 a E5 reparten los
+        bloques de cada episodio según el estado que indicó SAM-Cordillera. El error de duración es la diferencia entre las
+        horas que el modelo mantuvo la ruta cerrada y las horas de cierre observado; un valor negativo indica que el modelo
+        reabrió antes que la autoridad.</p>
+    </div>
+
+    <figure style="border:0;padding:0">
+      <figcaption>
+        <h3 style="font-size:15px">Nieve por despejar en la calzada</h3>
+        <p>Balance de la nieve que queda en el camino con una capacidad de despeje de 6 cm/h, estimada con los cierres de la
+          G-21. Crece mientras nieva o mientras el peligro impide trabajar y baja cuando la maquinaria entra; sus niveles de 5,
+          30 y 50 cm corresponden a restricción, cierre parcial y, si la ruta venía cerrada, cierre por despeje.</p>
+      </figcaption>
+      <div class="leyenda" id="leg-n"></div>
+      <div class="plot" id="plot-n"></div>
+    </figure>
+  </section>
+
+  <h2 class="bloque">Datos diarios <span>un registro por día, ruta y tramo</span></h2>
+
+  <section>
+    <div class="controles" style="margin-bottom:10px">
+      <span class="lbl">Ruta</span>
+      <button data-tsitio="todos" aria-pressed="true">Ambas</button>
+      <button data-tsitio="60-CH" aria-pressed="false">60-CH</button>
+      <button data-tsitio="G-21" aria-pressed="false">G-21</button>
+      <span class="sep"></span>
+      <span class="lbl">Tramo</span>
+      <button data-ttramo="todos" aria-pressed="true">Ambos</button>
+      <button data-ttramo="alto" aria-pressed="false">Alto</button>
+      <button data-ttramo="medio" aria-pressed="false">Medio</button>
+    </div>
+    <div class="controles" style="margin-bottom:10px">
+      <span class="lbl">Solo días</span>
+      <button data-tfiltro="todos" aria-pressed="true">Todos</button>
+      <button data-tfiltro="nieve" aria-pressed="false">Con nevada (≥ 1 cm)</button>
+      <button data-tfiltro="cierre" aria-pressed="false">Con cierre observado</button>
+      <button data-tfiltro="nivel2" aria-pressed="false">Con nivel ≥ 2 del Protocolo Lo Barnechea</button>
+      <button data-tfiltro="modelo" aria-pressed="false">Con cierre según SAM-Cordillera</button>
+    </div>
+    <div class="tablabox" id="tablabox"></div>
+    <p class="tabinfo" id="tabinfo"></p>
+  </section>
+
+  <section class="notas">
+    <div>
+      <h4>Cómo se derivó</h4>
+      <ul>
+        <li>Cada tramo cruza entre 2 y 5 celdas ERA5-Land de 0,1°. El valor del tramo es el <b>promedio ponderado por los
+          metros de camino</b> dentro de cada celda, calculado sobre la geometría de la Red Vial Nacional.</li>
+        <li><b>sf</b>, <b>tp</b> y <b>smlt</b> vienen acumulados en el GRIB, y la tasa horaria es la diferencia entre pasos. La
+          nieve se convierte de milímetros de agua equivalente a centímetros de nieve fresca con razón <b>10:1</b>
+          (ρ = 100 kg/m³), que se mantiene como parámetro.</li>
+        <li>La <b>isoterma 0 °C</b> de ERA5 (0,25°) viene sobre el suelo del modelo. Se le suma la cota media del terreno de la
+          celda (DEM Copernicus) y se usan las celdas más bajas de cada valle, donde casi nunca queda bajo el suelo.</li>
+        <li>La <b>fracción del camino bajo nieve</b> se calcula con la cota mínima y máxima del camino en cada celda, suponiendo
+          que la nieve llega unos 300 m por debajo de la isoterma.</li>
+        <li><b>Bloques de 6 h.</b> Cada día local se divide en 00–06, 06–12, 12–18 y 18–24. La nieve y la lluvia se suman en el
+          bloque, la temperatura, el viento y la isoterma se promedian conservando su mínimo y su máximo, y el manto es el
+          valor al final del bloque. Las ventanas más largas se arman sumando bloques: dos para el Protocolo Lo Barnechea, cuatro
+          para la duración y el arrastre, y doce para el peligro.</li>
+        <li>El estado observado de un bloque es "cerrado por meteorología" si hubo al menos una hora así y, si no, el estado con
+          más horas. Proviene de las matrices de viabilidad operativa, una por ruta, y es el mismo en ambos tramos; donde no hay
+          registro se imputa el régimen estructural, como el cierre nocturno de la 60-CH.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Vacíos conocidos</h4>
+      <ul id="vacios"></ul>
+    </div>
+    <div>
+      <h4>Qué no dice</h4>
+      <p>ERA5-Land promedia celdas de 9 km × 9 km con un relieve suavizado, de modo que la nieve y la temperatura son las de la
+        celda y no las de una curva o del portal del túnel. Los centímetros dependen además de la densidad de la nieve fresca,
+        que no se observa.</p>
+      <p>El Protocolo Lo Barnechea tiene cinco gatillantes y con ERA5 se calculan tres; los cierres por viento blanco o por saturación de
+        vehículos quedan fuera. La capacidad de despeje es una cota inferior estimada con los cierres de la G-21 y no un dato de
+        maquinaria, y la exposición de cada tramo a avalanchas es un supuesto que decide el respaldo de los cierres por peligro.</p>
+      <p>La 60-CH no cierra solo por nieve, porque la decisión es binacional y depende también del lado argentino y de la
+        Cuesta de los Caracoles, que el modelo no observa. Por ello, las horas sin respaldo meteorológico señalan dónde el
+        cierre debe explicarse por otras razones, no que haya sido innecesario. Los parámetros describen julio y agosto de
+        2026 en dos rutas; lo que se transfiere al resto del catastro es la forma del modelo y el orden de magnitud de sus
+        umbrales.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="bloque" style="margin-bottom:22px">Diccionario breve <span>campos de las salidas</span></h2>
+    <div class="tablabox corta"><table class="dicc">
+      <thead><tr><th>Campo</th><th>Definición</th></tr></thead>
+      <tbody>
+        <tr><td>ruta · tramo</td><td>Ruta (60-CH o G-21) y tramo (alto o medio) sobre el que se promedian las celdas ERA5-Land.</td></tr>
+        <tr><td>bloque_inicio_local · bloque</td><td>Inicio del bloque de 6 h en hora local de Chile (UTC−4) y su rótulo (00-06, 06-12, 12-18, 18-24).</td></tr>
+        <tr><td>t2m_C · t2m_min_C · t2m_max_C</td><td>Temperatura del aire a 2 m (°C), ERA5-Land ponderada sobre el tramo: media, mínima y máxima horaria del bloque.</td></tr>
+        <tr><td>tp_6h_mm · sf_6h_mm · lluvia_6h_mm</td><td>Precipitación total, nieve caída (en mm de agua equivalente) y lluvia (tp − sf) del bloque. <code>nieve_6h_cm</code> es la nieve del bloque en cm.</td></tr>
+        <tr><td>sde_m</td><td>Espesor del manto sobre la celda al final del bloque (m).</td></tr>
+        <tr><td>isoterma_msnm (Z)</td><td>Altura de la isoterma 0 °C sobre el nivel del mar (m), ERA5 más la cota del terreno.</td></tr>
+        <tr><td>nieve_12h_cm (S) · lluvia_12h_mm (R)</td><td>Nieve y lluvia de dos bloques consecutivos; se usan para evaluar el Protocolo Lo Barnechea.</td></tr>
+        <tr><td>nivel_regularizado</td><td>Nivel 0–3 del Protocolo Lo Barnechea con la tabla regularizada, monótona en nieve y lluvia; es el piso de la severidad.</td></tr>
+        <tr><td>phi6 (φ) · S6_ef (S*)</td><td>Fracción del tramo bajo la línea de nieve y nieve efectiva sobre el camino en el bloque (cm).</td></tr>
+        <tr><td>SV_hibrida (SV)</td><td>Índice de severidad de la tormenta, de 0 a 5; es el mayor entre el nivel del Protocolo Lo Barnechea (como piso) y la suma ponderada de las notas.</td></tr>
+        <tr><td>H · H_av · H_rm</td><td>Índice de peligro, de 0 a 5, y sus componentes de avalancha y de remoción en masa.</td></tr>
+        <tr><td>N</td><td>Nieve por despejar en la calzada al final del bloque (cm), con capacidad de despeje de 6 cm/h.</td></tr>
+        <tr><td>E · causa</td><td>Estado operacional del tramo (E0 abierto, E1 restricción, E2 cierre parcial, E3 cierre por despeje, E4 cierre por tormenta, E5 cierre por peligro) y el índice que lo determina.</td></tr>
+        <tr><td>tramo_critico</td><td>Tramo en peor condición, cuyo estado toma la ruta.</td></tr>
+        <tr><td>estado_observado</td><td>Estado real de la ruta: abierto, restringido, cierre técnico, cerrado por meteorología o cerrado por horario.</td></tr>
+        <tr><td>cerrado_observado · horas_cerrado_obs</td><td>Verdadero cuando hubo al menos una hora cerrada por meteorología en el bloque; es el dato contra el que se califica el modelo.</td></tr>
+        <tr><td>POD · FAR · CSI · HSS · kappa</td><td>Probabilidad de detección, razón de falsas alarmas, índice de éxito crítico, puntaje de Heidke y kappa ponderado de tres clases, calculados sobre bloques de 6 h.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+</div>
+
+<script id="datos" type="application/json">__DATOS__</script>
+<script>
+(() => {
+  "use strict";
+  const D = JSON.parse(document.getElementById("datos").textContent);
+  const RUTAS = D.rutas, TRAMOS = D.tramos;
+  const COLOR = { "60-CH": "var(--s1)", "G-21": "var(--s2)" };
+  const NOM_CORTO = { "60-CH": "60-CH", "G-21": "G-21" };
+  const COL_EST = ["var(--e0)", "var(--e1)", "var(--e2)", "var(--e3)", "var(--e4)"];
+  const NOM_EST = ["abierto", "restringido", "cierre técnico", "cerrado por meteorología", "cerrado por horario"];
+  const NOM_EST_CORTO = ["abierto", "restringido", "cierre téc.", "cerrado meteo", "cerrado horario"];
+  const COL_NIV = ["var(--surface-2)", "var(--n1)", "var(--n2)", "var(--n3)"];
+  const NOM_NIV = ["0 · sin alerta", "1 · preventiva", "2 · operativa", "3 · crítica"];
+  const COL_SAM = ["var(--q0)", "var(--q1)", "var(--q2)", "var(--q3)", "var(--q4)", "var(--q5)"];
+  const NOM_SAM = ["E0 abierto", "E1 abierto con restricción", "E2 cierre parcial", "E3 cerrado por despeje", "E4 cerrado por tormenta", "E5 cerrado por peligro"];
+  const P_SAM = D.parametros;
+  const MES3 = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+  const CAL = D.modelo_calibrado;
+
+  // inicio local de cada bloque de 6 h (se trata como UTC para no depender del navegador)
+  const PASO = D.paso_h, BXD = 24 / PASO;
+  const t0 = new Date(D.inicio + ":00Z");
+  const BLOQ = Array.from({ length: D.n }, (_, i) => new Date(t0.getTime() + i * PASO * 3600e3));
+  const MESES = BLOQ.map(d => d.toISOString().slice(0, 7));
+  const mesDe = i => MESES[i];
+
+  const state = { mes: "todo", tramo: "alto", tabla: { sitio: "todos", tramo: "todos", filtro: "todos", col: "dia", dir: 1 } };
+  const idxH = () => BLOQ.map((_, i) => i).filter(i => state.mes === "todo" || mesDe(i) === state.mes);
+  const idxD = () => D.dias.map((_, i) => i).filter(i => state.mes === "todo" || D.dias[i].slice(0, 7) === state.mes);
+  const TR = (r, t) => D.tramos_h[r + "|" + (t || state.tramo)];
+  const DI = (r, t) => D.diario[r + "|" + (t || state.tramo)];
+  const RH = r => D.rutas_h[r];
+
+  const fmt = (v, n = 1) => v == null || Number.isNaN(v) ? "—" : v.toLocaleString("es-CL",
+    { minimumFractionDigits: n, maximumFractionDigits: n });
+  const hh = h => String(h).padStart(2, "0");
+  const rotBloque = b => `${hh(b * PASO)}–${hh(b * PASO + PASO)} h`;
+  const fmtH = d => `${d.getUTCDate()} ${MES3[d.getUTCMonth()]} · ${rotBloque(d.getUTCHours() / PASO)}`;
+  const fmtD = s => { const [, m, d] = s.split("-"); return d + " " + MES3[+m - 1]; };
+  const fmtDH = s => s ? fmtD(s.slice(0, 10)) + " " + s.slice(11, 16) : "—";
+  const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+  const pct = v => v == null ? "—" : fmt(100 * v, 0) + " %";
+  const signo = v => v == null ? "—" : (v > 0 ? "+" : "") + fmt(v, 0);
+
+  /* ---------------- aviso de alcance ---------------- */
+  (() => {
+    const li = RUTAS.flatMap(r => TRAMOS.map(t => {
+      const m = D.meta[r][t];
+      return `<li><b>${esc(r)} · tramo ${t}</b>: ${esc(m.descripcion)}. ${fmt(m.longitud_km, 1)} km entre
+        ${fmt(m.cota_min, 0)} y ${fmt(m.cota_max, 0)} m (media ${fmt(m.cota_media, 0)} m), promediado sobre
+        ${m.n_celdas} celdas ERA5-Land con pesos ${esc(m.pesos)}.</li>`;
+    }));
+    document.getElementById("aviso").innerHTML = `<b>Hasta dónde llega esto.</b> No hay estaciones en terreno:
+      todo lo meteorológico es reanálisis. Cada tramo es el promedio de las celdas de 9 km que atraviesa, ponderado
+      por la longitud de camino dentro de cada una, y la isoterma 0 °C se estima en las celdas bajas del valle
+      (${esc(D.meta["60-CH"].alto.iso_celdas.split(" z=")[0])}… para la 60-CH; ${esc(D.meta["G-21"].alto.iso_celdas.split(" z=")[0])}…
+      para la G-21) y se asume igual para toda la ruta. ERA5 no trae visibilidad ni tránsito, dos de los cinco
+      gatillantes del Protocolo Lo Barnechea.<ul>${li.join("")}</ul>`;
+  })();
+
+  /* ---------------- fichas ---------------- */
+  document.getElementById("fichas").innerHTML = RUTAS.map(r => {
+    const k = D.kpi[r], o = k.obs;
+    const fila = (lab, val, un, extra = "") => `<div class="stat"><span>${extra}${lab}</span><b>${val}<i>${un}</i></b></div>`;
+    const colTramo = t => {
+      const q = k.tramos[t], m = D.meta[r][t];
+      return `<div>
+        <div class="statgrupo">Tramo <b>${t}</b> · ${fmt(m.cota_min, 0)}–${fmt(m.cota_max, 0)} m</div>
+        ${fila("Nieve caída, jul + ago", fmt(q.nieve_cm, 0), "cm")}
+        ${fila("Máximo en 12 h", fmt(q.s12_max, 1), "cm")}
+        ${fila("Manto máximo", fmt(q.manto_max, 2), "m")}
+        ${fila("Horas bajo 0 °C", fmt(q.hbc, 0), "h")}
+        ${fila("Bloques con nivel ≥ 2, Protocolo Lo Barnechea", fmt(q.bloques_L2, 0), "de " + D.n)}
+        ${fila("Bloques en cierre (E3 a E5)", fmt(q.bloques_modelo, 0), "de " + D.n)}
+        ${fila("Nieve por despejar, máximo", fmt(q.Nmax, 0), "cm")}
+        ${fila("T media · mínima", fmt(q.tmed, 1) + " · " + fmt(q.tmin, 1), "°C")}
+        ${fila("Lluvia total", fmt(q.lluvia_mm, 1), "mm")}
+        ${fila("Días con nevada ≥ 1 cm", fmt(q.dias_nevada, 0), "d")}
+      </div>`;
+    };
+    const cu = c => `<span class="cuad" style="background:${c}"></span>`;
+    const sm = k.sam;
+    return `<article class="ficha">
+      <header>
+        <span class="dot" style="background:${COLOR[r]}"></span>
+        <h2>${esc(D.nombres[r])}</h2>
+        <span class="sub">ERA5 · por tramo</span>
+      </header>
+      <div class="dos">${colTramo("alto")}${colTramo("medio")}</div>
+      <div class="statgrupo">Isoterma 0 °C (por ruta)</div>
+      ${fila("Mediana · mínima del periodo", fmt(k.iso_mediana, 0) + " · " + fmt(k.iso_min, 0), "m")}
+      ${fila("Horas con isoterma bajo 2.800 m", fmt((k.h_banda[D.bandas[0]] || 0) + (k.h_banda[D.bandas[1]] || 0), 0), "h")}
+      <div class="statgrupo">Estado observado de la ruta · comunicados oficiales</div>
+      ${fila("Cerrado por meteorología", fmt(o.h_cerrado_meteo, 0), "h", cu(COL_EST[3]))}
+      ${fila("Restringido", fmt(o.h_restringido, 0), "h", cu(COL_EST[1]))}
+      ${o.h_cierre_tecnico ? fila("Cierre técnico", fmt(o.h_cierre_tecnico, 0), "h", cu(COL_EST[2])) : ""}
+      ${fila("Abierto", fmt(o.h_abierto, 0), "h", cu(COL_EST[0]))}
+      ${o.h_cerrado_horario ? fila("Cerrado por horario", fmt(o.h_cerrado_horario, 0), "h", cu(COL_EST[4])) : ""}
+      ${fila("Episodios de cierre · días con cierre", fmt(o.episodios, 0) + " · " + fmt(o.dias_cerrado, 0), "")}
+      ${fila("Episodio más largo", fmt(o.horas_episodio_max, 0), "h")}
+      ${fila("Bloques de 6 h con cierre (≥ 1 h)", fmt(o.bloques_cerrado, 0), "de " + D.n)}
+      <div class="statgrupo">SAM-Cordillera · estado de la ruta (tramo crítico)</div>
+      ${fila("Bloques cerrados que el modelo justifica", fmt(sm.a, 0) + " de " + fmt(sm.a + sm.c, 0), "")}
+      ${fila("Falsas alarmas · omisiones", fmt(sm.b, 0) + " · " + fmt(sm.c, 0), "bloques")}
+      ${fila("CSI · POD · FAR", fmt(sm.CSI, 2) + " · " + fmt(sm.POD, 2) + " · " + fmt(sm.FAR, 2), "")}
+      ${fila("Kappa ponderado · tres clases", fmt(sm.kappa, 2), "")}
+      ${fila("Bloques con tramos en estados distintos", fmt(sm.tramos_distintos, 0), "de " + D.n)}
+    </article>`;
+  }).join("");
+
+  /* ---------------- utilidades de dibujo ---------------- */
+  const W_ANCHO = 1000, W_FACETA = 520;
+  const nice = (max, pasos = 4) => {
+    const bruto = Math.max(1e-9, max) / pasos, mag = Math.pow(10, Math.floor(Math.log10(bruto)));
+    const norm = bruto / mag, paso = (norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 5 ? 5 : 10) * mag;
+    return { paso, max: paso * Math.ceil(max / paso) };
+  };
+  const ticksTiempo = idx => {
+    const out = [];
+    let ultimo = -Infinity;
+    idx.forEach((i, k) => {
+      const d = BLOQ[i];
+      if (d.getUTCHours() !== 0) return;
+      if (d.getUTCDate() !== 1 && d.getUTCDate() % 7 !== 0) return;
+      if (k - ultimo < idx.length / 14) return;
+      out.push([k, d]); ultimo = k;
+    });
+    return out;
+  };
+  const txt = (x, y, s, o = {}) => `<text x="${(+x).toFixed(1)}" y="${(+y).toFixed(1)}" text-anchor="${o.a || "start"}"
+    font-family="var(--mono)" font-size="${o.fs || 11}" fill="${o.c || "var(--muted)"}"${o.ls ? ` letter-spacing="${o.ls}"` : ""}>${s}</text>`;
+  const ejeTiempo = (idx, x, W, H, M) => ticksTiempo(idx).map(([k, d]) =>
+    `<line x1="${x(k).toFixed(1)}" x2="${x(k).toFixed(1)}" y1="${H - M.b}" y2="${H - M.b + 5}" stroke="var(--rule)" stroke-width="1"/>` +
+    txt(x(k), H - M.b + 19, `${d.getUTCDate()} ${MES3[d.getUTCMonth()]}`, { a: "middle" })).join("") +
+    `<line x1="${M.l}" x2="${W - M.r}" y1="${H - M.b}" y2="${H - M.b}" stroke="var(--rule)" stroke-width="1"/>`;
+  const facetasHTML = (extra = () => "") => RUTAS.map(r => `<div class="faceta">
+      <h4><span class="dot" style="width:8px;height:8px;flex:0 0 8px;background:${COLOR[r]}"></span>
+        ${esc(D.nombres[r])}<small>${extra(r)}</small></h4>
+      <div class="plot" data-ruta="${r}"></div></div>`).join("");
+  // tramos contiguos de igual valor, en coordenadas del eje filtrado
+  const corridas = (arr, idx) => {
+    const out = []; let ini = 0, val = arr[idx[0]];
+    for (let k = 1; k <= idx.length; k++) {
+      const v = k < idx.length ? arr[idx[k]] : Symbol();
+      if (v !== val) { out.push([ini, k - 1, val]); ini = k; val = v; }
+    }
+    return out;
+  };
+
+  function tooltip(host) {
+    const el = document.createElement("div");
+    el.className = "tip";
+    host.appendChild(el);
+    return {
+      el,
+      mostrar(x, y, html) {
+        el.innerHTML = html; el.classList.add("on");
+        const w = el.offsetWidth, hw = host.clientWidth;
+        el.style.left = Math.max(4, Math.min(hw - w - 4, x - w / 2)) + "px";
+        el.style.top = Math.max(0, y - el.offsetHeight - 14) + "px";
+      },
+      ocultar() { el.classList.remove("on"); }
+    };
+  }
+
+  /* ---------------- detalle al hacer clic (común a todos los gráficos) ----------------
+     Al pasar el mouse solo se marca el punto; el clic fija la tablita al costado de lo elegido.
+     Otro clic en lo mismo, un clic fuera de los gráficos o Esc la cierran. Hay una sola abierta a la vez.
+     cfg.buscar(ev) -> { clave, html, ancla: { l, r, y } en px relativos al contenedor } o null
+     cfg.marcar("hover" | "sel", objeto o null) dibuja o borra la marca. */
+  let cerrarDetalle = null;
+  document.addEventListener("keydown", ev => { if (ev.key === "Escape" && cerrarDetalle) cerrarDetalle(); });
+  document.addEventListener("click", ev => { if (cerrarDetalle && !ev.target.closest(".plot svg")) cerrarDetalle(); });
+  function conClic(p, el, cfg) {
+    const tip = tooltip(p);
+    let elegida = null;
+    const cerrar = () => {
+      elegida = null; cfg.marcar("sel", null); tip.ocultar();
+      if (cerrarDetalle === cerrar) cerrarDetalle = null;
+    };
+    el.style.cursor = "pointer";
+    el.addEventListener("pointermove", ev => cfg.marcar("hover", cfg.buscar(ev)));
+    el.addEventListener("pointerleave", () => cfg.marcar("hover", null));
+    el.addEventListener("click", ev => {
+      const o = cfg.buscar(ev);
+      if (!o || o.clave === elegida) { cerrar(); return; }
+      if (cerrarDetalle && cerrarDetalle !== cerrar) cerrarDetalle();
+      elegida = o.clave; cerrarDetalle = cerrar;
+      cfg.marcar("sel", o);
+      tip.mostrar(0, 0, o.html);
+      // al costado (no encima): a la derecha si lo elegido está en la mitad izquierda, si no a la izquierda
+      const t = tip.el, a = o.ancla, der = (a.l + a.r) / 2 < p.clientWidth / 2;
+      t.style.left = Math.max(0, der ? a.r + 12 : a.l - t.offsetWidth - 12) + "px";
+      t.style.top = Math.max(0, Math.min(p.clientHeight - t.offsetHeight, a.y - t.offsetHeight / 2)) + "px";
+    });
+  }
+  // posición de un elemento del SVG relativa al contenedor del gráfico
+  const anclaDe = (p, nodo, yCursor) => {
+    const c = nodo.getBoundingClientRect(), pc = p.getBoundingClientRect();
+    return { l: c.left - pc.left, r: c.right - pc.left, y: yCursor == null ? c.top - pc.top + c.height / 2 : yCursor - pc.top };
+  };
+
+  /* ---------------- gráfico de líneas (varias series, umbrales, bandas) ---------------- */
+  function lineas(host, cfg) {
+    const W = W_ANCHO, idx = idxH(), H = cfg.alto || 300, M = { t: 16, r: 16, b: 30, l: 56 };
+    const series = cfg.series.map(s => ({ ...s, v: idx.map(i => s.v[i]),
+      rango: s.rango ? s.rango.map(a => idx.map(i => a[i])) : null }));
+    const vals = series.flatMap(s => s.rango ? [...s.v, ...s.rango[0], ...s.rango[1]] : s.v).filter(v => v != null);
+    let lo = cfg.lo ?? (vals.length ? Math.min(...vals) : 0), hi = cfg.hi ?? (vals.length ? Math.max(...vals) : 1);
+    (cfg.umbrales || []).forEach(u => { if (u.v != null && u.enRango !== false) { hi = Math.max(hi, u.v); lo = Math.min(lo, u.v); } });
+    if (cfg.cero) { lo = Math.min(lo, 0); hi = Math.max(hi, 0); }
+    let paso;
+    if (cfg.paso) { paso = cfg.paso; lo = Math.floor(lo / paso) * paso; hi = Math.ceil((hi + paso * .15) / paso) * paso; }
+    else if (cfg.desdeCero) { lo = 0; ({ paso, max: hi } = nice(hi * 1.05)); }
+    else { const pad = (hi - lo) * .08; lo -= pad; hi += pad; paso = nice(Math.max(Math.abs(hi), Math.abs(lo)) * 2, 5).paso; }
+    const x = k => M.l + k * (W - M.l - M.r) / Math.max(1, idx.length - 1);
+    const y = v => M.t + (hi - v) / (hi - lo) * (H - M.t - M.b);
+    const gy = [];
+    for (let v = Math.ceil(lo / paso - 1e-9) * paso; v <= hi + 1e-9; v += paso) gy.push(+v.toFixed(6));
+
+    let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(cfg.aria)}">`;
+    (cfg.bandas || []).forEach(b => {
+      const a = Math.max(lo, b.de ?? lo), z = Math.min(hi, b.a ?? hi);
+      if (z <= a) return;
+      svg += `<rect x="${M.l}" y="${y(z).toFixed(1)}" width="${W - M.l - M.r}" height="${(y(a) - y(z)).toFixed(1)}" fill="${b.color}"/>`;
+      if (b.etiqueta) svg += txt(M.l + 8, y(z) + 13, b.etiqueta, { fs: 10.5, ls: ".06em" });
+    });
+    svg += gy.map(v => `<line x1="${M.l}" x2="${W - M.r}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>` +
+      txt(M.l - 9, y(v) + 4, fmt(v, v % 1 ? 1 : 0), { a: "end" })).join("");
+    if (cfg.cero) svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${y(0).toFixed(1)}" y2="${y(0).toFixed(1)}"
+      stroke="var(--ink-2)" stroke-width="1.25" stroke-dasharray="5 4"/>` + txt(W - M.r, y(0) - 6, "0 °C", { a: "end", fs: 10.5, c: "var(--ink-2)", ls: ".05em" });
+    (cfg.umbrales || []).forEach(u => {
+      if (u.v == null || u.v < lo || u.v > hi) return;
+      svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${y(u.v).toFixed(1)}" y2="${y(u.v).toFixed(1)}"
+        stroke="${u.color || "var(--ink-2)"}" stroke-width="${u.ancho || 1.25}" stroke-dasharray="${u.dash || "5 4"}"/>` +
+        txt(u.izq ? M.l + 6 : W - M.r, y(u.v) - 5, u.etiqueta, { a: u.izq ? "start" : "end", fs: 10.5, c: u.color || "var(--ink-2)", ls: ".04em" });
+    });
+    svg += ejeTiempo(idx, x, W, H, M);
+
+    series.forEach(s => {
+      if (!s.rango) return;
+      const [rl, rh] = s.rango, p = rl.map((v, k) => [k, v, rh[k]]).filter(([, a, b]) => a != null && b != null);
+      if (p.length) svg += `<path d="M${p.map(([k, , b]) => `${x(k).toFixed(1)} ${y(b).toFixed(1)}`).join("L")}L${p.slice().reverse().map(([k, a]) => `${x(k).toFixed(1)} ${y(a).toFixed(1)}`).join("L")}Z"
+        fill="${s.color}" fill-opacity=".13" stroke="none"/>`;
+    });
+    series.forEach(s => {
+      let d = "", abierto = false;
+      s.v.forEach((v, k) => {
+        if (v == null) { abierto = false; return; }
+        d += (abierto ? "L" : "M") + x(k).toFixed(1) + " " + y(v).toFixed(1) + " ";
+        abierto = true;
+      });
+      if (cfg.area) {
+        const p = s.v.map((v, k) => [k, v]).filter(([, v]) => v != null);
+        if (p.length) {
+          const y0 = y(Math.max(0, lo));
+          svg += `<path d="M${x(p[0][0]).toFixed(1)} ${y0.toFixed(1)}${p.map(([k, v]) => `L${x(k).toFixed(1)} ${y(v).toFixed(1)}`).join("")}L${x(p[p.length - 1][0]).toFixed(1)} ${y0.toFixed(1)}Z"
+            fill="${s.color}" fill-opacity=".14" stroke="none"/>`;
+        }
+      }
+      svg += `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${s.ancho || 1.8}"${s.dash ? ` stroke-dasharray="${s.dash}"` : ""}
+        stroke-linejoin="round" stroke-linecap="round"/>`;
+    });
+
+    // línea vertical + puntos: punteada al pasar el mouse, sólida en el bloque elegido
+    const capa = cls => `<g class="${cls}" style="display:none" pointer-events="none"><line y1="${M.t}" y2="${H - M.b}"
+      stroke="${cls === "sel" ? "var(--ink)" : "var(--ink-2)"}" stroke-width="${cls === "sel" ? 1.5 : 1}"${cls === "sel" ? "" : ' stroke-dasharray="3 3"'}/>
+      ${series.map(s => `<circle r="4.5" fill="${s.color}" stroke="var(--surface)" stroke-width="2"/>`).join("")}</g>`;
+    svg += capa("hover") + capa("sel");
+    svg += `<rect x="${M.l}" y="${M.t}" width="${W - M.l - M.r}" height="${H - M.t - M.b}" fill="transparent"/></svg>`;
+    host.innerHTML = svg;
+
+    const el = host.querySelector("svg");
+    conClic(host, el, {
+      buscar(ev) {
+        const caja = el.getBoundingClientRect(), es = W / caja.width;
+        let k = Math.round(((ev.clientX - caja.left) * es - M.l) / ((W - M.l - M.r) / Math.max(1, idx.length - 1)));
+        k = Math.max(0, Math.min(idx.length - 1, k));
+        let filas = "";
+        series.forEach(s => {
+          const v = s.v[k];
+          filas += `<div class="r"><em><span class="sw" style="background:${s.color};width:10px;height:10px;border-radius:50%"></span>
+            ${esc(s.nombre)}</em><b>${v == null ? "sin dato" : fmt(v, cfg.dec ?? 1) + " " + cfg.unidad}</b></div>`;
+          if (s.rango && s.rango[0][k] != null) filas += `<div class="r"><em style="padding-left:16px">mín · máx del bloque</em><b>${fmt(s.rango[0][k], cfg.dec ?? 1)} · ${fmt(s.rango[1][k], cfg.dec ?? 1)}</b></div>`;
+        });
+        const px = x(k) / es;
+        return { k, clave: k, ancla: { l: px, r: px, y: ev.clientY - caja.top },
+          html: `<span class="t">${fmtH(BLOQ[idx[k]])}</span>${filas}${cfg.extraTip ? cfg.extraTip(idx[k]) : ""}` };
+      },
+      marcar(tipo, o) {
+        const g = el.querySelector("." + tipo);
+        if (!o) { g.style.display = "none"; return; }
+        g.style.display = "";
+        const ln = g.querySelector("line"), puntos = [...g.querySelectorAll("circle")];
+        ln.setAttribute("x1", x(o.k)); ln.setAttribute("x2", x(o.k));
+        series.forEach((s, n) => {
+          const v = s.v[o.k];
+          if (v == null) puntos[n].setAttribute("r", 0);
+          else { puntos[n].setAttribute("r", 4.5); puntos[n].setAttribute("cx", x(o.k)); puntos[n].setAttribute("cy", y(v)); }
+        });
+      },
+    });
+  }
+
+  /* ---------------- cronología: índices SV y H + franjas de estado observado, protocolo y SAM ---------------- */
+  function cronologia(host) {
+    const idx = idxH();
+    host.innerHTML = facetasHTML(r => `tramo ${state.tramo} · SV máx ${fmt(Math.max(0, ...idx.map(i => TR(r).SV[i] ?? 0)), 1)} · H máx ${fmt(Math.max(0, ...idx.map(i => TR(r).H[i] ?? 0)), 0)}`);
+    const W = W_ANCHO, hS = 130, hF = 14, gF = 6;
+    const M = { t: 16, r: 16, b: 28, l: 170 };
+    const yF0 = M.t + hS + 16;
+    const H = yF0 + 3 * (hF + gF) - gF + M.b;
+    const tope = 5.4;
+    const x = k => M.l + k * (W - M.l - M.r) / Math.max(1, idx.length - 1);
+    const xa = k => M.l + k * (W - M.l - M.r) / idx.length;
+    const yS = v => M.t + (1 - v / tope) * hS;
+    const U = P_SAM.umbral_E, HN = P_SAM.H_niveles;
+    const umbr = [[U.parcial, "var(--s1)", "SV " + fmt(U.parcial, 1) + " · cierre parcial"], [U.cierre, "var(--s1)", "SV " + fmt(U.cierre, 1) + " · cierre por tormenta"],
+                  [HN.E2, "var(--s2)", "H " + HN.E2 + " · cierre parcial"], [P_SAM.H_umbral, "var(--s2)", "H " + P_SAM.H_umbral + " · cierre por peligro"]];
+    host.querySelectorAll(".plot").forEach(p => {
+      const r = p.dataset.ruta, s = TR(r), q = RH(r);
+      let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Cronología de la ruta ${esc(r)}: índices de severidad y de peligro, estado observado, nivel del Protocolo Lo Barnechea y estado que indica SAM-Cordillera">`;
+      for (let v = 0; v <= 5; v++)
+        svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${yS(v).toFixed(1)}" y2="${yS(v).toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>` + txt(M.l - 9, yS(v) + 4, v, { a: "end" });
+      svg += txt(M.l - 9, M.t - 4, "índice 0–5", { a: "end", fs: 10, ls: ".06em" });
+      umbr.forEach(([u, c, et], n) => {
+        svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${yS(u).toFixed(1)}" y2="${yS(u).toFixed(1)}" stroke="${c}" stroke-width="1" stroke-dasharray="4 4" stroke-opacity=".8"/>` +
+          (n < 2 ? txt(W - M.r, yS(u) - 3, et, { a: "end", fs: 10, c, ls: ".03em" }) : txt(M.l + 6, yS(u) - 3, et, { fs: 10, c, ls: ".03em" }));
+      });
+      const escalon = (arr, c) => {
+        let d = "", ab = false;
+        idx.forEach((i, k) => { const v = arr[i]; if (v == null) { ab = false; return; }
+          d += (ab ? "L" : "M") + xa(k).toFixed(1) + " " + yS(v).toFixed(1) + " L" + xa(k + 1).toFixed(1) + " " + yS(v).toFixed(1) + " "; ab = true; });
+        return `<path d="${d}" fill="none" stroke="${c}" stroke-width="1.6" stroke-linejoin="round"/>`;
+      };
+      svg += escalon(s.H, "var(--s2)") + escalon(s.SV, "var(--s1)");
+      svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${yS(0).toFixed(1)}" y2="${yS(0).toFixed(1)}" stroke="var(--rule)" stroke-width="1"/>`;
+      const franja = (n, arr, color, etiqueta) => {
+        const y0 = yF0 + n * (hF + gF);
+        svg += txt(M.l - 9, y0 + hF - 3, etiqueta, { a: "end", fs: 10.5, c: "var(--ink-2)", ls: ".04em" });
+        svg += `<rect x="${M.l}" y="${y0}" width="${W - M.l - M.r}" height="${hF}" fill="var(--surface-2)"/>`;
+        corridas(arr, idx).forEach(([a, b, v]) => {
+          const c = color(v); if (!c) return;
+          svg += `<rect x="${xa(a).toFixed(2)}" y="${y0}" width="${Math.max(.8, xa(b + 1) - xa(a)).toFixed(2)}" height="${hF}" fill="${c}"/>`;
+        });
+      };
+      franja(0, q.est, v => v == null ? null : COL_EST[v], "Observado");
+      franja(1, s.Lr, v => v ? COL_NIV[v] : null, "Protocolo Lo Barnechea");
+      franja(2, s.E, v => v ? COL_SAM[v] : null, "SAM-Cordillera");
+      svg += ejeTiempo(idx, x, W, H, M);
+      const capa = cls => `<g class="${cls}" style="display:none" pointer-events="none"><line y1="${M.t}" y2="${H - M.b}"
+        stroke="${cls === "sel" ? "var(--ink)" : "var(--ink-2)"}" stroke-width="${cls === "sel" ? 1.5 : 1}"${cls === "sel" ? "" : ' stroke-dasharray="3 3"'}/></g>`;
+      svg += capa("hover") + capa("sel") +
+        `<rect x="${M.l}" y="${M.t}" width="${W - M.l - M.r}" height="${H - M.t - M.b}" fill="transparent"/></svg>`;
+      p.innerHTML = svg;
+
+      const el = p.querySelector("svg");
+      conClic(p, el, {
+        buscar(ev) {
+          const caja = el.getBoundingClientRect(), es = W / caja.width;
+          let k = Math.floor(((ev.clientX - caja.left) * es - M.l) / ((W - M.l - M.r) / idx.length));
+          k = Math.max(0, Math.min(idx.length - 1, k));
+          const i = idx[k], e = q.est[i], L = s.Lr[i], E = s.E[i];
+          const reg = q.reg[i] == null ? "" : D.regimenes[q.reg[i]];
+          const causa = q.causa[i] == null ? "" : D.causas[q.causa[i]];
+          const px = (xa(k) + xa(k + 1)) / 2 / es;
+          return { k, clave: k, ancla: { l: px, r: px, y: ev.clientY - caja.top },
+            html: `<span class="t">${fmtH(BLOQ[i])} · ${esc(r)} ${state.tramo}</span>
+             <div class="r"><em><span class="sw box" style="background:${e == null ? "var(--surface-2)" : COL_EST[e]}"></span>Observado</em><b>${e == null ? "sin dato" : NOM_EST[e]}</b></div>
+             ${q.hcer[i] ? `<div class="r"><em>Horas cerrado meteo</em><b>${fmt(q.hcer[i], 0)} de ${PASO}</b></div>` : ""}
+             ${reg ? `<div class="r"><em>Régimen</em><b style="font-family:var(--sans);font-weight:400">${esc(reg)}</b></div>` : ""}
+             <div class="r"><em><span class="sw box" style="background:${COL_SAM[E]}"></span>SAM-Cordillera</em><b>${NOM_SAM[E]}</b></div>
+             <div class="r"><em>Severidad SV</em><b>${fmt(s.SV[i], 2)}</b></div>
+             <div class="r"><em>Peligro H</em><b>${fmt(s.H[i], 0)}</b></div>
+             <div class="r"><em>Nieve por despejar N</em><b>${fmt(s.N[i], 0)} cm</b></div>
+             <div class="r"><em><span class="sw box" style="background:${COL_NIV[L ?? 0]};${L ? "" : "border:1px solid var(--rule)"}"></span>Protocolo Lo Barnechea</em><b>${NOM_NIV[L ?? 0]}</b></div>
+             ${causa ? `<span class="nota">${esc(causa)}</span>` : ""}` };
+        },
+        marcar(tipo, o) {
+          const g = el.querySelector("." + tipo);
+          if (!o) { g.style.display = "none"; return; }
+          g.style.display = "";
+          const ln = g.children[0], xm = (xa(o.k) + xa(o.k + 1)) / 2;
+          ln.setAttribute("x1", xm); ln.setAttribute("x2", xm);
+        },
+      });
+    });
+  }
+
+  /* ---------------- matriz día × bloque del nivel regularizado ---------------- */
+  function matriz(host) {
+    const idx = idxD();
+    host.innerHTML = facetasHTML(() => `tramo ${state.tramo}`);
+    host.querySelectorAll(".plot").forEach(p => {
+      const r = p.dataset.ruta, s = TR(r), q = RH(r), W = W_FACETA;
+      const M = { t: 6, r: 8, b: 26, l: 46 }, cw = (W - M.l - M.r) / idx.length, ch = 30, hE = 5;
+      const H = M.t + BXD * ch + M.b;
+      let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Matriz día por bloque de 6 horas del nivel regularizado del Protocolo Lo Barnechea en la ${esc(r)}, tramo ${state.tramo}, con el estado observado en la base de cada celda">`;
+      for (let b = 0; b < BXD; b++) svg += txt(M.l - 7, M.t + b * ch + ch / 2 + 4, `${hh(b * PASO)}–${hh(b * PASO + PASO)}`, { a: "end", fs: 10 });
+      idx.forEach((i, k) => {
+        const base = D.diaOffset[D.dias[i]], x0 = M.l + k * cw, wc = Math.max(cw - .8, .6);
+        for (let b = 0; b < BXD; b++) {
+          const j = base + b, fuera = j < 0 || j >= D.n;
+          const L = fuera ? null : s.Lr[j], e = fuera ? null : q.est[j], y0 = M.t + b * ch;
+          const datos = `data-i="${i}" data-b="${b}" data-j="${fuera ? "" : j}" data-l="${L ?? ""}" data-e="${e ?? ""}"`;
+          svg += `<rect x="${x0.toFixed(2)}" y="${y0.toFixed(1)}" width="${wc.toFixed(2)}" height="${ch - .8}"
+            fill="${L == null ? "var(--surface)" : COL_NIV[L]}" stroke="${L == null ? "var(--rule)" : "none"}" stroke-width="${L == null ? .5 : 0}" ${datos}/>`;
+          if (e != null) svg += `<rect x="${x0.toFixed(2)}" y="${(y0 + ch - .8 - hE).toFixed(1)}" width="${wc.toFixed(2)}" height="${hE}" fill="${COL_EST[e]}" ${datos}/>`;
+        }
+      });
+      const cada = idx.length > 40 ? 7 : 3;
+      idx.forEach((i, k) => { if (k % cada) return; svg += txt(M.l + k * cw + cw / 2, H - M.b + 16, fmtD(D.dias[i]), { a: "middle", fs: 10.5 }); });
+      // contorno de la celda bajo el cursor (hover) y de la celda elegida (clic); no capturan el puntero
+      svg += `<rect class="hover" fill="none" stroke="var(--ink-2)" stroke-width="1.2" pointer-events="none" style="display:none"/>
+        <rect class="sel" fill="none" stroke="var(--ink)" stroke-width="2" pointer-events="none" style="display:none"/></svg>`;
+      p.innerHTML = svg;
+      const el = p.querySelector("svg");
+      conClic(p, el, {
+        buscar(ev) {
+          const c = ev.target.closest("rect"); if (!c || !c.dataset.i) return null;
+          const L = c.dataset.l, e = c.dataset.e, j = c.dataset.j === "" ? null : +c.dataset.j;
+          return { c, clave: c.dataset.i + "|" + c.dataset.b, ancla: anclaDe(p, c),
+            html: `<span class="t">${fmtD(D.dias[+c.dataset.i])} · ${rotBloque(+c.dataset.b)} · ${esc(r)}</span>
+             <div class="r"><em>Protocolo Lo Barnechea</em><b>${L !== "" ? NOM_NIV[+L] : j == null ? "fuera del periodo" : "sin dato"}</b></div>
+             <div class="r"><em>Observado</em><b>${e !== "" ? NOM_EST[+e] : "—"}</b></div>
+             ${j != null && q.hcer[j] ? `<div class="r"><em>Horas cerrado meteo</em><b>${fmt(q.hcer[j], 0)} de ${PASO}</b></div>` : ""}
+             ${j != null ? `<div class="r"><em>S · nieve 12 h</em><b>${fmt(s.s12[j], 1)} cm</b></div>` : ""}
+             ${j != null ? `<div class="r"><em>SAM-Cordillera</em><b>${NOM_SAM[s.E[j]]}</b></div>` : ""}` };
+        },
+        marcar(tipo, o) {
+          const m = el.querySelector("." + tipo);
+          if (!o) { m.style.display = "none"; return; }
+          m.setAttribute("x", o.c.getAttribute("x")); m.setAttribute("y", M.t + +o.c.dataset.b * ch);
+          m.setAttribute("width", o.c.getAttribute("width")); m.setAttribute("height", ch - .8);
+          m.style.display = "";
+        },
+      });
+    });
+  }
+
+  /* ---------------- barras diarias de nieve con días cerrados ---------------- */
+  function barrasNieve(host) {
+    const idx = idxD();
+    host.innerHTML = facetasHTML(r => `tramo ${state.tramo} · ${fmt(idx.reduce((a, i) => a + (DI(r).nieve[i] || 0), 0), 0)} cm en el periodo`);
+    const tope = nice(Math.max(1, ...RUTAS.flatMap(r => idx.map(i => DI(r).nieve[i] ?? 0)))).max;
+    host.querySelectorAll(".plot").forEach(p => {
+      const r = p.dataset.ruta, s = DI(r), W = W_FACETA;
+      const H = 230, M = { t: 12, r: 10, b: 30, l: 44 };
+      const bw = (W - M.l - M.r) / idx.length;
+      const y = v => M.t + (1 - v / tope) * (H - M.t - M.b);
+      let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Nieve caída por día en la ${esc(r)}, tramo ${state.tramo}, con los días de cierre observado marcados">`;
+      idx.forEach((i, k) => {
+        if (!s.cobs[i]) return;
+        svg += `<rect x="${(M.l + k * bw).toFixed(1)}" y="${M.t}" width="${bw.toFixed(1)}" height="${H - M.t - M.b}" fill="var(--warm-1)" fill-opacity=".55"/>`;
+      });
+      const { paso } = nice(tope);
+      for (let v = 0; v <= tope + 1e-9; v += paso)
+        svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>` + txt(M.l - 8, y(v) + 4, fmt(v, 0), { a: "end" });
+      idx.forEach((i, k) => {
+        const x0 = M.l + k * bw, ancho = Math.max(1.5, bw - 2), v = s.nieve[i] ?? 0;
+        if (v > 0) svg += `<rect x="${(x0 + 1).toFixed(1)}" y="${y(v).toFixed(1)}" width="${ancho.toFixed(1)}" height="${(y(0) - y(v)).toFixed(1)}" rx="1.5" fill="${COLOR[r]}" fill-opacity=".85"/>`;
+        if (s.cobsDia[i]) svg += `<rect x="${(x0 + 1).toFixed(1)}" y="${(H - M.b + 2).toFixed(1)}" width="${ancho.toFixed(1)}" height="3" fill="var(--e3)"/>`;
+        svg += `<rect class="hit" data-k="${i}" x="${x0.toFixed(1)}" y="${M.t}" width="${bw.toFixed(1)}" height="${H - M.t - M.b}" fill="transparent"/>`;
+      });
+      const cada = idx.length > 40 ? 7 : 3;
+      idx.forEach((i, k) => { if (k % cada) return; svg += txt(M.l + k * bw + bw / 2, H - M.b + 18, fmtD(D.dias[i]), { a: "middle", fs: 10.5 }); });
+      svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${y(0).toFixed(1)}" y2="${y(0).toFixed(1)}" stroke="var(--rule)" stroke-width="1"/>
+        <rect class="hover" fill="var(--ink)" fill-opacity=".07" stroke="var(--ink-2)" stroke-width="1" pointer-events="none" style="display:none"/>
+        <rect class="sel" fill="none" stroke="var(--ink)" stroke-width="2" pointer-events="none" style="display:none"/></svg>`;
+      p.innerHTML = svg;
+      const el = p.querySelector("svg");
+      conClic(p, el, {
+        buscar(ev) {
+          const h = ev.target.closest(".hit"); if (!h) return null;
+          const i = +h.dataset.k;
+          return { h, clave: i, ancla: anclaDe(p, h, ev.clientY),
+            html: `<span class="t">${fmtD(D.dias[i])} · ${esc(r)} ${state.tramo}</span>
+             <div class="r"><em>Nieve del día</em><b>${fmt(s.nieve[i])} cm</b></div>
+             <div class="r"><em>S máx 12 h</em><b>${fmt(s.smax[i])} cm</b></div>
+             <div class="r"><em>Protocolo Lo Barnechea, nivel del día</em><b>${NOM_NIV[s.Lr[i] ?? 0]}</b></div>
+             <div class="r"><em>Estado dominante</em><b>${s.estdom[i] == null ? "—" : NOM_EST[s.estdom[i]]}</b></div>
+             <div class="r"><em>Horas cerrado meteo</em><b>${fmt(s.hcer[i], 0)} h</b></div>
+             <div class="r"><em>SAM-Cordillera · peor estado del día</em><b>${s.Emax[i] == null ? "—" : NOM_SAM[s.Emax[i]]}</b></div>` };
+        },
+        marcar(tipo, o) {
+          const m = el.querySelector("." + tipo);
+          if (!o) { m.style.display = "none"; return; }
+          ["x", "y", "width", "height"].forEach(a => m.setAttribute(a, o.h.getAttribute(a)));
+          m.style.display = "";
+        },
+      });
+    });
+  }
+
+  /* ---------------- de horas a bloques: zoom a un episodio ---------------- */
+  const HOR = D.horario, NH = D.n * PASO;
+  const horaDe = s => Math.round((new Date(s.replace(" ", "T") + ":00Z") - t0) / 3600e3);   // "2026-07-15 23:00" -> índice
+  // ventana visible: ruta, primera hora (índice desde el inicio de la serie) y largo en horas.
+  // Parte en el cierre de la G-21 de julio; se puede mover a cualquier fecha del periodo.
+  const alBloque = h => Math.floor(h / PASO) * PASO;
+  // Cada gráfico ("de horas a bloques" y "solo bloques") tiene su propia ventana y sus propios controles.
+  const irA = (h, largo) => Math.max(0, Math.min(NH - largo, alBloque(h)));
+  const ventanaInicial = () => {
+    const v = { ruta: "G-21", h0: 0, largo: 96 }, e = D.episodios.find(x => x.ruta === "G-21") || D.episodios[0];
+    if (e) { v.ruta = e.ruta; v.h0 = irA(horaDe(e.inicio) - 24, v.largo); }
+    return v;
+  };
+  const zoomEstado = ventanaInicial(), sbEstado = ventanaInicial();
+  // controles de una ventana (ruta, 4/7 días, fecha, flechas, atajos a cierres) dentro de sus contenedores
+  function controlesVentana(est, idNav, idEp, dibujar) {
+    const nav = document.getElementById(idNav), epc = document.getElementById(idEp);
+    const r = est.ruta, LARGO = est.largo, h0 = irA(est.h0, LARGO), b0 = h0 / PASO;
+    const fIni = BLOQ[b0].toISOString().slice(0, 10), fFin = new Date(t0.getTime() + (h0 + LARGO - 1) * 3600e3).toISOString().slice(0, 10);
+    const ult = BLOQ[D.n - 1].toISOString().slice(0, 10);
+    nav.innerHTML =
+      `<span class="lbl">Ruta</span>` + RUTAS.map(x => `<button data-zr="${x}" aria-pressed="${x === r}">${esc(x)}</button>`).join("") +
+      `<span class="sep"></span><span class="lbl">Ventana</span>` +
+      [96, 168].map(l => `<button data-zl="${l}" aria-pressed="${l === LARGO}">${l / 24} días</button>`).join("") +
+      `<span class="sep"></span>
+       <button data-zm="-1" aria-label="Ventana anterior"${h0 <= 0 ? " disabled" : ""}>◀</button>
+       <input type="date" class="zfecha" min="${D.inicio.slice(0, 10)}" max="${ult}" value="${fIni}" aria-label="Primer día de la ventana"
+         style="font:inherit;font-size:13.5px;color:var(--ink);background:var(--surface);border:1px solid var(--ring);padding:5px 8px">
+       <button data-zm="1" aria-label="Ventana siguiente"${h0 >= NH - LARGO ? " disabled" : ""}>▶</button>
+       <span class="zrango" style="color:var(--muted);font-size:13px">${esc(fmtD(fIni))} – ${esc(fmtD(fFin))}</span>`;
+    epc.innerHTML = `<span class="lbl">Ir a un cierre</span>` + D.episodios.map((x, n) => {
+      const hi = horaDe(x.inicio), dentro = x.ruta === r && hi >= h0 && hi < h0 + LARGO;
+      return `<button data-zep="${n}" aria-pressed="${dentro}">${esc(x.ruta)} · ${esc(fmtDH(x.inicio))}</button>`;
+    }).join("");
+    const rehacer = () => { if (cerrarDetalle) cerrarDetalle(); dibujar(); };
+    nav.querySelectorAll("[data-zr]").forEach(b => b.addEventListener("click", () => { est.ruta = b.dataset.zr; rehacer(); }));
+    nav.querySelectorAll("[data-zl]").forEach(b => b.addEventListener("click", () => { est.largo = +b.dataset.zl; est.h0 = irA(est.h0, est.largo); rehacer(); }));
+    nav.querySelectorAll("[data-zm]").forEach(b => b.addEventListener("click", () => { est.h0 = irA(h0 + +b.dataset.zm * LARGO, LARGO); rehacer(); }));
+    nav.querySelector(".zfecha").addEventListener("change", ev => {
+      if (!ev.target.value) return;
+      est.h0 = irA(horaDe(ev.target.value + " 00:00"), est.largo); rehacer();
+    });
+    epc.querySelectorAll("[data-zep]").forEach(b => b.addEventListener("click", () => {
+      const x = D.episodios[+b.dataset.zep];
+      est.ruta = x.ruta; est.h0 = irA(horaDe(x.inicio) - 24, est.largo); rehacer();
+    }));
+  }
+  function zoomBloques() {
+    const p = document.getElementById("plot-zoom"), r = zoomEstado.ruta;
+    const sh = HOR.tramos[r + "|" + state.tramo], sb = TR(r), q = RH(r), eh = HOR.est[r];
+    const LARGO = zoomEstado.largo, h0 = irA(zoomEstado.h0, LARGO);
+    const b0 = h0 / PASO, NB = LARGO / PASO;
+    const W = W_ANCHO, M = { t: 40, r: 16, b: 10, l: 170 }, hS = 130, hT = 110, gap = 22, hF = 14, gF = 6;
+    const yS0 = M.t + 26, yT0 = yS0 + hS + gap, yF0 = yT0 + hT + gap;
+    const H = yF0 + 4 * (hF + gF) - gF + M.b;
+    const cw = (W - M.l - M.r) / LARGO, xh = k => M.l + k * cw, xb = j => M.l + j * PASO * cw;
+    const sfs = Array.from({ length: LARGO }, (_, k) => sh.sf[h0 + k]);
+    const ts = Array.from({ length: LARGO }, (_, k) => sh.t2m[h0 + k]);
+    const topeS = nice(Math.max(1, ...sfs.map(v => v ?? 0)), 3).max;
+    const yS = v => yS0 + (1 - v / topeS) * hS;
+    const tv = [...ts, ...Array.from({ length: NB }, (_, j) => sb.t2m[b0 + j])].filter(v => v != null);
+    const { paso: pT } = nice(Math.max(1, Math.max(...tv) - Math.min(...tv)), 3);
+    const tLo = Math.floor(Math.min(0, ...tv) / pT) * pT, tHi = Math.ceil(Math.max(0, ...tv) / pT) * pT;
+    const yT = v => yT0 + (tHi - v) / (tHi - tLo) * hT;
+
+    let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Nieve y temperatura hora a hora y por bloque de 6 horas en la ${esc(r)}, tramo ${state.tramo}, desde el ${esc(fmtH(BLOQ[b0]))} durante ${LARGO / 24} días">`;
+    // bloques alternos sombreados + divisiones (más marcada a medianoche)
+    for (let j = 0; j < NB; j++) {
+      const bd = (b0 + j) % BXD;
+      if (j % 2) svg += `<rect x="${xb(j).toFixed(1)}" y="${M.t - 22}" width="${(PASO * cw).toFixed(1)}" height="${H - M.t + 22 - M.b}" fill="var(--surface-2)"/>`;
+      svg += txt(xb(j) + PASO * cw / 2, M.t - 8, NB > 20 ? hh(bd * PASO) : `${hh(bd * PASO)}–${hh(bd * PASO + PASO)}`, { a: "middle", fs: 10 });
+      if (bd === 0) svg += txt(xb(j) + 4, M.t - 26, fmtD(BLOQ[b0 + j].toISOString().slice(0, 10)), { fs: 11, c: "var(--ink-2)" });
+    }
+    for (let j = 0; j <= NB; j++) {
+      const media = (b0 + j) % BXD === 0;
+      svg += `<line x1="${xb(j).toFixed(1)}" x2="${xb(j).toFixed(1)}" y1="${media ? M.t - 34 : M.t - 22}" y2="${H - M.b}" stroke="${media ? "var(--ink-2)" : "var(--rule)"}" stroke-width="${media ? 1.2 : 1}"/>`;
+    }
+    // panel de nieve: barras horarias + suma del bloque
+    const { paso: pS } = nice(topeS, 3);
+    for (let v = 0; v <= topeS + 1e-9; v += pS)
+      svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${yS(v).toFixed(1)}" y2="${yS(v).toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>` + txt(M.l - 9, yS(v) + 4, fmt(v, v % 1 ? 1 : 0), { a: "end" });
+    svg += txt(4, yS0 + hS / 2 - 4, "Nieve", { fs: 10.5, c: "var(--ink-2)" }) + txt(4, yS0 + hS / 2 + 9, "cm por hora", { fs: 10 });
+    svg += txt(4, M.t + 12, "Suma bloque", { fs: 10.5, c: "var(--ink-2)" }) + txt(4, M.t + 25, "cm", { fs: 10 });
+    sfs.forEach((v, k) => {
+      if (!v) return;
+      svg += `<rect x="${(xh(k) + 1).toFixed(1)}" y="${yS(v).toFixed(1)}" width="${Math.max(1, cw - 2).toFixed(1)}" height="${(yS(0) - yS(v)).toFixed(1)}" rx="1.5" fill="${COLOR[r]}" fill-opacity=".85"/>`;
+    });
+    for (let j = 0; j < NB; j++) {
+      const v = sb.sf[b0 + j];
+      svg += txt(xb(j) + PASO * cw / 2, M.t + 16, v == null ? "—" : fmt(v, 1), { a: "middle", fs: NB > 20 ? 9.5 : 11, c: v >= 1 ? "var(--ink)" : "var(--muted)" });
+    }
+    svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${yS(0).toFixed(1)}" y2="${yS(0).toFixed(1)}" stroke="var(--rule)" stroke-width="1"/>`;
+    // panel de temperatura: hora a hora + escalón de la media del bloque
+    for (let v = tLo; v <= tHi + 1e-9; v += pT)
+      svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${yT(v).toFixed(1)}" y2="${yT(v).toFixed(1)}" stroke="${v === 0 ? "var(--ink-2)" : "var(--grid)"}" stroke-width="1"${v === 0 ? ' stroke-dasharray="5 4"' : ""}/>` + txt(M.l - 9, yT(v) + 4, fmt(v, 0), { a: "end" });
+    svg += txt(4, yT0 + hT / 2 - 4, "Temperatura", { fs: 10.5, c: "var(--ink-2)" }) + txt(4, yT0 + hT / 2 + 9, "°C", { fs: 10 });
+    let d = "", ab = false;
+    ts.forEach((v, k) => { if (v == null) { ab = false; return; } d += (ab ? "L" : "M") + (xh(k) + cw / 2).toFixed(1) + " " + yT(v).toFixed(1) + " "; ab = true; });
+    svg += `<path d="${d}" fill="none" stroke="${COLOR[r]}" stroke-width="1.5" stroke-linejoin="round"/>`;
+    for (let j = 0; j < NB; j++) {
+      const v = sb.t2m[b0 + j]; if (v == null) continue;
+      svg += `<line x1="${(xb(j) + 2).toFixed(1)}" x2="${(xb(j + 1) - 2).toFixed(1)}" y1="${yT(v).toFixed(1)}" y2="${yT(v).toFixed(1)}" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>`;
+    }
+    // franjas: estado hora a hora, estado del bloque, L* y modelo
+    const franja = (n, etiqueta, celdas) => {
+      const y0 = yF0 + n * (hF + gF);
+      svg += txt(M.l - 9, y0 + hF - 3, etiqueta, { a: "end", fs: 10.5, c: "var(--ink-2)", ls: ".02em" });
+      svg += `<rect x="${M.l}" y="${y0}" width="${W - M.l - M.r}" height="${hF}" fill="var(--surface-2)"/>`;
+      celdas.forEach(([x0, x1, c]) => { if (c) svg += `<rect x="${(x0 + .5).toFixed(1)}" y="${y0}" width="${Math.max(.6, x1 - x0 - 1).toFixed(1)}" height="${hF}" fill="${c}"/>`; });
+    };
+    franja(0, "Estado · hora", Array.from({ length: LARGO }, (_, k) => [xh(k), xh(k + 1), eh[h0 + k] == null ? null : COL_EST[eh[h0 + k]]]));
+    franja(1, "Estado · bloque", Array.from({ length: NB }, (_, j) => [xb(j), xb(j + 1), q.est[b0 + j] == null ? null : COL_EST[q.est[b0 + j]]]));
+    franja(2, "Protocolo Lo Barnechea", Array.from({ length: NB }, (_, j) => [xb(j), xb(j + 1), sb.Lr[b0 + j] ? COL_NIV[sb.Lr[b0 + j]] : null]));
+    franja(3, "SAM-Cordillera", Array.from({ length: NB }, (_, j) => [xb(j), xb(j + 1), sb.E[b0 + j] ? COL_SAM[sb.E[b0 + j]] : null]));
+    // marcas de hover y selección: la hora (relleno) y su bloque (contorno)
+    const capa = cls => `<g class="${cls}" style="display:none" pointer-events="none">
+      <rect class="b" y="${M.t}" height="${H - M.t - M.b}" fill="none" stroke="${cls === "sel" ? "var(--ink)" : "var(--ink-2)"}" stroke-width="${cls === "sel" ? 2 : 1}"${cls === "sel" ? "" : ' stroke-dasharray="3 3"'}/>
+      <rect class="h" y="${M.t}" height="${H - M.t - M.b}" fill="var(--ink)" fill-opacity="${cls === "sel" ? .16 : .08}"/></g>`;
+    svg += capa("hover") + capa("sel") + `<rect x="${M.l}" y="${M.t}" width="${W - M.l - M.r}" height="${H - M.t - M.b}" fill="transparent"/></svg>`;
+    p.innerHTML = svg;
+
+    const el = p.querySelector("svg");
+    conClic(p, el, {
+      buscar(ev) {
+        const caja = el.getBoundingClientRect(), es = W / caja.width;
+        const k = Math.floor(((ev.clientX - caja.left) * es - M.l) / cw);
+        if (k < 0 || k >= LARGO) return null;
+        const hora = h0 + k, j = Math.floor(k / PASO), bi = b0 + j, eH = eh[hora], eB = q.est[bi];
+        const fh = new Date(t0.getTime() + hora * 3600e3);
+        const px = (xh(k) + cw / 2) / es;
+        return { k, clave: k, ancla: { l: xb(j) / es, r: xb(j + 1) / es, y: ev.clientY - caja.top },
+          html: `<span class="t">${fh.getUTCDate()} ${MES3[fh.getUTCMonth()]} · ${hh(fh.getUTCHours())}:00–${hh(fh.getUTCHours() + 1)}:00 · ${esc(r)} ${state.tramo}</span>
+           <div class="r"><em>Nieve en la hora</em><b>${fmt(sfs[k], 2)} cm</b></div>
+           <div class="r"><em>Temperatura</em><b>${fmt(ts[k], 1)} °C</b></div>
+           <div class="r"><em>Estado en la hora</em><b>${eH == null ? "sin dato" : NOM_EST[eH]}</b></div>
+           <span class="t" style="margin-top:8px">Bloque ${rotBloque((bi % BXD))}</span>
+           <div class="r"><em>Nieve del bloque</em><b>${fmt(sb.sf[bi], 1)} cm</b></div>
+           <div class="r"><em>S · nieve en 12 h</em><b>${fmt(sb.s12[bi], 1)} cm</b></div>
+           <div class="r"><em>T media · mín · máx</em><b>${fmt(sb.t2m[bi], 1)} · ${fmt(sb.tmin[bi], 1)} · ${fmt(sb.tmax[bi], 1)} °C</b></div>
+           <div class="r"><em>Estado del bloque</em><b>${eB == null ? "sin dato" : NOM_EST[eB]}${q.hcer[bi] ? ` (${fmt(q.hcer[bi], 0)} h)` : ""}</b></div>
+           <div class="r"><em>Protocolo Lo Barnechea</em><b>${NOM_NIV[sb.Lr[bi] ?? 0]}</b></div>
+           <div class="r"><em>SAM-Cordillera</em><b>${NOM_SAM[sb.E[bi]]}</b></div>
+           <div class="r"><em>SV · H · N</em><b>${fmt(sb.SV[bi], 1)} · ${fmt(sb.H[bi], 0)} · ${fmt(sb.N[bi], 0)} cm</b></div>` };
+      },
+      marcar(tipo, o) {
+        const g = el.querySelector("." + tipo);
+        if (!o) { g.style.display = "none"; return; }
+        const j = Math.floor(o.k / PASO);
+        g.querySelector(".b").setAttribute("x", xb(j)); g.querySelector(".b").setAttribute("width", PASO * cw);
+        g.querySelector(".h").setAttribute("x", xh(o.k)); g.querySelector(".h").setAttribute("width", cw);
+        g.style.display = "";
+      },
+    });
+    controlesVentana(zoomEstado, "zoom-nav", "zoom-ep", zoomBloques);
+    document.getElementById("leg-zoom").innerHTML =
+      `<span><span class="sw box" style="background:${COLOR[r]}"></span>nieve de cada hora</span>
+       <span><b style="font-family:var(--mono);font-weight:500">12,3</b>&nbsp;suma del bloque (cm)</span>
+       <span><span class="sw" style="background:${COLOR[r]}"></span>temperatura hora a hora</span>
+       <span><span class="sw" style="background:var(--ink);height:3px"></span>media del bloque (escalón)</span>
+       <span><span class="sw box" style="background:var(--surface-2);border:1px solid var(--rule)"></span>bloques alternos</span>
+       <span><span class="sw" style="background:var(--rule);width:1px;height:12px"></span>borde de bloque</span>
+       <span><span class="sw" style="background:var(--ink-2);width:2px;height:12px"></span>medianoche</span>
+       <span style="color:var(--muted);margin-left:8px">SAM-Cordillera:</span>${[1, 2, 3, 4, 5].map(i => `<span><span class="sw box" style="background:${COL_SAM[i]}"></span>${NOM_SAM[i]}</span>`).join("")}`;
+  }
+
+  /* ---------------- solo bloques: la ventana del zoom sin las horas ---------------- */
+  function soloBloques() {
+    const r = sbEstado.ruta, LARGO = sbEstado.largo, h0 = irA(sbEstado.h0, LARGO);
+    const p = document.getElementById("plot-sb"), sb = TR(r), q = RH(r);
+    controlesVentana(sbEstado, "sb-nav", "sb-ep", soloBloques);
+    const b0 = h0 / PASO, NB = LARGO / PASO;
+    const W = W_ANCHO, M = { t: 40, r: 16, b: 10, l: 170 }, hS = 130, hT = 120, gap = 22, hF = 14, gF = 6;
+    const yS0 = M.t + 10, yT0 = yS0 + hS + gap, yF0 = yT0 + hT + gap;
+    const H = yF0 + 3 * (hF + gF) - gF + M.b;
+    const bw = (W - M.l - M.r) / NB, xb = j => M.l + j * bw;
+    const nb = Array.from({ length: NB }, (_, j) => sb.sf[b0 + j]);
+    const topeS = nice(Math.max(1, ...nb.map(v => v ?? 0)) * 1.15, 3).max;
+    const yS = v => yS0 + (1 - v / topeS) * hS;
+    const tv = Array.from({ length: NB }, (_, j) => [sb.tmin[b0 + j], sb.tmax[b0 + j], sb.t2m[b0 + j]]).flat().filter(v => v != null);
+    const { paso: pT } = nice(Math.max(1, Math.max(...tv) - Math.min(...tv)), 3);
+    const tLo = Math.floor(Math.min(0, ...tv) / pT) * pT, tHi = Math.ceil(Math.max(0, ...tv) / pT) * pT;
+    const yT = v => yT0 + (tHi - v) / (tHi - tLo) * hT;
+
+    let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Nieve, temperatura y estado por bloque de 6 horas en la ${esc(r)}, tramo ${state.tramo}, desde el ${esc(fmtH(BLOQ[b0]))} durante ${LARGO / 24} días">`;
+    for (let j = 0; j < NB; j++) {
+      const bd = (b0 + j) % BXD;
+      if (j % 2) svg += `<rect x="${xb(j).toFixed(1)}" y="${M.t - 22}" width="${bw.toFixed(1)}" height="${H - M.t + 22 - M.b}" fill="var(--surface-2)"/>`;
+      svg += txt(xb(j) + bw / 2, M.t - 8, NB > 20 ? hh(bd * PASO) : `${hh(bd * PASO)}–${hh(bd * PASO + PASO)}`, { a: "middle", fs: 10 });
+      if (bd === 0) svg += txt(xb(j) + 4, M.t - 26, fmtD(BLOQ[b0 + j].toISOString().slice(0, 10)), { fs: 11, c: "var(--ink-2)" });
+    }
+    for (let j = 0; j <= NB; j++) {
+      const media = (b0 + j) % BXD === 0;
+      if (media) svg += `<line x1="${xb(j).toFixed(1)}" x2="${xb(j).toFixed(1)}" y1="${M.t - 34}" y2="${H - M.b}" stroke="var(--rule)" stroke-width="1.2"/>`;
+    }
+    // nieve por bloque
+    const { paso: pS } = nice(topeS, 3);
+    for (let v = 0; v <= topeS + 1e-9; v += pS)
+      svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${yS(v).toFixed(1)}" y2="${yS(v).toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>` + txt(M.l - 9, yS(v) + 4, fmt(v, v % 1 ? 1 : 0), { a: "end" });
+    svg += txt(4, yS0 + hS / 2 - 4, "Nieve", { fs: 10.5, c: "var(--ink-2)" }) + txt(4, yS0 + hS / 2 + 9, "cm por bloque", { fs: 10 });
+    nb.forEach((v, j) => {
+      if (v == null) return;
+      const pad = Math.min(8, bw * .18), x0 = xb(j) + pad, ancho = bw - 2 * pad;
+      if (v > 0) svg += `<rect x="${x0.toFixed(1)}" y="${yS(v).toFixed(1)}" width="${ancho.toFixed(1)}" height="${(yS(0) - yS(v)).toFixed(1)}" rx="2" fill="${COLOR[r]}" fill-opacity=".9"/>`;
+      if (v >= .1 && NB <= 16) svg += txt(xb(j) + bw / 2, yS(v) - 5, fmt(v, 1), { a: "middle", fs: 10.5, c: "var(--ink-2)" });
+    });
+    svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${yS(0).toFixed(1)}" y2="${yS(0).toFixed(1)}" stroke="var(--rule)" stroke-width="1"/>`;
+    // temperatura por bloque: rango mín-máx + media
+    for (let v = tLo; v <= tHi + 1e-9; v += pT)
+      svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${yT(v).toFixed(1)}" y2="${yT(v).toFixed(1)}" stroke="${v === 0 ? "var(--ink-2)" : "var(--grid)"}" stroke-width="1"${v === 0 ? ' stroke-dasharray="5 4"' : ""}/>` + txt(M.l - 9, yT(v) + 4, fmt(v, 0), { a: "end" });
+    svg += txt(4, yT0 + hT / 2 - 4, "Temperatura", { fs: 10.5, c: "var(--ink-2)" }) + txt(4, yT0 + hT / 2 + 9, "°C", { fs: 10 });
+    for (let j = 0; j < NB; j++) {
+      const lo = sb.tmin[b0 + j], hi = sb.tmax[b0 + j], m = sb.t2m[b0 + j];
+      const cx = xb(j) + bw / 2, ra = Math.min(10, bw * .3), me = Math.min(16, bw * .42);
+      if (lo != null && hi != null) svg += `<rect x="${(cx - ra / 2).toFixed(1)}" y="${yT(hi).toFixed(1)}" width="${ra.toFixed(1)}" height="${Math.max(1, yT(lo) - yT(hi)).toFixed(1)}" rx="2" fill="${COLOR[r]}" fill-opacity=".28"/>`;
+      if (m != null) svg += `<line x1="${(cx - me).toFixed(1)}" x2="${(cx + me).toFixed(1)}" y1="${yT(m).toFixed(1)}" y2="${yT(m).toFixed(1)}" stroke="${COLOR[r]}" stroke-width="3" stroke-linecap="round"/>`;
+    }
+    // franjas por bloque
+    const franja = (n, etiqueta, color) => {
+      const y0 = yF0 + n * (hF + gF);
+      svg += txt(M.l - 9, y0 + hF - 3, etiqueta, { a: "end", fs: 10.5, c: "var(--ink-2)", ls: ".02em" });
+      svg += `<rect x="${M.l}" y="${y0}" width="${W - M.l - M.r}" height="${hF}" fill="var(--surface-2)"/>`;
+      for (let j = 0; j < NB; j++) { const c = color(b0 + j); if (c) svg += `<rect x="${(xb(j) + .5).toFixed(1)}" y="${y0}" width="${(bw - 1).toFixed(1)}" height="${hF}" fill="${c}"/>`; }
+    };
+    franja(0, "Estado · bloque", i => q.est[i] == null ? null : COL_EST[q.est[i]]);
+    franja(1, "Protocolo Lo Barnechea", i => sb.Lr[i] ? COL_NIV[sb.Lr[i]] : null);
+    franja(2, "SAM-Cordillera", i => sb.E[i] ? COL_SAM[sb.E[i]] : null);
+    for (let j = 0; j < NB; j++)
+      svg += `<rect class="hit" data-j="${j}" x="${xb(j).toFixed(1)}" y="${M.t}" width="${bw.toFixed(1)}" height="${H - M.t - M.b}" fill="transparent"/>`;
+    svg += `<rect class="hover" fill="var(--ink)" fill-opacity=".07" stroke="var(--ink-2)" stroke-width="1" pointer-events="none" style="display:none"/>
+      <rect class="sel" fill="none" stroke="var(--ink)" stroke-width="2" pointer-events="none" style="display:none"/></svg>`;
+    p.innerHTML = svg;
+
+    const el = p.querySelector("svg");
+    conClic(p, el, {
+      buscar(ev) {
+        const h = ev.target.closest(".hit"); if (!h) return null;
+        const bi = b0 + +h.dataset.j, e = q.est[bi];
+        return { h, clave: bi, ancla: anclaDe(p, h, ev.clientY),
+          html: `<span class="t">${fmtH(BLOQ[bi])} · ${esc(r)} ${state.tramo}</span>
+           <div class="r"><em>Nieve del bloque</em><b>${fmt(sb.sf[bi], 1)} cm</b></div>
+           <div class="r"><em>S · nieve en 12 h</em><b>${fmt(sb.s12[bi], 1)} cm</b></div>
+           <div class="r"><em>Lluvia del bloque</em><b>${fmt(sb.lluvia[bi], 1)} mm</b></div>
+           <div class="r"><em>T media</em><b>${fmt(sb.t2m[bi], 1)} °C</b></div>
+           <div class="r"><em>T mín · máx</em><b>${fmt(sb.tmin[bi], 1)} · ${fmt(sb.tmax[bi], 1)} °C</b></div>
+           <div class="r"><em>Isoterma media 12 h</em><b>${fmt(q.isoM[bi], 0)} m</b></div>
+           <div class="r"><em>Estado del bloque</em><b>${e == null ? "sin dato" : NOM_EST[e]}${q.hcer[bi] ? ` (${fmt(q.hcer[bi], 0)} h)` : ""}</b></div>
+           <div class="r"><em>Protocolo Lo Barnechea</em><b>${NOM_NIV[sb.Lr[bi] ?? 0]}</b></div>
+           <div class="r"><em>SAM-Cordillera</em><b>${NOM_SAM[sb.E[bi]]}</b></div>
+           <div class="r"><em>SV · H · N</em><b>${fmt(sb.SV[bi], 1)} · ${fmt(sb.H[bi], 0)} · ${fmt(sb.N[bi], 0)} cm</b></div>` };
+      },
+      marcar(tipo, o) {
+        const m = el.querySelector("." + tipo);
+        if (!o) { m.style.display = "none"; return; }
+        ["x", "y", "width", "height"].forEach(a => m.setAttribute(a, o.h.getAttribute(a)));
+        m.style.display = "";
+      },
+    });
+    document.getElementById("leg-sb").innerHTML =
+      `<span><span class="sw box" style="background:${COLOR[r]}"></span>nieve del bloque</span>
+       <span><span class="sw" style="background:${COLOR[r]};height:3px"></span>temperatura media del bloque</span>
+       <span><span class="sw box" style="background:${COLOR[r]};opacity:.35"></span>mínima a máxima del bloque</span>
+       <span><span class="sw box" style="background:var(--surface-2);border:1px solid var(--rule)"></span>bloques alternos</span>
+       <span style="color:var(--muted);margin-left:8px">SAM-Cordillera:</span>${[1, 2, 3, 4, 5].map(i => `<span><span class="sw box" style="background:${COL_SAM[i]}"></span>${NOM_SAM[i]}</span>`).join("")}`;
+  }
+
+  /* ---------------- nieve de cada bloque, todo el periodo ---------------- */
+  function nieveBloques(host) {
+    const idx = idxH();
+    host.innerHTML = facetasHTML(r => `tramo ${state.tramo} · máx ${fmt(Math.max(0, ...idx.map(i => TR(r).sf[i] ?? 0)), 1)} cm en un bloque`);
+    const tope = nice(Math.max(1, ...RUTAS.flatMap(r => idx.map(i => TR(r).sf[i] ?? 0))), 4).max;
+    host.querySelectorAll(".plot").forEach(p => {
+      const r = p.dataset.ruta, s = TR(r), q = RH(r), W = W_ANCHO;
+      const H = 190, M = { t: 12, r: 16, b: 30, l: 56 };
+      const bw = (W - M.l - M.r) / idx.length, x = k => M.l + k * bw + bw / 2;
+      const y = v => M.t + (1 - v / tope) * (H - M.t - M.b);
+      let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Nieve caída en cada bloque de 6 horas en la ${esc(r)}, tramo ${state.tramo}, con los bloques de cierre observado marcados">`;
+      corridas(q.cobs, idx).forEach(([a, b, v]) => { if (v) svg += `<rect x="${(M.l + a * bw).toFixed(1)}" y="${M.t}" width="${((b - a + 1) * bw).toFixed(1)}" height="${H - M.t - M.b}" fill="var(--warm-1)" fill-opacity=".55"/>`; });
+      const { paso } = nice(tope, 4);
+      for (let v = 0; v <= tope + 1e-9; v += paso)
+        svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>` + txt(M.l - 9, y(v) + 4, fmt(v, 0), { a: "end" });
+      idx.forEach((i, k) => {
+        const v = s.sf[i] ?? 0;
+        if (v > 0) svg += `<rect x="${(M.l + k * bw + .5).toFixed(2)}" y="${y(v).toFixed(1)}" width="${Math.max(.8, bw - 1).toFixed(2)}" height="${(y(0) - y(v)).toFixed(1)}" fill="${COLOR[r]}" fill-opacity=".9"/>`;
+        svg += `<rect class="hit" data-k="${i}" x="${(M.l + k * bw).toFixed(2)}" y="${M.t}" width="${bw.toFixed(2)}" height="${H - M.t - M.b}" fill="transparent"/>`;
+      });
+      svg += ejeTiempo(idx, x, W, H, M);
+      svg += `<rect class="hover" fill="var(--ink)" fill-opacity=".07" stroke="var(--ink-2)" stroke-width="1" pointer-events="none" style="display:none"/>
+        <rect class="sel" fill="none" stroke="var(--ink)" stroke-width="2" pointer-events="none" style="display:none"/></svg>`;
+      p.innerHTML = svg;
+      const el = p.querySelector("svg");
+      conClic(p, el, {
+        buscar(ev) {
+          const h = ev.target.closest(".hit"); if (!h) return null;
+          const i = +h.dataset.k, e = q.est[i];
+          return { h, clave: i, ancla: anclaDe(p, h, ev.clientY),
+            html: `<span class="t">${fmtH(BLOQ[i])} · ${esc(r)} ${state.tramo}</span>
+             <div class="r"><em>Nieve del bloque</em><b>${fmt(s.sf[i], 1)} cm</b></div>
+             <div class="r"><em>S · nieve en 12 h</em><b>${fmt(s.s12[i], 1)} cm</b></div>
+             <div class="r"><em>Lluvia del bloque</em><b>${fmt(s.lluvia[i], 1)} mm</b></div>
+             <div class="r"><em>Observado</em><b>${e == null ? "sin dato" : NOM_EST[e]}${q.hcer[i] ? ` (${fmt(q.hcer[i], 0)} h)` : ""}</b></div>
+             <div class="r"><em>Protocolo Lo Barnechea</em><b>${NOM_NIV[s.Lr[i] ?? 0]}</b></div>
+             <div class="r"><em>SAM-Cordillera</em><b>${NOM_SAM[s.E[i]]}</b></div>` };
+        },
+        marcar(tipo, o) {
+          const m = el.querySelector("." + tipo);
+          if (!o) { m.style.display = "none"; return; }
+          ["x", "y", "width", "height"].forEach(a => m.setAttribute(a, o.h.getAttribute(a)));
+          m.style.display = "";
+        },
+      });
+    });
+  }
+
+  /* ---------------- perfil del día: un grupo por bloque horario ---------------- */
+  const METRICAS_PF = [
+    { t: "Nieve caída", u: "cm", dec: 0, f: (r, ii) => ii.reduce((a, i) => a + (TR(r).sf[i] ?? 0), 0), nota: "suma" },
+    { t: "Temperatura media", u: "°C", dec: 1, f: (r, ii) => { const v = ii.map(i => TR(r).t2m[i]).filter(v => v != null); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null; }, nota: "media" },
+    { t: "Bloques con cierre observado", u: "%", dec: 0, f: (r, ii) => 100 * ii.filter(i => RH(r).cobs[i]).length / Math.max(1, ii.length), nota: "≥ 1 h" },
+    { t: "Bloques con nivel ≥ 2, Protocolo Lo Barnechea", u: "%", dec: 0, f: (r, ii) => 100 * ii.filter(i => (TR(r).Lr[i] ?? 0) >= 2).length / Math.max(1, ii.length), nota: "nivel 2 o 3" },
+    { t: "Bloques en cierre según SAM-Cordillera", u: "%", dec: 0, f: (r, ii) => 100 * ii.filter(i => (TR(r).E[i] ?? 0) >= 3).length / Math.max(1, ii.length), nota: "E3 a E5" },
+  ];
+  function perfilBloques(host) {
+    const idx = idxH();
+    const porBloque = Array.from({ length: BXD }, (_, b) => idx.filter(i => BLOQ[i].getUTCHours() / PASO === b));
+    host.innerHTML = METRICAS_PF.map((m, n) => `<div class="faceta"><h4>${esc(m.t)}<small>${esc(m.nota)} · ${m.u}</small></h4>
+      <div class="plot" data-m="${n}"></div></div>`).join("");
+    host.querySelectorAll(".plot").forEach(p => {
+      const m = METRICAS_PF[+p.dataset.m], W = 380, H = 220, M = { t: 14, r: 8, b: 30, l: 40 };
+      const val = RUTAS.map(r => porBloque.map(ii => m.f(r, ii)));
+      const todos = val.flat().filter(v => v != null);
+      let lo = Math.min(0, ...todos), hi = Math.max(0, ...todos);
+      if (m.u === "%") hi = Math.max(hi, 10);
+      const { paso } = nice(Math.max(1e-6, hi - lo), 4);
+      lo = Math.floor(lo / paso) * paso; hi = Math.ceil(hi / paso) * paso || paso;
+      const y = v => M.t + (hi - v) / (hi - lo) * (H - M.t - M.b);
+      const gw = (W - M.l - M.r) / BXD, bwd = Math.min(34, (gw - 18) / RUTAS.length);
+      let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(m.t)} por bloque del día y ruta, tramo ${state.tramo}">`;
+      for (let v = lo; v <= hi + 1e-9; v += paso)
+        svg += `<line x1="${M.l}" x2="${W - M.r}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="${Math.abs(v) < 1e-9 ? "var(--rule)" : "var(--grid)"}" stroke-width="1"/>` + txt(M.l - 8, y(v) + 4, fmt(v, 0), { a: "end" });
+      for (let b = 0; b < BXD; b++) {
+        const gx = M.l + b * gw, x0 = gx + (gw - bwd * RUTAS.length - 2 * (RUTAS.length - 1)) / 2;
+        RUTAS.forEach((r, n) => {
+          const v = val[n][b]; if (v == null) return;
+          const xa = x0 + n * (bwd + 2), ya = y(Math.max(v, 0)), yb = y(Math.min(v, 0));
+          svg += `<rect x="${xa.toFixed(1)}" y="${ya.toFixed(1)}" width="${bwd.toFixed(1)}" height="${Math.max(.5, yb - ya).toFixed(1)}" rx="2" fill="${COLOR[r]}" fill-opacity=".9"/>`;
+        });
+        svg += txt(gx + gw / 2, H - M.b + 18, `${hh(b * PASO)}–${hh(b * PASO + PASO)}`, { a: "middle", fs: 10.5 });
+        svg += `<rect class="hit" data-b="${b}" x="${gx.toFixed(1)}" y="${M.t}" width="${gw.toFixed(1)}" height="${H - M.t - M.b}" fill="transparent"/>`;
+      }
+      svg += `<rect class="hover" fill="var(--ink)" fill-opacity=".07" stroke="var(--ink-2)" stroke-width="1" pointer-events="none" style="display:none"/>
+        <rect class="sel" fill="none" stroke="var(--ink)" stroke-width="2" pointer-events="none" style="display:none"/></svg>`;
+      p.innerHTML = svg;
+      const el = p.querySelector("svg");
+      conClic(p, el, {
+        buscar(ev) {
+          const h = ev.target.closest(".hit"); if (!h) return null;
+          const b = +h.dataset.b;
+          return { h, clave: b, ancla: anclaDe(p, h, ev.clientY),
+            html: `<span class="t">${esc(m.t)} · ${rotBloque(b)} · tramo ${state.tramo}</span>` +
+              RUTAS.map((r, n) => `<div class="r"><em><span class="sw box" style="background:${COLOR[r]}"></span>${esc(r)}</em><b>${fmt(val[n][b], m.dec)} ${m.u}</b></div>`).join("") +
+              `<span class="nota">${porBloque[b].length} bloques ${rotBloque(b)} en el periodo · ${esc(m.nota)}</span>` };
+        },
+        marcar(tipo, o) {
+          const mk = el.querySelector("." + tipo);
+          if (!o) { mk.style.display = "none"; return; }
+          ["x", "y", "width", "height"].forEach(a => mk.setAttribute(a, o.h.getAttribute(a)));
+          mk.style.display = "";
+        },
+      });
+    });
+  }
+
+  /* ---------------- leyendas ---------------- */
+  const swLinea = r => `<span><span class="sw" style="background:${COLOR[r]}"></span>${esc(D.nombres[r])}</span>`;
+  const swBox = (c, et, borde) => `<span><span class="sw box" style="background:${c};${borde ? "border:1px solid var(--rule)" : ""}"></span>${et}</span>`;
+  document.getElementById("leg-cr").innerHTML =
+    `<span style="color:var(--muted)">Observado:</span>` + NOM_EST.map((n, i) => swBox(COL_EST[i], n)).join("") +
+    `<span style="color:var(--muted);margin-left:8px">Protocolo Lo Barnechea:</span>` + [1, 2, 3].map(i => swBox(COL_NIV[i], NOM_NIV[i])).join("") +
+    `<span style="color:var(--muted);margin-left:8px">SAM-Cordillera:</span>` + [1, 2, 3, 4, 5].map(i => swBox(COL_SAM[i], NOM_SAM[i])).join("") +
+    `<span style="color:var(--muted);margin-left:8px">Índices:</span><span><span class="sw" style="background:var(--s1)"></span>severidad SV</span><span><span class="sw" style="background:var(--s2)"></span>peligro H</span>`;
+  document.getElementById("leg-t").innerHTML = RUTAS.map(swLinea).join("") + `<span><span class="sw dash"></span>0 °C</span>`;
+  document.getElementById("leg-iso").innerHTML = RUTAS.map(swLinea).join("") +
+    swBox("var(--b-baja)", "banda baja (< 1.500 m)", true) + swBox("transparent", "banda media (1.500–2.800 m)", true) +
+    swBox("var(--b-alta)", "banda alta (> 2.800 m)", true) +
+    `<span><span class="sw dash"></span>cota mínima y máxima del camino</span>`;
+  document.getElementById("leg-s").innerHTML = RUTAS.map(swLinea).join("") +
+    `<span><span class="sw dash" style="border-color:var(--n1)"></span>1 cm · nivel 1</span>
+     <span><span class="sw dash" style="border-color:var(--n2)"></span>25 cm · nivel 2</span>
+     <span><span class="sw dash" style="border-color:var(--n3)"></span>50 cm · nivel 3</span>`;
+  document.getElementById("leg-r").innerHTML = RUTAS.map(swLinea).join("") +
+    `<span><span class="sw dash" style="border-color:var(--n2)"></span>1 mm · nivel 2 (isoterma alta)</span>
+     <span><span class="sw dash" style="border-color:var(--n3)"></span>20 mm · nivel 3 (isoterma alta)</span>`;
+  document.getElementById("leg-sd").innerHTML = RUTAS.map(swLinea).join("");
+  document.getElementById("leg-nb").innerHTML = RUTAS.map(r => swBox(COLOR[r], esc(D.nombres[r]))).join("") +
+    swBox("var(--warm-1)", "bloque con cierre observado (≥ 1 h)");
+  document.getElementById("leg-pf").innerHTML = RUTAS.map(r => swBox(COLOR[r], esc(D.nombres[r]))).join("");
+  document.getElementById("leg-h").innerHTML =
+    `<span style="color:var(--muted)">Protocolo Lo Barnechea:</span>` + NOM_NIV.map((n, i) => swBox(COL_NIV[i], n, i === 0)).join("") +
+    `<span style="color:var(--muted);margin-left:8px">Franja inferior de la celda:</span>` + NOM_EST.map((n, i) => swBox(COL_EST[i], n)).join("");
+  document.getElementById("leg-nieve").innerHTML = `<span style="color:var(--muted)">Barras del color de la ruta.</span>` +
+    swBox("var(--warm-1)", "día con cierre observado (≥ 1 h)") + swBox("var(--e3)", "día cerrado completo (marca inferior)");
+  document.getElementById("leg-n").innerHTML = RUTAS.map(swLinea).join("") +
+    `<span><span class="sw dash"></span>niveles: 5 cm restricción · 30 cm cierre parcial · 50 cm cierre por despeje</span>`;
+
+  /* ---------------- tablas del modelo ---------------- */
+  const tabla = (cols, filas, clase = "") => `<table class="${clase}"><thead><tr>${cols.map(c => `<th${c.txt ? ' class="txt"' : ""}>${c.t}</th>`).join("")}</tr></thead>
+    <tbody>${filas.map(f => `<tr${f._destacada ? ' class="destacada"' : ""}>${cols.map(c => `<td${c.txt ? ` class="txt${c.wrap ? " wrap" : ""}"` : ""}>${c.f(f)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+
+  (() => {
+    const orden = D.modelos_tabla;
+    const filas = D.metricas.filter(m => orden.includes(m.modelo))
+      .sort((a, b) => orden.indexOf(a.modelo) - orden.indexOf(b.modelo) || b.ruta.localeCompare(a.ruta))
+      .map(m => ({ ...m, _destacada: m.modelo === D.modelo_calibrado }));
+    const cols = [
+      { t: "Regla", txt: true, f: m => esc(m.nombre) }, { t: "Ruta", txt: true, f: m => esc(m.ruta) },
+      { t: "Aciertos", f: m => fmt(m.a, 0) }, { t: "Falsas alarmas", f: m => fmt(m.b, 0) },
+      { t: "Omisiones", f: m => fmt(m.c, 0) }, { t: "Neg. correctos", f: m => fmt(m.d, 0) }, { t: "n", f: m => fmt(m.n, 0) },
+      { t: "POD", f: m => fmt(m.POD, 2) }, { t: "FAR", f: m => fmt(m.FAR, 2) }, { t: "CSI", f: m => fmt(m.CSI, 2) },
+      { t: "HSS", f: m => fmt(m.HSS, 2) }, { t: "Kappa", f: m => fmt(m.kappa, 2) },
+    ];
+    document.getElementById("tabla-metricas").innerHTML = tabla(cols, filas);
+    const o = P_SAM.ordinal, nomVar = { SV: "severidad", H: "peligro", N: "nieve por despejar" };
+    document.getElementById("info-metricas").innerHTML = `Cada fila cuenta bloques de 6 horas; un acierto es un bloque cerrado por meteorología que la regla
+      clasifica como cierre (E3 a E5). Los bloques de la 60-CH cerrados por el horario del complejo fronterizo se excluyen, por lo que esa ruta suma
+      212 bloques y la G-21, 248. La persistencia repite el estado observado del bloque anterior y sirve como referencia, no como regla operativa.
+      Un logit ordinal ajustado en la G-21 con los tres índices asigna coeficientes estandarizados de
+      ${o.variables.map((v, i) => `${esc(nomVar[v] || v)} ${fmt(o.coef[i], 2)}`).join(", ")}. "FAR —" indica que la regla nunca predijo cierre.`;
+  })();
+  (() => {
+    const cols = [
+      { t: "Capacidad de despeje", txt: true, f: x => esc(x.esc) },
+      { t: "Horas cerradas", f: x => fmt(x.obs, 0) },
+      ...["E5", "E4", "E3", "E2", "E1", "E0"].map(e => ({ t: NOM_SAM[+e[1]], f: x => fmt(x[e], 0) })),
+      { t: "Sin respaldo", f: x => fmt(x.sin, 0) }, { t: "% sin respaldo", f: x => fmt(x.pct, 1) + " %" },
+    ];
+    document.getElementById("tabla-param").innerHTML = tabla(cols, P_SAM.contrafactual.map(x => ({ ...x, _destacada: x.c === P_SAM.c })));
+    const colsS = [
+      { t: "Supuesto", txt: true, f: x => esc(x.sup) },
+      { t: "Kappa G-21", f: x => fmt(x.kG, 2) }, { t: "CSI G-21", f: x => fmt(x.csiG, 2) }, { t: "FAR G-21", f: x => fmt(x.farG, 2) },
+      { t: "Kappa 60-CH", f: x => fmt(x.kC, 2) }, { t: "% sin respaldo 60-CH", f: x => fmt(x.pct, 1) + " %" },
+      { t: "% por peligro 60-CH", f: x => fmt(x.pel, 1) + " %" },
+    ];
+    document.getElementById("tabla-sens").innerHTML = tabla(colsS, P_SAM.sensibilidad.map((x, n) => ({ ...x, _destacada: n === 0 })));
+  })();
+  (() => {
+    const cols = [
+      { t: "Ruta", txt: true, f: e => esc(e.ruta) },
+      { t: "Inicio", txt: true, f: e => fmtDH(e.inicio) }, { t: "Fin", txt: true, f: e => fmtDH(e.fin) },
+      { t: "Horas", f: e => fmt(e.horas, 0) }, { t: "Bloques", f: e => fmt(e.bloques, 0) },
+      ...["E0", "E1", "E2", "E3", "E4", "E5"].map(k => ({ t: k, f: e => fmt(e[k], 0) })),
+      { t: "Horas cerradas por el modelo", f: e => fmt(e.h_modelo, 0) },
+      { t: "Error de duración", f: e => signo(e.error_h) + " h" },
+      { t: "Causa según los comunicados", txt: true, f: e => esc(e.causa || "—") },
+    ];
+    document.getElementById("tabla-ep").innerHTML = tabla(cols, D.episodios);
+  })();
+  /* ---------------- vacíos conocidos ---------------- */
+  (() => {
+    const li = [];
+    RUTAS.forEach(r => TRAMOS.forEach(t => {
+      const v = D.vacios[r + "|" + t];
+      if (v.tsn > 0 || v.smlt > 0) li.push(`<li><b>${esc(r)} tramo ${t}</b>: faltan <b>${fmt(v.tsn, 0)} bloques</b> de temperatura de la nieve (tsn) y
+        <b>${fmt(v.smlt, 0)}</b> de derretimiento (smlt); esas variables no entran a los índices.</li>`);
+    }));
+    const v0 = D.vacios["60-CH|alto"];
+    li.push(`<li>Los bloques van del <b>${fmtH(BLOQ[0])}</b> al <b>${fmtH(BLOQ[D.n - 1])}</b> (hora local). ERA5 empieza a las 20:00 del
+      30 de junio y termina a las 19:00 del 31 de agosto, así que el último bloque tiene menos de 6 horas de dato
+      (${fmt(v0.incompletos, 0)} bloque${v0.incompletos === 1 ? "" : "s"} incompleto${v0.incompletos === 1 ? "" : "s"} por tramo). Las horas del 30 de junio solo se usan para completar
+      la ventana de 12 h del primer bloque; ${v0.s24 ? `los primeros ${fmt(v0.s24, 0)} bloques no completan la de 24 h.` : "todas las ventanas quedan completas."}</li>`);
+    li.push(`<li>El viento de ERA5-Land queda muy suavizado por la orografía del modelo: máximo <b>${fmt(Math.max(...Object.values(D.vacios).map(v => v.viento_max)), 1)} m/s</b>
+      en todo el periodo, así que nunca se activa la marca de viento fuerte.</li>`);
+    li.push(`<li>${v0.estado ? `El estado observado no tiene registro en ${fmt(v0.estado, 0)} bloques. ` : "Todos los bloques tienen estado observado. "}En la 60-CH, las horas sin comunicado
+      se imputan con el régimen estructural del corredor (cierre nocturno 20:00–08:00).</li>`);
+    li.push(`<li>La isoterma no queda censurada (bajo el suelo del modelo) en ninguna hora de las celdas usadas.</li>`);
+    document.getElementById("vacios").innerHTML = li.join("");
+  })();
+
+  /* ---------------- tabla diaria ---------------- */
+  const COLS = [
+    { k: "ruta", t: "Ruta", txt: true }, { k: "tramo", t: "Tramo", txt: true }, { k: "dia", t: "Día", txt: true },
+    { k: "tmed", t: "T med °C" }, { k: "tmin", t: "T mín" }, { k: "tmax", t: "T máx" }, { k: "hbc", t: "h < 0", dec: 0 },
+    { k: "nieve", t: "Nieve cm", corte: true }, { k: "smax", t: "S máx 12 h" }, { k: "rmax", t: "R máx mm" },
+    { k: "zmed", t: "Z media m", dec: 0 }, { k: "sde", t: "Manto fin m", dec: 2 },
+    { k: "Lr", t: "Nivel Lo Barnechea", dec: 0, corte: true }, { k: "estdom", t: "Estado obs.", txt: true, pill: true }, { k: "hcer", t: "h cerrado", dec: 0 },
+    { k: "sam", t: "SAM (peor del día)", txt: true },
+  ];
+  const filasTabla = () => {
+    const idx = idxD(), T = state.tabla;
+    let filas = RUTAS.flatMap(r => TRAMOS.flatMap(t => {
+      if (T.sitio !== "todos" && T.sitio !== r) return [];
+      if (T.tramo !== "todos" && T.tramo !== t) return [];
+      const s = D.diario[r + "|" + t];
+      return idx.map(i => ({
+        ruta: r, tramo: t, orden: D.dias[i], dia: fmtD(D.dias[i]),
+        tmed: s.tmed[i], tmin: s.tmin[i], tmax: s.tmax[i], hbc: s.hbc[i], nieve: s.nieve[i], smax: s.smax[i], rmax: s.rmax[i],
+        zmed: s.zmed[i], sde: s.sde[i], Lr: s.Lr[i], estdomN: s.estdom[i], estdom: s.estdom[i] == null ? "—" : NOM_EST_CORTO[s.estdom[i]],
+        hcer: s.hcer[i], cobs: s.cobs[i], samN: s.Emax[i], sam: s.Emax[i] == null ? "—" : "E" + s.Emax[i],
+      }));
+    }));
+    const f = T.filtro;
+    if (f === "nieve") filas = filas.filter(x => (x.nieve ?? 0) >= 1);
+    else if (f === "cierre") filas = filas.filter(x => x.cobs);
+    else if (f === "nivel2") filas = filas.filter(x => (x.Lr ?? 0) >= 2);
+    else if (f === "modelo") filas = filas.filter(x => (x.samN ?? 0) >= 3);
+    const { col, dir } = T;
+    const clave = x => col === "dia" ? x.orden + x.ruta + x.tramo : x[col];
+    filas.sort((a, b) => {
+      const va = clave(a), vb = clave(b);
+      if (va == null) return 1;
+      if (vb == null) return -1;
+      return (va > vb ? 1 : va < vb ? -1 : 0) * dir;
+    });
+    return filas;
+  };
+  function tablaDiaria() {
+    const filas = filasTabla(), T = state.tabla;
+    const cab = COLS.map(c => `<th data-col="${c.k}" class="${c.txt ? "txt" : ""}${c.corte ? " corte" : ""}"${T.col === c.k
+      ? ` aria-sort="${T.dir > 0 ? "ascending" : "descending"}"` : ""}>${c.t}<span class="fl">${T.col === c.k ? (T.dir > 0 ? "↑" : "↓") : "↕"}</span></th>`).join("");
+    const celda = (x, c) => {
+      if (c.pill) return x.estdomN == null ? "—" : `<span class="pill" style="background:${COL_EST[x.estdomN]}">${esc(x.estdom)}</span>`;
+      if (c.k === "sam") return x.samN == null ? "—" : `<span class="pill" style="background:${COL_SAM[x.samN]};${x.samN >= 3 ? "color:#fff" : ""}">${esc(NOM_SAM[x.samN])}</span>`;
+      if (c.k === "Lr") return x.Lr ? `<span class="pill" style="background:${COL_NIV[x.Lr]}">${x.Lr}</span>` : "0";
+      return c.txt ? esc(x[c.k]) : x[c.k] == null ? "—" : fmt(x[c.k], c.dec ?? 1);
+    };
+    const cuerpo = filas.map(x => "<tr>" + COLS.map(c => `<td class="${c.txt ? "txt" : ""}${c.corte ? " corte" : ""}">${celda(x, c)}</td>`).join("") + "</tr>").join("");
+    const caja = document.getElementById("tablabox");
+    caja.innerHTML = filas.length ? `<table><thead><tr>${cab}</tr></thead><tbody>${cuerpo}</tbody></table>`
+      : `<p class="tabvacia">Ningún día cumple el filtro en el periodo seleccionado.</p>`;
+    const nieve = filas.reduce((a, x) => a + (x.nieve || 0), 0), cerr = filas.filter(x => x.cobs).length, mod = filas.filter(x => (x.samN ?? 0) >= 3).length;
+    document.getElementById("tabinfo").innerHTML = `<b>${filas.length}</b> filas · nieve caída <b>${fmt(nieve, 0)} cm</b> ·
+      días con cierre observado <b>${cerr}</b> · días con al menos un bloque en cierre según SAM-Cordillera <b>${mod}</b>`;
+    caja.querySelectorAll("th[data-col]").forEach(th => th.addEventListener("click", () => {
+      const c = th.dataset.col;
+      if (T.col === c) T.dir *= -1; else { T.col = c; T.dir = COLS.find(k => k.k === c).txt ? 1 : -1; }
+      tablaDiaria();
+    }));
+  }
+
+  /* ---------------- render ---------------- */
+  function render() {
+    cerrarDetalle = null;
+    const tr = state.tramo;
+    document.getElementById("tramo-desc").textContent = RUTAS.map(r => `${r}: ${fmt(D.meta[r][tr].cota_min, 0)}–${fmt(D.meta[r][tr].cota_max, 0)} m`).join(" · ");
+    cronologia(document.getElementById("facetas-cr"));
+    lineas(document.getElementById("plot-t"), {
+      aria: "Temperatura media del aire a 2 m por bloque de 6 horas y ruta, con mínima y máxima del bloque, tramo " + tr, unidad: "°C", cero: true, alto: 300,
+      series: RUTAS.map(r => ({ nombre: r + " " + tr, color: COLOR[r], v: TR(r).t2m, rango: [TR(r).tmin, TR(r).tmax] })),
+    });
+    lineas(document.getElementById("plot-iso"), {
+      aria: "Altura media de la isoterma 0 °C por bloque de 6 horas y ruta con las bandas del Protocolo Lo Barnechea y las cotas del camino", unidad: "m", dec: 0, alto: 320, paso: 500, lo: 500,
+      series: RUTAS.map(r => ({ nombre: r + " · isoterma", color: COLOR[r], v: RH(r).iso })),
+      bandas: [{ a: 1500, color: "var(--b-baja)", etiqueta: "banda baja" }, { de: 2800, color: "var(--b-alta)", etiqueta: "banda alta" }],
+      umbrales: [1500, 2800].map(v => ({ v, etiqueta: "", color: "var(--rule)", dash: "2 3", ancho: 1 })).concat(
+        RUTAS.flatMap(r => ["cota_min", "cota_max"].map(c => ({ v: D.meta[r][tr][c], color: COLOR[r], dash: "2 4", ancho: 1.2,
+          etiqueta: `${r} ${tr} · ${c === "cota_min" ? "mín" : "máx"} ${fmt(D.meta[r][tr][c], 0)} m`, izq: r === "G-21" })))),
+      extraTip: i => `<div class="r"><em>Banda, Protocolo Lo Barnechea</em><b>${RH(RUTAS[0]).banda[i] == null ? "—" : D.bandas[RH(RUTAS[0]).banda[i]].split(" ")[0] + " / " + (RH(RUTAS[1]).banda[i] == null ? "—" : D.bandas[RH(RUTAS[1]).banda[i]].split(" ")[0])}</b></div>`,
+    });
+    lineas(document.getElementById("plot-s"), {
+      aria: "Nieve caída en 12 horas (dos bloques) por ruta, tramo " + tr, unidad: "cm", alto: 280, desdeCero: true, lo: 0,
+      series: RUTAS.map(r => ({ nombre: r + " " + tr, color: COLOR[r], v: TR(r).s12 })),
+      umbrales: [{ v: 1, etiqueta: "1 cm", color: "var(--n1)", enRango: false }, { v: 25, etiqueta: "25 cm · nivel 2", color: "var(--n2)" }, { v: 50, etiqueta: "50 cm · nivel 3", color: "var(--n3)" }],
+    });
+    lineas(document.getElementById("plot-r"), {
+      aria: "Lluvia en 12 horas por ruta, tramo " + tr, unidad: "mm", alto: 240, desdeCero: true, lo: 0,
+      series: RUTAS.map(r => ({ nombre: r + " " + tr, color: COLOR[r], v: TR(r).r12 })),
+      umbrales: [{ v: 1, etiqueta: "1 mm · nivel 2", color: "var(--n2)" }, { v: 20, etiqueta: "20 mm · nivel 3", color: "var(--n3)" }],
+    });
+    lineas(document.getElementById("plot-sd"), {
+      aria: "Espesor del manto de nieve por ruta, tramo " + tr, unidad: "m", dec: 2, alto: 260, area: true, desdeCero: true, lo: 0,
+      series: RUTAS.map(r => ({ nombre: r + " " + tr, color: COLOR[r], v: TR(r).sde })),
+    });
+    zoomBloques();
+    soloBloques();
+    nieveBloques(document.getElementById("facetas-nb"));
+    perfilBloques(document.getElementById("facetas-pf"));
+    matriz(document.getElementById("facetas-h"));
+    barrasNieve(document.getElementById("facetas-nieve"));
+    lineas(document.getElementById("plot-n"), {
+      aria: "Nieve por despejar en la calzada por bloque de 6 horas y ruta, tramo " + tr, unidad: "cm", dec: 0, alto: 280, desdeCero: true, lo: 0,
+      series: RUTAS.map(r => ({ nombre: r + " " + tr, color: COLOR[r], v: TR(r).N })),
+      umbrales: [{ v: P_SAM.theta1, etiqueta: "", color: "var(--q1)", enRango: false },
+                 { v: P_SAM.N_parcial, etiqueta: "30 cm · cierre parcial", color: "var(--q2)", izq: true },
+                 { v: P_SAM.theta, etiqueta: "50 cm · cierre por despeje", color: "var(--q3)" }],
+      extraTip: i => RUTAS.map(r => `<div class="r"><em>${esc(r)} · estado</em><b>${NOM_SAM[TR(r).E[i]]}</b></div>`).join(""),
+    });
+    tablaDiaria();
+  }
+  render();
+
+  const grupo = (attr, fn) => document.querySelectorAll(`[data-${attr}]`).forEach(b => b.addEventListener("click", () => {
+    fn(b.dataset[attr]);
+    document.querySelectorAll(`[data-${attr}]`).forEach(o => o.setAttribute("aria-pressed", String(o === b)));
+  }));
+  grupo("mes", v => { state.mes = v; render(); });
+  grupo("tramo", v => { state.tramo = v; render(); });
+  grupo("tsitio", v => { state.tabla.sitio = v; tablaDiaria(); });
+  grupo("ttramo", v => { state.tabla.tramo = v; tablaDiaria(); });
+  grupo("tfiltro", v => { state.tabla.filtro = v; tablaDiaria(); });
+})();
+</script>

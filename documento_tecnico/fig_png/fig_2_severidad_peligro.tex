@@ -1,0 +1,56 @@
+% Figura 2 de la postulación: índices de severidad (SV) y de peligro (H), con sus notas y niveles.
+\documentclass[border=4pt]{standalone}
+\input{fig_comun.tex}
+\newcolumntype{D}{>{\centering\arraybackslash}p{0.5cm}}
+% fila de texto que ocupa todo el ancho de la tabla b) y corta en dos líneas si hace falta
+\newcommand{\fila}[1]{\multicolumn{6}{>{\raggedright\arraybackslash}p{\dimexpr 6.8cm+25pt\relax}}{#1}}
+% celda que ocupa las cinco columnas de notas: ajustes que se aplican a la nota de avalancha
+\newcommand{\ajuste}[1]{\multicolumn{5}{>{\centering\arraybackslash}p{\dimexpr 2.5cm+20pt\relax}}{#1}}
+\begin{document}
+\begin{tikzpicture}[font=\footnotesize]
+% a) Severidad
+\node[tit] at (0,0) {a) Severidad de la tormenta, $SV$ (0 a 5)};
+\node[anchor=north west, inner sep=0pt] (tb) at (0,-0.45) {\scriptsize\setlength{\tabcolsep}{2.5pt}\renewcommand{\arraystretch}{1.18}%
+\begin{tabular}{L{3.55cm}DDDDD>{\centering\arraybackslash}p{0.62cm}}
+\toprule
+Variable medida en cada bloque de 6 horas & \notas{cSV} & peso \\
+\midrule
+Nieve acumulada sobre el camino (cm) & \cortesS & \pesoS \\
+Fracción del camino cubierta de nieve & \cortesF & \pesoF \\
+Tasa de nevada (cm/h) & \cortesr & \pesor \\
+Horas que nevó durante las últimas 24 horas & \cortesdur & \pesodur \\
+Ráfaga máxima de viento (m/s) & \cortesG & \pesoG \\
+Lluvia sobre el manto de nieve (mm) & \cortesR & \pesoR \\
+\midrule
+\multicolumn{7}{l}{$SV$ = máx\{piso; $\sum$ peso $\times$ nota\}} \\
+\bottomrule
+\end{tabular}};
+\path (tb.south west) -- (tb.south east)
+  node[pos=0.17, below=0.55cm, niv, fill=cE1, text=white] {restricción\\$SV \ge \SVrest$}
+  node[pos=0.5, below=0.55cm, niv, fill=cE2] {cierre parcial\\$SV \ge \SVparc$}
+  node[pos=0.83, below=0.55cm, niv, fill=cE4, text=white] {cerrado por tormenta\\$SV \ge \SVcierre$};
+
+% b) Peligro
+\node[tit] at ($(tb.north east)+(0.6,0.45)$) (tbt) {b) Peligro de avalancha y remoción, $H$ (0 a 5)};
+\node[anchor=north west, inner sep=0pt] (tc) at ($(tb.north east)+(0.6,0)$) {\scriptsize\setlength{\tabcolsep}{2.5pt}\renewcommand{\arraystretch}{1.18}%
+\begin{tabular}{L{4.3cm}DDDDD}
+\toprule
+Variable & \notas{cH} \\
+\midrule
+\fila{\cellcolor{fondo}\textit{Avalancha}} \\
+Nieve nueva acumulada durante las últimas 72 horas (cm) & \cortesHNS \\[2pt]
+Viento que transporta la nieve nueva & \ajuste{+1 a la nota, con \hnSobrecarga\ cm o más} \\[2pt]
+Isoterma que sube 500 m en las últimas 24 horas, o 5 mm de lluvia sobre el manto & \ajuste{+1 a la nota, con \hnSobrecarga\ cm o más} \\[2pt]
+Exposición del tramo a avalanchas & \ajuste{$\times$ \expAlto\ en el tramo alto\newline$\times$ \expMedio\ en el tramo medio} \\[2pt]
+\fila{\cellcolor{fondo}\textit{Remoción en masa}, solo con la isoterma sobre la cota media del tramo} \\
+Lluvia acumulada durante las últimas 72 horas (mm) & \cortesRS \\
+\midrule
+\fila{$H$ = máx\{avalancha; remoción en masa\}} \\
+\bottomrule
+\end{tabular}};
+\path (tc.south west |- tb.south west) -- (tc.south east |- tb.south east)
+  node[pos=0.17, below=0.55cm, niv, fill=cE1, text=white] {restricción\\$H \ge \Hrest$}
+  node[pos=0.5, below=0.55cm, niv, fill=cE2] {cierre parcial\\$H \ge \Hparc$}
+  node[pos=0.83, below=0.55cm, niv, fill=cE5, text=white] {cerrado por peligro\\$H = \Hcierre$};
+\end{tikzpicture}
+\end{document}

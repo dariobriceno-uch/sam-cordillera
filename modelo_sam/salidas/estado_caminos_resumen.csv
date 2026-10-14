@@ -1,0 +1,5 @@
+ruta,mes,horas,horas_abierto,horas_restringido,horas_cierre_tecnico,horas_cerrado_meteo,horas_cerrado_horario,dias_con_cerrado_meteo,episodios_cierre_meteo,episodios_cierre_meteo_iniciados
+60-CH,7,744,145,0,0,459,140,21,2,2
+60-CH,8,744,29,79,0,560,76,26,4,3
+G-21,7,744,596,11,36,101,0,6,3,3
+G-21,8,744,682,0,62,0,0,0,0,0

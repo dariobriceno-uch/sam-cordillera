@@ -1,0 +1,4 @@
+escenario,c_cm_h,horas_cerradas_obs,h_E0,h_E1,h_E2,h_E3,h_E4,h_E5,h_con_respaldo_cierre,h_sin_respaldo,pct_sin_respaldo
+2 cm/h,2.0,1019,93,124,196,234,0,372,606,413,40.5
+4 cm/h,4.0,1019,123,202,226,96,0,372,468,551,54.1
+6 cm/h (calibrada),6.0,1019,135,214,238,60,0,372,432,587,57.6

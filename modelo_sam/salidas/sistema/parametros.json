@@ -1,0 +1,162 @@
+{
+ "delta_nieve_m": 300,
+ "cortes": {
+  "S": [
+   0.5,
+   5,
+   12.5,
+   20,
+   25
+  ],
+  "r": [
+   0.5,
+   1,
+   2,
+   3,
+   4
+  ],
+  "dur": [
+   1,
+   6,
+   12,
+   18,
+   23
+  ],
+  "G": [
+   10,
+   15,
+   20,
+   25,
+   30
+  ],
+  "phi": [
+   0.05,
+   0.25,
+   0.5,
+   0.75,
+   0.95
+  ],
+  "R": [
+   0.5,
+   2.5,
+   5,
+   10,
+   15
+  ],
+  "HN72": [
+   10,
+   20,
+   30,
+   50,
+   80
+  ],
+  "R72": [
+   10,
+   20,
+   40,
+   60,
+   100
+  ]
+ },
+ "beta": {
+  "S": 0.45,
+  "phi": 0.15,
+  "r": 0.1,
+  "dur": 0.1,
+  "G": 0.1,
+  "R": 0.1
+ },
+ "veto": {
+  "0": 0,
+  "1": 1,
+  "2": 3,
+  "3": 4
+ },
+ "umbral_E": {
+  "restriccion": 1.0,
+  "parcial": 2.5,
+  "cierre": 3.5
+ },
+ "H_umbral": 5,
+ "H_niveles": {
+  "E1": 3,
+  "E2": 4
+ },
+ "N_parcial": 30,
+ "despeje_tras_cierre": true,
+ "hn_min_sobrecarga": 30,
+ "exposicion": {
+  "alto": 1.0,
+  "medio": 0.5
+ },
+ "li_pomeroy": [
+  9.43,
+  0.18,
+  0.0033
+ ],
+ "factor_rafaga": 1.6,
+ "arrastre_frac": 0.1,
+ "theta1_cm": 5,
+ "evento_cm": 0.5,
+ "R2_mm": 1.0,
+ "c_calibrado_cm_h": 6.0,
+ "theta_calibrado_cm": 50.0,
+ "H_umbral_calibrado": 5,
+ "curva_capacidad": {
+  "0.5": 0.126,
+  "1.0": 0.321,
+  "1.5": 0.415,
+  "2.0": 0.457,
+  "3.0": 0.5,
+  "4.0": 0.516,
+  "6.0": 0.538,
+  "8.0": 0.538
+ },
+ "ordinal": {
+  "variables": [
+   "SV",
+   "H",
+   "N"
+  ],
+  "coef_estandarizados": [
+   1.301,
+   0.781,
+   0.539
+  ],
+  "umbrales": [
+   4.076,
+   4.172
+  ],
+  "n_G21": 248,
+  "cerrados_G21": 19,
+  "metricas_G-21": {
+   "exactitud_3clases": 0.944,
+   "kappa_ponderado": 0.573,
+   "aciertos": 10,
+   "falsas_alarmas": 4,
+   "omisiones": 9,
+   "negativos_correctos": 225,
+   "POD": 0.526,
+   "FAR": 0.286,
+   "CSI": 0.435,
+   "HSS": 0.579
+  },
+  "metricas_60-CH": {
+   "exactitud_3clases": 0.358,
+   "kappa_ponderado": 0.1,
+   "aciertos": 48,
+   "falsas_alarmas": 0,
+   "omisiones": 128,
+   "negativos_correctos": 36,
+   "POD": 0.273,
+   "FAR": 0.0,
+   "CSI": 0.273,
+   "HSS": 0.113
+  },
+  "60CH_cierres_obs_horas_por_clase_predicha": {
+   "abierto": 731,
+   "cerrado": 288
+  },
+  "60CH_cierres_obs_p_cerrado_media": 0.312
+ }
+}

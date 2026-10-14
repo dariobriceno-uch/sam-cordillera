@@ -1,0 +1,256 @@
+ruta,estado,regimen,inicio_local,fin_local,horas,id_registro,causa
+60-CH,cerrado_horario,cerrado por horario,2026-07-01 00:00:00,2026-07-01 08:00:00,8,,
+60-CH,abierto,corredor internacional,2026-07-01 08:00:00,2026-07-01 20:00:00,12,,
+60-CH,cerrado_horario,cerrado por horario,2026-07-01 20:00:00,2026-07-02 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-07-02 08:00:00,2026-07-02 20:00:00,12,,
+60-CH,cerrado_horario,cerrado por horario,2026-07-02 20:00:00,2026-07-03 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-07-03 08:00:00,2026-07-03 20:00:00,12,,
+60-CH,cerrado_horario,cerrado por horario,2026-07-03 20:00:00,2026-07-04 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-07-04 08:00:00,2026-07-04 20:00:00,12,,
+60-CH,cerrado_horario,cerrado por horario,2026-07-04 20:00:00,2026-07-05 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-07-05 08:00:00,2026-07-05 20:00:00,12,,
+60-CH,cerrado_horario,cerrado por horario,2026-07-05 20:00:00,2026-07-06 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-07-06 08:00:00,2026-07-06 20:00:00,12,,
+60-CH,cerrado_horario,cerrado por horario,2026-07-06 20:00:00,2026-07-07 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-07-07 08:00:00,2026-07-07 20:00:00,12,,
+60-CH,cerrado_horario,cerrado por horario,2026-07-07 20:00:00,2026-07-08 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-07-08 08:00:00,2026-07-08 20:00:00,12,,
+60-CH,cerrado_horario,cerrado por horario,2026-07-08 20:00:00,2026-07-09 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-07-09 08:00:00,2026-07-09 17:00:00,9,,
+60-CH,cerrado_meteo,cierre preventivo,2026-07-09 17:00:00,2026-07-11 11:00:00,42,1;2;3,Precipitaciones en alta cordillera
+60-CH,abierto,corredor internacional,2026-07-11 11:00:00,2026-07-11 20:00:00,9,3,Favorable
+60-CH,cerrado_horario,cerrado por horario,2026-07-11 20:00:00,2026-07-12 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-07-12 08:00:00,2026-07-12 20:00:00,12,4,Favorable
+60-CH,cerrado_horario,cerrado por horario,2026-07-12 20:00:00,2026-07-13 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-07-13 08:00:00,2026-07-13 20:00:00,12,,
+60-CH,cerrado_horario,cerrado por horario,2026-07-13 20:00:00,2026-07-14 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-07-14 08:00:00,2026-07-14 15:00:00,7,,
+60-CH,cerrado_meteo,cierre preventivo,2026-07-14 15:00:00,2026-08-18 08:00:00,833,5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;36;37;38;39;40,Inestabilidades y nevadas de magnitud | En evaluación y despeje
+60-CH,restringido,carga Arg→Chile,2026-08-18 08:00:00,2026-08-18 20:00:00,12,40,Favorable
+60-CH,cerrado_horario,cerrado por horario,2026-08-18 20:00:00,2026-08-19 08:00:00,12,,
+60-CH,restringido,carga Arg→Chile,2026-08-19 08:00:00,2026-08-19 20:00:00,12,41,Favorable
+60-CH,cerrado_horario,cerrado por horario,2026-08-19 20:00:00,2026-08-20 08:00:00,12,,
+60-CH,restringido,carga Chile→Arg,2026-08-20 08:00:00,2026-08-20 20:00:00,12,42,Favorable
+60-CH,cerrado_horario,cerrado por horario,2026-08-20 20:00:00,2026-08-21 08:00:00,12,,
+60-CH,restringido,carga Chile→Arg,2026-08-21 08:00:00,2026-08-21 20:00:00,12,43,Favorable
+60-CH,cerrado_horario,cerrado por horario,2026-08-21 20:00:00,2026-08-22 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-08-22 08:00:00,2026-08-22 20:00:00,12,44;45,Favorable
+60-CH,cerrado_horario,cerrado por horario,2026-08-22 20:00:00,2026-08-23 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-08-23 08:00:00,2026-08-23 20:00:00,12,46;47,Favorable
+60-CH,cerrado_horario,cerrado por horario,2026-08-23 20:00:00,2026-08-24 08:00:00,12,,
+60-CH,abierto,corredor internacional,2026-08-24 08:00:00,2026-08-24 13:00:00,5,,
+60-CH,restringido,turismo local Portillo,2026-08-24 13:00:00,2026-08-24 17:00:00,4,48;49,Condiciones climáticas desfavorables
+60-CH,cerrado_meteo,cierre preventivo,2026-08-24 17:00:00,2026-08-29 09:00:00,112,48;50;51;52;53;54,Condiciones climáticas desfavorables e inestabilidades (nevadas) | Inestabilidades climáticas (nevadas) | Condiciones meteorológicas adversas
+60-CH,restringido,turismo local complejo fronterizo,2026-08-29 09:00:00,2026-08-29 17:00:00,8,54;55,Condición de ventana local
+60-CH,cerrado_meteo,cierre preventivo,2026-08-29 17:00:00,2026-08-30 08:00:00,15,54;56,Condiciones meteorológicas adversas
+60-CH,restringido,turismo local complejo fronterizo,2026-08-30 08:00:00,2026-08-30 17:00:00,9,56;57,Condición de ventana local
+60-CH,cerrado_meteo,cierre preventivo,2026-08-30 17:00:00,2026-08-31 10:00:00,17,56;58,Condiciones meteorológicas adversas
+60-CH,restringido,carga bidireccional,2026-08-31 10:00:00,2026-08-31 20:00:00,10,58,Sistema frontal leve en alta montaña
+60-CH,cerrado_horario,cerrado por horario,2026-08-31 20:00:00,2026-09-01 00:00:00,4,,
+G-21,abierto,nocturno bidireccional,2026-07-01 00:00:00,2026-07-01 08:00:00,8,G21-009,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-01 08:00:00,2026-07-01 13:00:00,5,G21-006,Favorable
+G-21,cierre_tecnico,cierre técnico,2026-07-01 13:00:00,2026-07-01 15:00:00,2,G21-007,Favorable
+G-21,abierto,unidireccional bajada,2026-07-01 15:00:00,2026-07-01 20:00:00,5,G21-008,Favorable
+G-21,abierto,nocturno bidireccional,2026-07-01 20:00:00,2026-07-02 08:00:00,12,G21-009,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-02 08:00:00,2026-07-02 13:00:00,5,G21-006,Favorable
+G-21,cierre_tecnico,cierre técnico,2026-07-02 13:00:00,2026-07-02 15:00:00,2,G21-007,Favorable
+G-21,abierto,unidireccional bajada,2026-07-02 15:00:00,2026-07-02 20:00:00,5,G21-008,Favorable
+G-21,abierto,nocturno bidireccional,2026-07-02 20:00:00,2026-07-03 08:00:00,12,G21-009,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-03 08:00:00,2026-07-03 13:00:00,5,G21-006,Favorable
+G-21,cierre_tecnico,cierre técnico,2026-07-03 13:00:00,2026-07-03 15:00:00,2,G21-007,Favorable
+G-21,abierto,unidireccional bajada,2026-07-03 15:00:00,2026-07-03 20:00:00,5,G21-008,Favorable
+G-21,abierto,nocturno bidireccional,2026-07-03 20:00:00,2026-07-04 08:00:00,12,G21-009,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-04 08:00:00,2026-07-04 13:00:00,5,G21-006,Favorable
+G-21,cierre_tecnico,cierre técnico,2026-07-04 13:00:00,2026-07-04 15:00:00,2,G21-007,Favorable
+G-21,abierto,unidireccional bajada,2026-07-04 15:00:00,2026-07-04 20:00:00,5,G21-008,Favorable
+G-21,abierto,nocturno bidireccional,2026-07-04 20:00:00,2026-07-05 08:00:00,12,G21-009,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-05 08:00:00,2026-07-05 13:00:00,5,G21-006,Favorable
+G-21,cierre_tecnico,cierre técnico,2026-07-05 13:00:00,2026-07-05 15:00:00,2,G21-007,Favorable
+G-21,abierto,unidireccional bajada,2026-07-05 15:00:00,2026-07-05 20:00:00,5,G21-008,Favorable
+G-21,abierto,nocturno bidireccional,2026-07-05 20:00:00,2026-07-06 08:00:00,12,G21-009,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-06 08:00:00,2026-07-06 13:00:00,5,G21-006,Favorable
+G-21,cierre_tecnico,cierre técnico,2026-07-06 13:00:00,2026-07-06 15:00:00,2,G21-007,Favorable
+G-21,abierto,unidireccional bajada,2026-07-06 15:00:00,2026-07-06 20:00:00,5,G21-008,Favorable
+G-21,abierto,nocturno bidireccional,2026-07-06 20:00:00,2026-07-07 00:00:00,4,G21-009,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,bidireccional,2026-07-07 00:00:00,2026-07-11 00:00:00,96,G21-010,Favorable
+G-21,abierto,nocturno bidireccional,2026-07-11 00:00:00,2026-07-11 08:00:00,8,G21-005,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-11 08:00:00,2026-07-11 13:00:00,5,G21-002,Favorable
+G-21,cierre_tecnico,cierre técnico,2026-07-11 13:00:00,2026-07-11 15:00:00,2,G21-003,Favorable
+G-21,abierto,unidireccional bajada,2026-07-11 15:00:00,2026-07-11 20:00:00,5,G21-004,Favorable
+G-21,abierto,nocturno bidireccional,2026-07-11 20:00:00,2026-07-12 08:00:00,12,G21-005,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-12 08:00:00,2026-07-12 13:00:00,5,G21-002,Favorable
+G-21,cierre_tecnico,cierre técnico,2026-07-12 13:00:00,2026-07-12 15:00:00,2,G21-003,Favorable
+G-21,abierto,unidireccional bajada,2026-07-12 15:00:00,2026-07-12 20:00:00,5,G21-004,Favorable
+G-21,abierto,nocturno bidireccional,2026-07-12 20:00:00,2026-07-13 00:00:00,4,G21-005,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,bidireccional,2026-07-13 00:00:00,2026-07-15 23:00:00,71,G21-010;G21-011,Favorable | Aproximación sistema frontal severo
+G-21,cerrado_meteo,cierre preventivo,2026-07-15 23:00:00,2026-07-17 18:00:00,43,G21-011;G21-012;G21-013;G21-015,Alarma de precipitaciones intensas y nevadas
+G-21,cerrado_meteo,corte por alud,2026-07-17 18:00:00,2026-07-19 11:00:00,41,G21-012;G21-014;G21-015;G21-016,Alud río Ñilhue
+G-21,restringido,evacuación bajada,2026-07-19 11:00:00,2026-07-19 14:00:00,3,G21-014;G21-015;G21-017;G21-019,Ventana temporal de tregua meteorológica
+G-21,restringido,subida residentes,2026-07-19 14:00:00,2026-07-19 17:00:00,3,G21-014;G21-015;G21-019,Ventana temporal de tregua meteorológica
+G-21,cerrado_meteo,corte por alud,2026-07-19 17:00:00,2026-07-20 10:00:00,17,G21-014;G21-015;G21-021,Alud río Ñilhue
+G-21,abierto,unidireccional subida,2026-07-20 10:00:00,2026-07-20 13:00:00,3,G21-022,Hielo en calzada y retiro final de nieve
+G-21,cierre_tecnico,cierre técnico,2026-07-20 13:00:00,2026-07-20 15:00:00,2,G21-023,Favorable con precaución por hielo
+G-21,abierto,unidireccional bajada,2026-07-20 15:00:00,2026-07-20 20:00:00,5,G21-024,Favorable con precaución por hielo
+G-21,abierto,nocturno bidireccional,2026-07-20 20:00:00,2026-07-21 00:00:00,4,G21-025,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,bidireccional,2026-07-21 00:00:00,2026-07-23 00:00:00,48,G21-026;G21-027,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-07-23 00:00:00,2026-07-23 08:00:00,8,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,restringido,saturación vial,2026-07-23 08:00:00,2026-07-23 13:00:00,5,G21-028,Alta afluencia turística y presencia de nieve
+G-21,cierre_tecnico,cierre técnico,2026-07-23 13:00:00,2026-07-23 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-07-23 15:00:00,2026-07-23 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-07-23 20:00:00,2026-07-24 08:00:00,12,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-24 08:00:00,2026-07-24 13:00:00,5,G21-029,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-07-24 13:00:00,2026-07-24 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-07-24 15:00:00,2026-07-24 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-07-24 20:00:00,2026-07-25 08:00:00,12,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-25 08:00:00,2026-07-25 13:00:00,5,G21-029,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-07-25 13:00:00,2026-07-25 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-07-25 15:00:00,2026-07-25 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-07-25 20:00:00,2026-07-26 08:00:00,12,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-26 08:00:00,2026-07-26 13:00:00,5,G21-029,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-07-26 13:00:00,2026-07-26 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-07-26 15:00:00,2026-07-26 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-07-26 20:00:00,2026-07-27 08:00:00,12,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-27 08:00:00,2026-07-27 13:00:00,5,G21-029,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-07-27 13:00:00,2026-07-27 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-07-27 15:00:00,2026-07-27 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-07-27 20:00:00,2026-07-28 08:00:00,12,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-28 08:00:00,2026-07-28 13:00:00,5,G21-029,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-07-28 13:00:00,2026-07-28 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-07-28 15:00:00,2026-07-28 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-07-28 20:00:00,2026-07-29 08:00:00,12,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-29 08:00:00,2026-07-29 13:00:00,5,G21-029,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-07-29 13:00:00,2026-07-29 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-07-29 15:00:00,2026-07-29 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-07-29 20:00:00,2026-07-30 08:00:00,12,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-30 08:00:00,2026-07-30 13:00:00,5,G21-029,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-07-30 13:00:00,2026-07-30 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-07-30 15:00:00,2026-07-30 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-07-30 20:00:00,2026-07-31 08:00:00,12,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-07-31 08:00:00,2026-07-31 13:00:00,5,G21-029,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-07-31 13:00:00,2026-07-31 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-07-31 15:00:00,2026-07-31 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-07-31 20:00:00,2026-08-01 08:00:00,12,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-01 08:00:00,2026-08-01 13:00:00,5,G21-029,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-01 13:00:00,2026-08-01 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-01 15:00:00,2026-08-01 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-01 20:00:00,2026-08-02 08:00:00,12,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-02 08:00:00,2026-08-02 13:00:00,5,G21-029,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-02 13:00:00,2026-08-02 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-02 15:00:00,2026-08-02 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-02 20:00:00,2026-08-03 08:00:00,12,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-03 08:00:00,2026-08-03 13:00:00,5,G21-029,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-03 13:00:00,2026-08-03 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-03 15:00:00,2026-08-03 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-03 20:00:00,2026-08-04 08:00:00,12,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-04 08:00:00,2026-08-04 13:00:00,5,G21-029,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-04 13:00:00,2026-08-04 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-04 15:00:00,2026-08-04 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-04 20:00:00,2026-08-05 08:00:00,12,G21-032,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-05 08:00:00,2026-08-05 13:00:00,5,G21-029,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-05 13:00:00,2026-08-05 15:00:00,2,G21-030,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-05 15:00:00,2026-08-05 20:00:00,5,G21-031,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-05 20:00:00,2026-08-06 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-06 08:00:00,2026-08-06 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-06 13:00:00,2026-08-06 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-06 15:00:00,2026-08-06 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-06 20:00:00,2026-08-07 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-07 08:00:00,2026-08-07 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-07 13:00:00,2026-08-07 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-07 15:00:00,2026-08-07 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-07 20:00:00,2026-08-08 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-08 08:00:00,2026-08-08 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-08 13:00:00,2026-08-08 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-08 15:00:00,2026-08-08 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-08 20:00:00,2026-08-09 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-09 08:00:00,2026-08-09 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-09 13:00:00,2026-08-09 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-09 15:00:00,2026-08-09 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-09 20:00:00,2026-08-10 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-10 08:00:00,2026-08-10 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-10 13:00:00,2026-08-10 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-10 15:00:00,2026-08-10 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-10 20:00:00,2026-08-11 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-11 08:00:00,2026-08-11 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-11 13:00:00,2026-08-11 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-11 15:00:00,2026-08-11 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-11 20:00:00,2026-08-12 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-12 08:00:00,2026-08-12 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-12 13:00:00,2026-08-12 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-12 15:00:00,2026-08-12 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-12 20:00:00,2026-08-13 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-13 08:00:00,2026-08-13 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-13 13:00:00,2026-08-13 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-13 15:00:00,2026-08-13 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-13 20:00:00,2026-08-14 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-14 08:00:00,2026-08-14 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-14 13:00:00,2026-08-14 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-14 15:00:00,2026-08-14 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-14 20:00:00,2026-08-15 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-15 08:00:00,2026-08-15 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-15 13:00:00,2026-08-15 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-15 15:00:00,2026-08-15 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-15 20:00:00,2026-08-16 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-16 08:00:00,2026-08-16 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-16 13:00:00,2026-08-16 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-16 15:00:00,2026-08-16 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-16 20:00:00,2026-08-17 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-17 08:00:00,2026-08-17 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-17 13:00:00,2026-08-17 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-17 15:00:00,2026-08-17 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-17 20:00:00,2026-08-18 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-18 08:00:00,2026-08-18 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-18 13:00:00,2026-08-18 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-18 15:00:00,2026-08-18 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-18 20:00:00,2026-08-19 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-19 08:00:00,2026-08-19 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-19 13:00:00,2026-08-19 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-19 15:00:00,2026-08-19 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-19 20:00:00,2026-08-20 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-20 08:00:00,2026-08-20 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-20 13:00:00,2026-08-20 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-20 15:00:00,2026-08-20 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-20 20:00:00,2026-08-21 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-21 08:00:00,2026-08-21 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-21 13:00:00,2026-08-21 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-21 15:00:00,2026-08-21 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-21 20:00:00,2026-08-22 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-22 08:00:00,2026-08-22 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-22 13:00:00,2026-08-22 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-22 15:00:00,2026-08-22 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-22 20:00:00,2026-08-23 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-23 08:00:00,2026-08-23 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-23 13:00:00,2026-08-23 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-23 15:00:00,2026-08-23 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-23 20:00:00,2026-08-24 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-24 08:00:00,2026-08-24 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-24 13:00:00,2026-08-24 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-24 15:00:00,2026-08-24 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-24 20:00:00,2026-08-25 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-25 08:00:00,2026-08-25 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-25 13:00:00,2026-08-25 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-25 15:00:00,2026-08-25 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-25 20:00:00,2026-08-26 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-26 08:00:00,2026-08-26 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-26 13:00:00,2026-08-26 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-26 15:00:00,2026-08-26 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-26 20:00:00,2026-08-27 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-27 08:00:00,2026-08-27 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-27 13:00:00,2026-08-27 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-27 15:00:00,2026-08-27 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-27 20:00:00,2026-08-28 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-28 08:00:00,2026-08-28 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-28 13:00:00,2026-08-28 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-28 15:00:00,2026-08-28 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-28 20:00:00,2026-08-29 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-29 08:00:00,2026-08-29 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-29 13:00:00,2026-08-29 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-29 15:00:00,2026-08-29 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-29 20:00:00,2026-08-30 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-30 08:00:00,2026-08-30 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-30 13:00:00,2026-08-30 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-30 15:00:00,2026-08-30 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-30 20:00:00,2026-08-31 08:00:00,12,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno
+G-21,abierto,unidireccional subida,2026-08-31 08:00:00,2026-08-31 13:00:00,5,G21-029;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,cierre_tecnico,cierre técnico,2026-08-31 13:00:00,2026-08-31 15:00:00,2,G21-030;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,unidireccional bajada,2026-08-31 15:00:00,2026-08-31 20:00:00,5,G21-031;G21-033,Acumulación de nieve y riesgo de remoción en masa
+G-21,abierto,nocturno bidireccional,2026-08-31 20:00:00,2026-09-01 00:00:00,4,G21-032;G21-033,Congelamiento de calzada y riesgo nocturno

@@ -1,0 +1,497 @@
+ruta,bloque_inicio_local,estado,horas_abierto,horas_restringido,horas_cierre_tecnico,horas_cerrado_meteo,horas_cerrado_horario,horas_con_dato,cerrado,transitable_todo_tipo,nivel,regimen,id_registro,fuente_estado,causa
+60-CH,2026-07-01 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-01 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-01 12:00:00,abierto,6,0,0,0,0,6,False,True,0,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-01 18:00:00,cerrado_horario,2,0,0,0,4,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-02 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-02 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-02 12:00:00,abierto,6,0,0,0,0,6,False,True,0,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-02 18:00:00,cerrado_horario,2,0,0,0,4,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-03 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-03 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-03 12:00:00,abierto,6,0,0,0,0,6,False,True,0,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-03 18:00:00,cerrado_horario,2,0,0,0,4,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-04 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-04 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-04 12:00:00,abierto,6,0,0,0,0,6,False,True,0,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-04 18:00:00,cerrado_horario,2,0,0,0,4,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-05 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-05 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-05 12:00:00,abierto,6,0,0,0,0,6,False,True,0,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-05 18:00:00,cerrado_horario,2,0,0,0,4,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-06 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-06 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-06 12:00:00,abierto,6,0,0,0,0,6,False,True,0,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-06 18:00:00,cerrado_horario,2,0,0,0,4,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-07 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-07 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-07 12:00:00,abierto,6,0,0,0,0,6,False,True,0,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-07 18:00:00,cerrado_horario,2,0,0,0,4,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-08 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-08 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-08 12:00:00,abierto,6,0,0,0,0,6,False,True,0,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-08 18:00:00,cerrado_horario,2,0,0,0,4,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-09 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-09 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-09 12:00:00,cerrado_meteo,5,0,0,1,0,6,True,False,2,cierre preventivo,1,matriz,Precipitaciones en alta cordillera
+60-CH,2026-07-09 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,1,matriz,Precipitaciones en alta cordillera
+60-CH,2026-07-10 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,2,matriz,Precipitaciones en alta cordillera
+60-CH,2026-07-10 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,2,matriz,Precipitaciones en alta cordillera
+60-CH,2026-07-10 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,2,matriz,Precipitaciones en alta cordillera
+60-CH,2026-07-10 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,2,matriz,Precipitaciones en alta cordillera
+60-CH,2026-07-11 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,2;3,matriz,Precipitaciones en alta cordillera
+60-CH,2026-07-11 06:00:00,cerrado_meteo,1,0,0,5,0,6,True,False,2,cierre preventivo,2;3;3,matriz,Precipitaciones en alta cordillera
+60-CH,2026-07-11 12:00:00,abierto,6,0,0,0,0,6,False,True,0,corredor internacional,3,matriz,Favorable
+60-CH,2026-07-11 18:00:00,cerrado_horario,2,0,0,0,4,6,False,False,9,cerrado por horario,3,imputado_sin_registro,
+60-CH,2026-07-12 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-12 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,4,matriz,Favorable
+60-CH,2026-07-12 12:00:00,abierto,6,0,0,0,0,6,False,True,0,corredor internacional,4,matriz,Favorable
+60-CH,2026-07-12 18:00:00,cerrado_horario,2,0,0,0,4,6,False,False,9,cerrado por horario,4,imputado_sin_registro,
+60-CH,2026-07-13 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-13 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-13 12:00:00,abierto,6,0,0,0,0,6,False,True,0,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-13 18:00:00,cerrado_horario,2,0,0,0,4,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-14 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-07-14 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,,imputado_sin_registro,
+60-CH,2026-07-14 12:00:00,cerrado_meteo,3,0,0,3,0,6,True,False,2,cierre preventivo,5,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-14 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,5,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-15 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,6,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-15 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,6,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-15 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,6,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-15 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,6,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-16 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,7,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-16 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,7,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-16 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,7,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-16 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,7,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-17 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,8,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-17 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,8,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-17 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,8,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-17 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,8,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-18 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,9,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-18 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,9,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-18 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,9,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-18 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,9,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-19 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,10,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-19 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,10,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-19 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,10,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-19 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,10,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-20 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,11,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-20 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,11,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-20 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,11,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-20 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,11,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-21 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,12,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-21 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,12,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-21 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,12,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-21 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,12,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-22 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,13,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-22 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,13,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-22 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,13,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-22 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,13,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-23 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,14,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-23 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,14,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-23 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,14,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-23 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,14,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-24 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,15,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-24 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,15,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-24 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,15,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-24 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,15,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-25 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,16,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-25 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,16,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-25 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,16,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-25 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,16,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-26 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,17,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-26 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,17,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-26 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,17,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-26 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,17,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-27 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,18,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-27 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,18,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-27 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,18,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-27 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,18,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-28 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,19,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-28 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,19,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-28 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,19,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-28 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,19,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-29 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,20,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-29 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,20,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-29 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,20,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-29 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,20,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-30 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,21,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-30 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,21,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-30 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,21,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-30 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,21,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-31 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,22,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-31 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,22,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-31 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,22,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-07-31 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,22,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-01 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,23,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-01 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,23,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-01 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,23,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-01 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,23,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-02 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,24,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-02 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,24,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-02 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,24,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-02 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,24,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-03 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,25,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-03 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,25,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-03 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,25,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-03 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,25,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-04 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,26,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-04 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,26,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-04 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,26,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-04 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,26,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-05 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,27,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-05 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,27,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-05 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,27,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-05 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,27,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-06 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,28,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-06 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,28,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-06 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,28,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-06 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,28,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-07 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,29,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-07 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,29,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-07 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,29,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-07 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,29,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-08 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,30,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-08 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,30,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-08 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,30,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-08 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,30,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-09 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,31,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-09 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,31,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-09 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,31,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-09 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,31,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-10 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,32,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-10 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,32,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-10 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,32,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-10 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,32,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-11 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,33,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-11 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,33,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-11 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,33,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-11 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,33,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-12 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,34,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-12 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,34,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-12 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,34,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-12 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,34,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-13 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,35,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-13 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,35,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-13 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,35,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-13 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,35,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-14 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,36,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-14 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,36,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-14 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,36,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-14 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,36,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-15 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,37,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-15 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,37,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-15 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,37,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-15 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,37,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-16 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,38,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-16 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,38,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-16 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,38,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-16 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,38,matriz,Inestabilidades y nevadas de magnitud
+60-CH,2026-08-17 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,39,matriz,En evaluación y despeje
+60-CH,2026-08-17 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,39,matriz,En evaluación y despeje
+60-CH,2026-08-17 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,39,matriz,En evaluación y despeje
+60-CH,2026-08-17 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,39,matriz,En evaluación y despeje
+60-CH,2026-08-18 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,39;40,matriz,En evaluación y despeje
+60-CH,2026-08-18 06:00:00,cerrado_meteo,0,4,0,2,0,6,True,False,2,cierre preventivo,39;40;40,matriz,En evaluación y despeje
+60-CH,2026-08-18 12:00:00,restringido,0,6,0,0,0,6,False,False,1,carga Arg→Chile,40,matriz,Favorable
+60-CH,2026-08-18 18:00:00,cerrado_horario,0,2,0,0,4,6,False,False,9,cerrado por horario,40,imputado_sin_registro,
+60-CH,2026-08-19 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-08-19 06:00:00,restringido,0,4,0,0,2,6,False,False,9,carga Arg→Chile,41,matriz,Favorable
+60-CH,2026-08-19 12:00:00,restringido,0,6,0,0,0,6,False,False,1,carga Arg→Chile,41,matriz,Favorable
+60-CH,2026-08-19 18:00:00,cerrado_horario,0,2,0,0,4,6,False,False,9,cerrado por horario,41,imputado_sin_registro,
+60-CH,2026-08-20 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-08-20 06:00:00,restringido,0,4,0,0,2,6,False,False,9,carga Chile→Arg,42,matriz,Favorable
+60-CH,2026-08-20 12:00:00,restringido,0,6,0,0,0,6,False,False,1,carga Chile→Arg,42,matriz,Favorable
+60-CH,2026-08-20 18:00:00,cerrado_horario,0,2,0,0,4,6,False,False,9,cerrado por horario,42,imputado_sin_registro,
+60-CH,2026-08-21 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-08-21 06:00:00,restringido,0,4,0,0,2,6,False,False,9,carga Chile→Arg,43,matriz,Favorable
+60-CH,2026-08-21 12:00:00,restringido,0,6,0,0,0,6,False,False,1,carga Chile→Arg,43,matriz,Favorable
+60-CH,2026-08-21 18:00:00,cerrado_horario,0,2,0,0,4,6,False,False,9,cerrado por horario,43,imputado_sin_registro,
+60-CH,2026-08-22 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-08-22 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,44,matriz,Favorable
+60-CH,2026-08-22 12:00:00,abierto,6,0,0,0,0,6,False,True,0,corredor internacional,44;45;44,matriz,Favorable
+60-CH,2026-08-22 18:00:00,cerrado_horario,2,0,0,0,4,6,False,False,9,cerrado por horario,44,imputado_sin_registro,
+60-CH,2026-08-23 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-08-23 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,46,matriz,Favorable
+60-CH,2026-08-23 12:00:00,abierto,6,0,0,0,0,6,False,True,0,corredor internacional,46;47;46,matriz,Favorable
+60-CH,2026-08-23 18:00:00,cerrado_horario,2,0,0,0,4,6,False,False,9,cerrado por horario,46,imputado_sin_registro,
+60-CH,2026-08-24 00:00:00,cerrado_horario,0,0,0,0,6,6,False,False,9,cerrado por horario,,imputado_sin_registro,
+60-CH,2026-08-24 06:00:00,abierto,4,0,0,0,2,6,False,False,9,corredor internacional,,imputado_sin_registro,
+60-CH,2026-08-24 12:00:00,cerrado_meteo,1,4,0,1,0,6,True,False,2,cierre preventivo,48;49;48,matriz,Condiciones climáticas desfavorables e inestabilidades (nevadas)
+60-CH,2026-08-24 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,48,matriz,Condiciones climáticas desfavorables e inestabilidades (nevadas)
+60-CH,2026-08-25 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,50,matriz,Inestabilidades climáticas (nevadas)
+60-CH,2026-08-25 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,50,matriz,Inestabilidades climáticas (nevadas)
+60-CH,2026-08-25 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,50,matriz,Inestabilidades climáticas (nevadas)
+60-CH,2026-08-25 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,50,matriz,Inestabilidades climáticas (nevadas)
+60-CH,2026-08-26 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,51,matriz,Inestabilidades climáticas (nevadas)
+60-CH,2026-08-26 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,51,matriz,Inestabilidades climáticas (nevadas)
+60-CH,2026-08-26 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,51,matriz,Inestabilidades climáticas (nevadas)
+60-CH,2026-08-26 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,51,matriz,Inestabilidades climáticas (nevadas)
+60-CH,2026-08-27 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,52,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-27 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,52,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-27 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,52,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-27 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,52,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-28 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,53,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-28 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,53,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-28 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,53,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-28 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,53,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-29 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,54,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-29 06:00:00,cerrado_meteo,0,3,0,3,0,6,True,False,2,cierre preventivo,54;54;55,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-29 12:00:00,cerrado_meteo,0,5,0,1,0,6,True,False,2,cierre preventivo,54;55;54,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-29 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,54,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-30 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,56,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-30 06:00:00,cerrado_meteo,0,4,0,2,0,6,True,False,2,cierre preventivo,56;56;57,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-30 12:00:00,cerrado_meteo,0,5,0,1,0,6,True,False,2,cierre preventivo,56;57;56,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-30 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,56,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-31 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,56;58,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-31 06:00:00,cerrado_meteo,0,2,0,4,0,6,True,False,2,cierre preventivo,56;58;58,matriz,Condiciones meteorológicas adversas
+60-CH,2026-08-31 12:00:00,restringido,0,6,0,0,0,6,False,False,1,carga bidireccional,58,matriz,Sistema frontal leve en alta montaña
+60-CH,2026-08-31 18:00:00,cerrado_horario,0,2,0,0,4,6,False,False,9,cerrado por horario,58,imputado_sin_registro,
+G-21,2026-07-01 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-009,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-01 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-009;G21-006,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-01 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-006;G21-007;G21-008,regimen_estructural,Favorable
+G-21,2026-07-01 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-008;G21-009,regimen_estructural,Favorable
+G-21,2026-07-02 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-009,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-02 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-009;G21-006,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-02 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-006;G21-007;G21-008,regimen_estructural,Favorable
+G-21,2026-07-02 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-008;G21-009,regimen_estructural,Favorable
+G-21,2026-07-03 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-009,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-03 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-009;G21-006,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-03 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-006;G21-007;G21-008,regimen_estructural,Favorable
+G-21,2026-07-03 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-008;G21-009,regimen_estructural,Favorable
+G-21,2026-07-04 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-009,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-04 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-009;G21-006,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-04 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-006;G21-007;G21-008,regimen_estructural,Favorable
+G-21,2026-07-04 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-008;G21-009,regimen_estructural,Favorable
+G-21,2026-07-05 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-009,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-05 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-009;G21-006,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-05 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-006;G21-007;G21-008,regimen_estructural,Favorable
+G-21,2026-07-05 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-008;G21-009,regimen_estructural,Favorable
+G-21,2026-07-06 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-009,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-06 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-009;G21-006,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-06 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-006;G21-007;G21-008,regimen_estructural,Favorable
+G-21,2026-07-06 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-008;G21-009,regimen_estructural,Favorable
+G-21,2026-07-07 00:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-07 06:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-07 12:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-07 18:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-08 00:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-08 06:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-08 12:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-08 18:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-09 00:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-09 06:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-09 12:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-09 18:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-10 00:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-10 06:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-10 12:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-10 18:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-11 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-005,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-11 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-005;G21-002,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-11 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-002;G21-003;G21-004,regimen_estructural,Favorable
+G-21,2026-07-11 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-004;G21-005,regimen_estructural,Favorable
+G-21,2026-07-12 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-005,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-12 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-005;G21-002,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-12 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-002;G21-003;G21-004,regimen_estructural,Favorable
+G-21,2026-07-12 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-004;G21-005,regimen_estructural,Favorable
+G-21,2026-07-13 00:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-13 06:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-13 12:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-13 18:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-14 00:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-14 06:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-14 12:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-14 18:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-15 00:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-15 06:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010,regimen_estructural,Favorable
+G-21,2026-07-15 12:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-010;G21-011,regimen_estructural,Favorable
+G-21,2026-07-15 18:00:00,cerrado_meteo,5,0,0,1,0,6,True,False,2,cierre preventivo,G21-011;G21-011;G21-012,matriz,Alarma de precipitaciones intensas y nevadas
+G-21,2026-07-16 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,G21-012;G21-013,matriz,Alarma de precipitaciones intensas y nevadas
+G-21,2026-07-16 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,G21-012;G21-013,matriz,Alarma de precipitaciones intensas y nevadas
+G-21,2026-07-16 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,G21-012;G21-013,matriz,Alarma de precipitaciones intensas y nevadas
+G-21,2026-07-16 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,G21-012;G21-013,matriz,Alarma de precipitaciones intensas y nevadas
+G-21,2026-07-17 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,G21-012,matriz,Alarma de precipitaciones intensas y nevadas
+G-21,2026-07-17 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,G21-012;G21-015,matriz,Alarma de precipitaciones intensas y nevadas
+G-21,2026-07-17 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,cierre preventivo,G21-012;G21-015,matriz,Alarma de precipitaciones intensas y nevadas
+G-21,2026-07-17 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,corte por alud,G21-012;G21-014;G21-015,matriz,Alud río Ñilhue
+G-21,2026-07-18 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,corte por alud,G21-012;G21-014;G21-015;G21-016,matriz,Alud río Ñilhue
+G-21,2026-07-18 06:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,corte por alud,G21-014;G21-015;G21-016,matriz,Alud río Ñilhue
+G-21,2026-07-18 12:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,corte por alud,G21-014;G21-015;G21-016,matriz,Alud río Ñilhue
+G-21,2026-07-18 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,corte por alud,G21-014;G21-015;G21-016,matriz,Alud río Ñilhue
+G-21,2026-07-19 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,corte por alud,G21-014;G21-015,matriz,Alud río Ñilhue
+G-21,2026-07-19 06:00:00,cerrado_meteo,0,1,0,5,0,6,True,False,2,corte por alud,G21-014;G21-015;G21-014;G21-015;G21-017,matriz,Alud río Ñilhue
+G-21,2026-07-19 12:00:00,cerrado_meteo,0,5,0,1,0,6,True,False,2,corte por alud,G21-014;G21-015;G21-017;G21-014;G21-015;G21-017;G21-019;G21-014;G21-015;G21-019;G21-014;G21-015;G21-021,matriz,Alud río Ñilhue
+G-21,2026-07-19 18:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,corte por alud,G21-014;G21-015;G21-021,matriz,Alud río Ñilhue
+G-21,2026-07-20 00:00:00,cerrado_meteo,0,0,0,6,0,6,True,False,2,corte por alud,G21-014;G21-015;G21-021,matriz,Alud río Ñilhue
+G-21,2026-07-20 06:00:00,cerrado_meteo,2,0,0,4,0,6,True,False,2,corte por alud,G21-014;G21-015;G21-021;G21-022,matriz,Alud río Ñilhue
+G-21,2026-07-20 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-022;G21-023;G21-024,matriz,Hielo en calzada y retiro final de nieve
+G-21,2026-07-20 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-024;G21-025,matriz,Favorable con precaución por hielo
+G-21,2026-07-21 00:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-026,matriz,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-21 06:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-026,matriz,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-21 12:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-026,matriz,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-21 18:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-026,matriz,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-22 00:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-026,matriz,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-22 06:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-026,matriz,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-22 12:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-026,matriz,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-22 18:00:00,abierto,6,0,0,0,0,6,False,True,0,bidireccional,G21-026;G21-026;G21-027,matriz,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-23 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-23 06:00:00,restringido,2,4,0,0,0,6,False,False,1,saturación vial,G21-032;G21-028,matriz,Alta afluencia turística y presencia de nieve
+G-21,2026-07-23 12:00:00,abierto,3,1,2,0,0,6,False,False,1,unidireccional bajada,G21-028;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-23 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-24 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-24 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-029,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-24 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-24 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-25 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-25 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-029,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-25 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-25 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-26 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-26 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-029,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-26 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-26 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-27 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-27 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-029,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-27 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-27 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-28 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-28 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-029,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-28 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-28 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-29 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-29 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-029,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-29 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-29 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-30 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-30 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-029,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-30 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-30 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-31 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-31 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-029,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-07-31 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-07-31 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-01 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-01 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-029,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-01 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-01 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-02 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-02 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-029,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-02 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-02 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-03 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-03 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-029,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-03 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-03 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-04 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-04 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-029,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-04 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-04 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-05 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-05 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-029,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-05 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-030;G21-031,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-05 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-032,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-06 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-06 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-06 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-06 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-07 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-07 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-07 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-07 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-08 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-08 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-08 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-08 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-09 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-09 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-09 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-09 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-10 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-10 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-10 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-10 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-11 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-11 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-11 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-11 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-12 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-12 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-12 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-12 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-13 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-13 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-13 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-13 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-14 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-14 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-14 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-14 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-15 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-15 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-15 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-15 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-16 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-16 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-16 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-16 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-17 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-17 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-17 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-17 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-18 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-18 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-18 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-18 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-19 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-19 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-19 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-19 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-20 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-20 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-20 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-20 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-21 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-21 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-21 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-21 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-22 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-22 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-22 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-22 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-23 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-23 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-23 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-23 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-24 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-24 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-24 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-24 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-25 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-25 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-25 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-25 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-26 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-26 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-26 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-26 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-27 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-27 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-27 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-27 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-28 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-28 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-28 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-28 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-29 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-29 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-29 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-29 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-30 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-30 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-30 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-30 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-31 00:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-31 06:00:00,abierto,6,0,0,0,0,6,False,True,0,nocturno bidireccional,G21-032;G21-033;G21-029;G21-033,regimen_estructural,Congelamiento de calzada y riesgo nocturno
+G-21,2026-08-31 12:00:00,abierto,4,0,2,0,0,6,False,False,1,unidireccional subida,G21-029;G21-033;G21-030;G21-033;G21-031;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa
+G-21,2026-08-31 18:00:00,abierto,6,0,0,0,0,6,False,True,0,unidireccional bajada,G21-031;G21-033;G21-032;G21-033,regimen_estructural,Acumulación de nieve y riesgo de remoción en masa

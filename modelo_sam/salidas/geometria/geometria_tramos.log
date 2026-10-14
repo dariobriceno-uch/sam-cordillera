@@ -1,0 +1,61 @@
+Spherical geometry (s2) switched off
+60-CH: 11 features, 114.9 km
+   ruta tramo longitud_km
+1 60-CH  alto       28.88
+2 60-CH medio       23.72
+3  G-21  alto       20.77
+4  G-21 medio       29.63
+class       : SpatRaster 
+size        : 7200, 7200, 1  (nrow, ncol, nlyr)
+resolution  : 0.0002777778, 0.0002777778  (x, y)
+extent      : -71.00014, -69.00014, -33.99986, -31.99986  (xmin, xmax, ymin, ymax)
+coord. ref. : lon/lat WGS 84 (EPSG:4326) 
+source      : dem_muestra.vrt 
+name        : dem_muestra 
+60-CHalto: 3 celdas
+60-CHmedio: 2 celdas
+G-21alto: 3 celdas
+G-21medio: 5 celdas
+  ruta tramo   lat   lon longitud_m cota_camino_media cota_camino_min
+ 60-CH  alto -32.9 -70.2      11063              1951            1644
+ 60-CH  alto -32.9 -70.1       5608              2407            2219
+ 60-CH  alto -32.8 -70.1      12212              2877            2592
+ 60-CH medio -32.9 -70.4      13551              1170            1021
+ 60-CH medio -32.9 -70.3      10168              1447            1296
+  G-21  alto -33.4 -70.3      13924              2575            2330
+  G-21  alto -33.3 -70.3       6071              2657            2486
+  G-21  alto -33.4 -70.2        774              3008            2976
+  G-21 medio -33.4 -70.5       3397               961             917
+  G-21 medio -33.4 -70.4       9848              1139             964
+  G-21 medio -33.3 -70.4       4840              1450            1294
+  G-21 medio -33.4 -70.3       6087              2209            1951
+  G-21 medio -33.3 -70.3       5460              1776            1609
+ cota_camino_max   peso
+            2219 0.3830
+            2592 0.1942
+            3700 0.4228
+            1323 0.5713
+            1645 0.4287
+            2979 0.6704
+            2772 0.2923
+            3027 0.0373
+             999 0.1146
+            1297 0.3324
+            1617 0.1633
+            2463 0.2054
+            1957 0.1843
+  ruta tramo
+ 60-CH  alto
+ 60-CH medio
+  G-21  alto
+  G-21 medio
+                                                           definicion
+                       camino dentro del recorte ERA5-Land Tramo Alto
+ camino dentro del recorte Tramo Medio y fuera del recorte Tramo Alto
+                       catastro: G-21-2, G-21-3, G-21-4, G-249, G-251
+                                                  catastro: G-21-1-13
+ longitud_km n_celdas cota_min cota_media cota_max
+       28.88        3     1644       2431     3700
+       23.72        2     1021       1289     1645
+       20.77        3     2330       2615     3027
+       29.63        5      917       1507     2463

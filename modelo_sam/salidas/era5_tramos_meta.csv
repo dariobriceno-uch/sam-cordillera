@@ -1,0 +1,5 @@
+ruta,tramo,definicion,longitud_km,n_celdas,celdas,cota_camino_min,cota_camino_media,cota_camino_max,cota_celdas_ponderada,pesos,isoterma_celdas_era5,isoterma_horas_censuradas
+60-CH,alto,camino dentro del recorte ERA5-Land Tramo Alto,28.88,3,"(-32.9,-70.2) (-32.9,-70.1) (-32.8,-70.1)",1644,2431,3700,3323,0.38 0.19 0.42,"(-33.25,-70.50) z=1744 m (-33.00,-70.50) z=2065 m (-32.75,-70.50) z=1746 m",0
+60-CH,medio,camino dentro del recorte Tramo Medio y fuera del recorte Tramo Alto,23.72,2,"(-32.9,-70.4) (-32.9,-70.3)",1021,1289,1645,2022,0.57 0.43,"(-33.25,-70.50) z=1744 m (-33.00,-70.50) z=2065 m (-32.75,-70.50) z=1746 m",0
+G-21,alto,"catastro: G-21-2, G-21-3, G-21-4, G-249, G-251",20.77,3,"(-33.4,-70.3) (-33.3,-70.3) (-33.4,-70.2)",2330,2615,3027,2513,0.67 0.29 0.04,"(-33.75,-70.75) z=473 m (-33.50,-70.75) z=507 m (-33.25,-70.75) z=577 m",0
+G-21,medio,catastro: G-21-1-13,29.63,5,"(-33.4,-70.5) (-33.4,-70.4) (-33.3,-70.4) (-33.4,-70.3) (-33.3,-70.3)",917,1507,2463,2032,0.11 0.33 0.16 0.21 0.18,"(-33.75,-70.75) z=473 m (-33.50,-70.75) z=507 m (-33.25,-70.75) z=577 m",0

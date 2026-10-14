@@ -1,0 +1,59 @@
+% Figura 4 de la postulación: espacio de decisión y estados operacionales.
+\documentclass[border=4pt]{standalone}
+\input{fig_comun.tex}
+\begin{document}
+\begin{tikzpicture}[font=\footnotesize]
+% a) Espacio de decisión
+\node[tit] at (0,0) {a) Espacio de decisión};
+\begin{scope}[shift={(0.8,-4.75)}, x=0.86cm, y=0.62cm]
+  % regiones: el estado es el E más alto entre severidad y peligro (filas H = 0..5)
+  \fill[cE0] (0,0) rectangle (5,6);
+  \fill[cE1] (1,0) rectangle (5,6);  \fill[cE1] (0,3) rectangle (5,6);
+  \fill[cE2] (2.5,0) rectangle (5,6); \fill[cE2] (0,4) rectangle (5,6);
+  \fill[cE4] (3.5,0) rectangle (5,6);
+  \fill[cE5] (0,5) rectangle (5,6);
+  \draw[white, line width=0.4pt] (0,0) grid[xstep=10, ystep=1] (5,6);
+  \draw[txt2] (0,0) rectangle (5,6);
+  \foreach \x/\l in {0/0, 1/\SVrest, 2.5/\SVparc, 3.5/\SVcierre, 5/5} \draw[txt2] (\x,0) -- (\x,-0.12) node[below, font=\scriptsize, inner sep=1pt] {\l};
+  \foreach \y in {0,...,5} \node[left, font=\scriptsize, inner sep=2pt] at (0,\y+0.5) {\y};
+  \node[font=\scriptsize, color=txt2] at (2.5,-0.85) {severidad $SV$};
+  \node[font=\scriptsize, color=txt2, rotate=90] at (-0.55,3) {peligro $H$};
+  \node[font=\scriptsize] at (0.5,1.5) {$E_0$};
+  \node[font=\scriptsize, text=white, align=center] at (1.75,1.5) {$E_1$\\restricción};
+  \node[font=\scriptsize] at (3.0,1.5) {$E_2$};
+  \node[font=\scriptsize, text=white] at (1.25,3.5) {$E_1$ restricción};
+  \node[font=\scriptsize] at (1.25,4.5) {$E_2$ cierre parcial};
+  \node[font=\scriptsize, text=white] at (2.5,5.5) {$E_5$ cerrado por peligro};
+  \node[font=\scriptsize, text=white, rotate=90, align=center] at (4.25,2.5) {$E_4$ cerrado por tormenta};
+  % tercer eje: nieve por despejar
+  \begin{scope}[shift={(5.75,0)}]
+    \fill[cE0] (0,0) rectangle (0.55,0.8);
+    \fill[cE1] (0,0.8) rectangle (0.55,2.6);
+    \fill[cE2] (0,2.6) rectangle (0.55,4.2);
+    \fill[cE3] (0,4.2) rectangle (0.55,6);
+    \draw[txt2] (0,0) rectangle (0.55,6);
+    \foreach \y/\l in {0/0, 0.8/\Nrest, 2.6/\Nparc, 4.2/\Ncierre} \draw[txt2] (0.55,\y) -- (0.67,\y) node[right, font=\scriptsize, inner sep=1pt] {\l};
+    \node[font=\scriptsize, text=white, rotate=90] at (0.275,5.1) {$E_3$};
+    \node[font=\scriptsize, color=txt2, rotate=90] at (1.45,3) {nieve por despejar $N$ (cm)};
+  \end{scope}
+\end{scope}
+\node[anchor=north west, font=\scriptsize, text width=7.2cm, align=left] at (0,-5.9)
+  {\textbf{Regla:} cada índice tiene tres niveles, y el estado es el $E$ más alto que alcanza cualquiera de ellos. Se reabre cuando el peligro baja de \Hcierre\ y la nieve por despejar baja de \Ncierre\ cm.};
+
+% b) Estados operacionales
+\node[tit] at (7.9,0) {b) Estados operacionales, de menor a mayor magnitud};
+\node[anchor=north west, inner sep=0pt] at (7.9,-0.45) {\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.3}%
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.95cm}L{3.55cm}L{2.45cm}}
+\toprule
+Estado & Qué implica & Se activa con \\
+\midrule
+\cellcolor{cE0}$E_0$ abierto & operación normal & $SV < \SVrest$, $H < \Hrest$ y $N \le \Nrest$ cm \\
+\cellcolor{cE1}\textcolor{white}{$E_1$ abierto con restricción} & tránsito en ambos sentidos, con cadenas obligatorias (alerta preventiva del protocolo) & $SV \ge \SVrest$, $H \ge \Hrest$ o $N > \Nrest$ cm \\
+\cellcolor{cE2}$E_2$ cierre parcial & solo bajada; cierre por tramos; suben emergencias y abastecimiento (alerta operativa) & $SV \ge \SVparc$, $H \ge \Hparc$ o $N > \Nparc$ cm \\
+\cellcolor{cE3}\textcolor{white}{$E_3$ cerrado por despeje} & ya no nieva; trabajan las máquinas & $N > \Ncierre$ cm tras un cierre \\
+\cellcolor{cE4}\textcolor{white}{$E_4$ cerrado por tormenta} & cerrado mientras dura la tormenta (alerta crítica) & $SV \ge \SVcierre$ \\
+\cellcolor{cE5}\textcolor{white}{$E_5$ cerrado por peligro} & avalancha o remoción en masa; las cuadrillas no entran & $H = \Hcierre$ \\
+\bottomrule
+\end{tabular}};
+\end{tikzpicture}
+\end{document}

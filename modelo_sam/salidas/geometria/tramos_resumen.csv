@@ -1,0 +1,5 @@
+"ruta","tramo","definicion","longitud_km","n_celdas","cota_min","cota_media","cota_max","celdas"
+"60-CH","alto","camino dentro del recorte ERA5-Land Tramo Alto",28.88,3,1644,2431,3700,"(-32.9,-70.2) (-32.9,-70.1) (-32.8,-70.1)"
+"60-CH","medio","camino dentro del recorte Tramo Medio y fuera del recorte Tramo Alto",23.72,2,1021,1289,1645,"(-32.9,-70.4) (-32.9,-70.3)"
+"G-21","alto","catastro: G-21-2, G-21-3, G-21-4, G-249, G-251",20.77,3,2330,2615,3027,"(-33.4,-70.3) (-33.3,-70.3) (-33.4,-70.2)"
+"G-21","medio","catastro: G-21-1-13",29.63,5,917,1507,2463,"(-33.4,-70.5) (-33.4,-70.4) (-33.3,-70.4) (-33.4,-70.3) (-33.3,-70.3)"

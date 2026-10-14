@@ -1,0 +1,173 @@
+% Figura 1 de la postulación: el modelo de riesgo y operatividad de SAM-Cordillera, en cinco paneles.
+% Los cortes y umbrales vienen de umbrales_calibrados.tex (lo escribe figuras_postulacion.py).
+\documentclass[border=4pt]{standalone}
+\usepackage{fontspec}
+\setmainfont{Cambria}
+\usepackage[table]{xcolor}
+\usepackage{array,booktabs}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds,decorations.pathreplacing}
+\definecolor{fondo}{HTML}{F2F1EC}
+\definecolor{txt2}{HTML}{52514E}
+\definecolor{cE0}{HTML}{D9D8D2}\definecolor{cE1}{HTML}{1BAF7A}\definecolor{cE2}{HTML}{EDA100}
+\definecolor{cE3}{HTML}{E34948}\definecolor{cE4}{HTML}{2A78D6}\definecolor{cE5}{HTML}{4A3AA7}
+\definecolor{cSV}{HTML}{2A78D6}\definecolor{cH}{HTML}{EB6834}\definecolor{cN}{HTML}{52514E}
+\input{umbrales_calibrados.tex}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}{>{\centering\arraybackslash}p{0.62cm}}
+% encabezado de notas con degradado del color del índice
+\newcommand{\notas}[1]{\cellcolor{#1!12}1 & \cellcolor{#1!28}2 & \cellcolor{#1!45}3 & \cellcolor{#1!65}\textcolor{white}{4} & \cellcolor{#1!85}\textcolor{white}{5}}
+\begin{document}
+\begin{tikzpicture}[
+  font=\footnotesize,
+  tit/.style={anchor=north west, font=\small\bfseries, inner sep=0pt},
+  caja/.style={draw=#1, line width=0.9pt, rounded corners=3pt, align=center, minimum width=4.2cm, minimum height=1.05cm, fill=white},
+  dato/.style={draw=txt2, dashed, rounded corners=3pt, align=center, minimum width=4.5cm, minimum height=0.85cm},
+  est/.style={rounded corners=2pt, align=center, minimum width=1.98cm, minimum height=0.8cm, font=\scriptsize, text=white, inner sep=1pt},
+  niv/.style={rounded corners=2pt, align=center, minimum width=2.45cm, minimum height=0.62cm, font=\scriptsize, inner sep=1pt},
+  llave/.style={decorate, decoration={brace, amplitude=3pt}, draw=txt2},
+  flecha/.style={-{Stealth[length=2mm]}, thick, draw=txt2},
+  eti/.style={font=\scriptsize, color=txt2, align=center}]
+
+% =====================================================================================
+% a) Vista general
+% =====================================================================================
+\node[tit] at (0,0) {a) Vista general: de la meteorología del tramo al estado operacional};
+\node[dato] (dem) at (2.5,-1.05) {Trazado y modelo\\de elevación};
+\node[dato] (era) at (8.2,-1.05) {Meteorología por tramo, cada 6 h\\(observación, reanálisis o pronóstico)};
+\node[dato] (maq) at (13.9,-1.05) {Maquinaria disponible\\y largo del tramo};
+\node[caja=cSV] (sv) at (2.5,-3.3) {\textbf{Severidad} $SV$ (panel b)\\¿cuán dura es la tormenta?};
+\node[caja=cH] (h) at (8.2,-3.3) {\textbf{Peligro} $H$ (panel c)\\¿hay avalancha o remoción?};
+\node[caja=cN] (n) at (13.9,-3.3) {\textbf{Balance de despeje} $N$ (panel d)\\¿cuánta nieve queda por sacar?};
+\node[anchor=north east, font=\scriptsize, color=txt2, align=right] (samtit) at (16.0,-3.95) {\textbf{SAM-Cordillera: condición climática del tramo}, que agrega\\la severidad, los peligros de alta montaña y el despeje};
+\begin{scope}[on background layer]
+\node[draw=txt2, rounded corners=4pt, fill=fondo, fit=(sv)(h)(n)(samtit), inner xsep=6pt, inner ysep=4pt] (sam) {};
+\end{scope}
+\draw[flecha] (era) -- (h);
+\draw[flecha] (era.south west) ++(0.4,0) -- (sv.north east);
+\draw[flecha] (era.south east) ++(-0.4,0) -- (n.north west);
+\draw[flecha] (dem) -- node[eti, left, pos=0.4]{fracción bajo\\la línea de nieve} (sv);
+\draw[flecha] (maq) -- node[eti, right, pos=0.4]{capacidad\\de despeje} (n);
+\draw[flecha] (h) -- node[eti, below=1pt]{con $H = \Hcierre$\\no se despeja} (n);
+% estados
+\foreach \e/\txt/\col/\x in {0/abierto/black/1.05, 1/abierto con\\restricción/white/3.15, 2/cierre parcial\\(solo bajada)/black/5.25,
+                             3/cerrado por\\tormenta/white/7.35, 4/cerrado por\\despeje/white/9.45, 5/cerrado por\\peligro/white/11.55}
+  \node[est, fill=cE\e, text=\col] (e\e) at (\x,-6.35) {\textbf{$E_\e$} \txt};
+\node[font=\footnotesize\bfseries, anchor=south] (tite) at ($(e0.north)!0.5!(e5.north)+(0,0.08)$) {Estado operacional y hora estimada de reapertura (panel e)};
+\draw[llave] ($(e1.south east)+(0,-0.08)$) -- node[below=2pt, font=\scriptsize] {ruta abierta} ($(e0.south west)+(0,-0.08)$);
+\draw[llave] ($(e2.south east)+(0,-0.08)$) -- node[below=2pt, font=\scriptsize] {ruta restringida} ($(e2.south west)+(0,-0.08)$);
+\draw[llave] ($(e5.south east)+(0,-0.08)$) -- node[below=2pt, font=\scriptsize] {ruta cerrada} ($(e3.south west)+(0,-0.08)$);
+\draw[flecha] (sam.south -| tite) -- node[eti, right]{el peor de los tres índices} (tite.north);
+\node[dato, minimum width=3.4cm, minimum height=1.2cm, font=\scriptsize, anchor=west] (adm) at (12.95,-6.35) {Capa administrativa\\(registrada, no modelada):\\horario fronterizo, tránsito,\\condición sanitaria};
+\draw[flecha, dashed] (adm.west) -- (e5.east);
+
+% =====================================================================================
+% b) Severidad
+% =====================================================================================
+\node[tit] at (0,-7.65) {b) Severidad de la tormenta, $SV$ (0 a 5)};
+\node[anchor=north west, inner sep=0pt] (tb) at (0,-8.1) {\scriptsize\setlength{\tabcolsep}{2.5pt}\renewcommand{\arraystretch}{1.18}%
+\begin{tabular}{L{3.05cm}CCCCC>{\centering\arraybackslash}p{0.7cm}}
+\toprule
+Variable (en 12 h, salvo que se indique) & \notas{cSV} & peso \\
+\midrule
+Nieve sobre el camino (cm) & \cortesS & \pesoS \\
+Fracción bajo nieve & \cortesF & \pesoF \\
+Tasa de nevada (cm/h) & \cortesr & \pesor \\
+Horas con nieve, en 24 h & \cortesdur & \pesodur \\
+Ráfaga máxima (m/s) & \cortesG & \pesoG \\
+Lluvia sobre el manto (mm) & \cortesR & \pesoR \\
+\midrule
+\multicolumn{7}{l}{$SV$ = máx\{piso del protocolo de Lo Barnechea; $\sum$ peso $\times$ nota\}} \\
+\bottomrule
+\end{tabular}};
+\node[niv, fill=cE1, text=white] (b1) at (1.25,-12.55) {restricción\\$SV \ge \SVrest$};
+\node[niv, fill=cE2] (b2) at (3.85,-12.55) {cierre parcial\\$SV \ge \SVparc$};
+\node[niv, fill=cE3, text=white] (b3) at (6.45,-12.55) {cerrado por tormenta\\$SV \ge \SVcierre$};
+
+% =====================================================================================
+% c) Peligro
+% =====================================================================================
+\node[tit] at (8.55,-7.65) {c) Peligro de avalancha y remoción, $H$ (0 a 5)};
+\node[anchor=north west, inner sep=0pt] (tc) at (8.55,-8.1) {\scriptsize\setlength{\tabcolsep}{2.5pt}\renewcommand{\arraystretch}{1.18}%
+\begin{tabular}{L{3.95cm}CCCCC}
+\toprule
+Variable & \notas{cH} \\
+\midrule
+\multicolumn{6}{l}{\cellcolor{fondo}\textit{Avalancha} ($\times$ exposición del tramo: alto \expAlto, medio \expMedio)} \\
+Nieve nueva en 72 h (cm) & \cortesHNS \\
+\multicolumn{6}{l}{+1 si el viento la transporta} \\
+\multicolumn{6}{l}{+1 si la isoterma sube 500 m en 24 h o llueven 5 mm sobre el manto} \\
+\multicolumn{6}{l}{\textcolor{txt2}{(los dos +1 solo con \hnSobrecarga\ cm o más de nieve nueva)}} \\
+\multicolumn{6}{l}{\cellcolor{fondo}\textit{Remoción en masa} (con la isoterma sobre la cota media del tramo)} \\
+Lluvia en 72 h (mm) & \cortesRS \\
+\midrule
+\multicolumn{6}{l}{$H$ = máx\{avalancha; remoción en masa\}} \\
+\bottomrule
+\end{tabular}};
+\node[niv, fill=cE1, text=white] (c1) at (9.8,-12.55) {restricción\\$H \ge \Hrest$};
+\node[niv, fill=cE2] (c2) at (12.4,-12.55) {cierre parcial\\$H \ge \Hparc$};
+\node[niv, fill=cE5, text=white] (c3) at (15.0,-12.55) {cerrado por peligro\\$H = \Hcierre$};
+
+% =====================================================================================
+% d) Balance de despeje
+% =====================================================================================
+\node[tit] at (0,-13.45) {d) Balance de despeje, $N$ (cm de nieve en la calzada)};
+\node[anchor=north west, inner sep=0pt] (td) at (0,-13.95) {\footnotesize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.25}%
+\begin{tabular}{>{\centering\arraybackslash}p{0.35cm}L{6.9cm}}
+\toprule
+& nieve por despejar del bloque anterior \\
+$+$ & nieve caída sobre el camino en el bloque \\
+$+$ & nieve que trae el viento (arrastre) \\
+$-$ & capacidad de la maquinaria $\times$ 6 h (al menos \cdesp\ cm/h;\newline cero si $H = \Hcierre$, porque las cuadrillas no entran) \\
+\midrule
+$=$ & \textbf{$N$: nieve por despejar en este bloque} \\
+\bottomrule
+\end{tabular}};
+\node[anchor=north west, align=left, font=\scriptsize, text width=7.5cm] at ($(td.south west)+(0,-0.1)$)
+  {\textbf{Entrega cada 6 h:} horas para reabrir (espera por peligro + nieve sobre \Ncierre\ cm dividida por la capacidad) y equipos necesarios para reabrir en un plazo dado.};
+\node[niv, fill=cE1, text=white] (d1) at (1.25,-18.65) {restricción\\$N > \Nrest$ cm};
+\node[niv, fill=cE2] (d2) at (3.85,-18.65) {cierre parcial\\$N > \Nparc$ cm};
+\node[niv, fill=cE4, text=white] (d3) at (6.45,-18.65) {cerrado por despeje\\$N > \Ncierre$ cm tras un cierre};
+
+% =====================================================================================
+% e) Espacio de decisión
+% =====================================================================================
+\node[tit] at (8.55,-13.45) {e) Espacio de decisión: estado operacional};
+\begin{scope}[shift={(9.35,-18.35)}, x=0.86cm, y=0.62cm]
+  % regiones: el estado es el peor nivel entre SV y H (filas H = 0..5)
+  \fill[cE0] (0,0) rectangle (5,6);
+  \fill[cE1] (1,0) rectangle (5,6);  \fill[cE1] (0,3) rectangle (5,6);
+  \fill[cE2] (2.5,0) rectangle (5,6); \fill[cE2] (0,4) rectangle (5,6);
+  \fill[cE3] (3.5,0) rectangle (5,6);
+  \fill[cE5] (0,5) rectangle (3.5,6);
+  \draw[white, line width=0.4pt] (0,0) grid[xstep=10, ystep=1] (5,6);
+  \draw[txt2] (0,0) rectangle (5,6);
+  % ejes
+  \foreach \x/\l in {0/0, 1/\SVrest, 2.5/\SVparc, 3.5/\SVcierre, 5/5} \draw[txt2] (\x,0) -- (\x,-0.12) node[below, font=\scriptsize, inner sep=1pt] {\l};
+  \foreach \y in {0,...,5} \node[left, font=\scriptsize, inner sep=2pt] at (0,\y+0.5) {\y};
+  \node[font=\scriptsize, color=txt2] at (2.5,-0.85) {severidad $SV$};
+  \node[font=\scriptsize, color=txt2, rotate=90] at (-0.55,3) {peligro $H$};
+  % etiquetas de las regiones
+  \node[font=\scriptsize] at (0.5,1.5) {$E_0$};
+  \node[font=\scriptsize, text=white, align=center] at (1.75,1.5) {$E_1$\\restricción};
+  \node[font=\scriptsize] at (3.0,1.5) {$E_2$};
+  \node[font=\scriptsize, text=white] at (1.25,3.5) {$E_1$ restricción};
+  \node[font=\scriptsize] at (1.25,4.5) {$E_2$ cierre parcial};
+  \node[font=\scriptsize, text=white] at (1.75,5.5) {$E_5$ cerrado por peligro};
+  \node[font=\scriptsize, text=white, rotate=90, align=center] at (4.25,3) {$E_3$ cerrado por tormenta};
+  % tercer eje: nieve por despejar
+  \begin{scope}[shift={(5.75,0)}]
+    \fill[cE0] (0,0) rectangle (0.55,0.8);
+    \fill[cE1] (0,0.8) rectangle (0.55,2.6);
+    \fill[cE2] (0,2.6) rectangle (0.55,4.2);
+    \fill[cE4] (0,4.2) rectangle (0.55,6);
+    \draw[txt2] (0,0) rectangle (0.55,6);
+    \foreach \y/\l in {0/0, 0.8/\Nrest, 2.6/\Nparc, 4.2/\Ncierre} \draw[txt2] (0.55,\y) -- (0.67,\y) node[right, font=\scriptsize, inner sep=1pt] {\l};
+    \node[font=\scriptsize, text=white, rotate=90] at (0.275,5.1) {$E_4$};
+    \node[font=\scriptsize, color=txt2, rotate=90] at (1.45,3) {nieve por despejar $N$ (cm)};
+  \end{scope}
+\end{scope}
+\node[anchor=north west, font=\scriptsize, text width=7.75cm, align=left] at (8.55,-19.5)
+  {\textbf{Regla:} cada índice tiene tres niveles y el estado es el más alto que alcanza cualquiera de ellos. Si hay cierre, la causa se elige en el orden tormenta, peligro y despeje. Se reabre cuando el peligro baja de \Hcierre\ y la nieve por despejar baja de \Ncierre\ cm.};
+\end{tikzpicture}
+\end{document}

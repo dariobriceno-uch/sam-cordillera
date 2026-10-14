@@ -1,0 +1,14 @@
+supuesto,kappa_G21,CSI_G21,FAR_G21,kappa_60CH,pct_sin_respaldo_60CH,pct_por_peligro_60CH
+base (propuesta),0.52,0.433,0.458,0.264,57.605,36.506
+margen de nieve δ = 150 m,0.52,0.433,0.458,0.258,58.783,36.506
+margen de nieve δ = 500 m,0.52,0.433,0.458,0.278,55.839,36.506
+exposición tramos medios = 1,0.52,0.433,0.458,0.264,57.605,36.506
+"exposición tramos altos = 0,75",0.457,0.048,0.667,0.099,99.411,0.0
+"factor de ráfaga γ = 2,0",0.538,0.464,0.409,0.214,64.671,30.029
+"factor de ráfaga γ = 1,3",0.494,0.394,0.519,0.282,55.839,37.095
+sin nieve arrastrada (α = 0),0.52,0.433,0.458,0.251,61.138,36.506
+umbral de peligro H* = 5,0.52,0.433,0.458,0.264,57.605,36.506
+sobrecargas desde 20 cm,0.516,0.433,0.458,0.27,57.605,36.506
+sobrecargas desde 50 cm,0.549,0.464,0.409,0.196,61.138,32.974
+"pesos de Walker (nieve 0,80)",0.534,0.433,0.458,0.264,57.605,36.506
+un solo umbral por índice (v2),0.538,0.433,0.458,0.211,57.605,36.506

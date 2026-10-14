@@ -1,0 +1,190 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{Cambria}
+\setmonofont{Consolas}[Scale=0.9]
+\usepackage[spanish,es-noshorthands,es-tabla]{babel}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{enumitem}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\renewcommand{\arraystretch}{1.25}
+
+\definecolor{caja}{HTML}{F2F1EC}
+\newcommand{\enpalabras}[1]{%
+  \par\smallskip\noindent\colorbox{caja}{\parbox{\dimexpr\linewidth-2\fboxsep}{\small\textbf{En palabras.} #1}}\par\smallskip}
+
+\title{\textbf{Sistema de condición invernal para caminos de alta montaña}\\[4pt]
+\large Índice de severidad andino, peligro, balance de despeje y estados operacionales}
+\author{Catastro FONDEF -- Parte 2 (condición invernal de caminos de montaña)}
+\date{Versión 2 · 12 de octubre de 2026}
+
+\begin{document}
+\maketitle
+
+% ============================================================================
+\section*{Resumen en una página}
+
+\textbf{El punto de partida.} El protocolo de Lo Barnechea (3 de julio de 2026) funciona: ordena la decisión en tres alertas con umbrales concretos de nieve, isoterma, lluvia, visibilidad y tránsito. Pero resume todo en un solo número y por eso solo distingue entre abierto, cierre parcial y cierre total. No dice cuánto dura un cierre, no separa la tormenta del peligro posterior y no conecta la decisión con la maquinaria disponible.
+
+\textbf{La propuesta.} Un sistema de cuatro piezas, calculado por tramo y cada 6 horas: un índice de severidad, un índice de peligro, un balance de despeje y una máquina de seis estados. La severidad sigue el método de Walker, pero con la isoterma convertida en fracción del camino bajo nieve y con el protocolo de Lo Barnechea como piso. El peligro va aparte: sube después de la tormenta y se resuelve esperando, no despejando. El balance lleva la cuenta de la nieve por sacar con la maquinaria disponible. Los estados se recorren en orden: se entra a un cierre por magnitud y se sale por fase. Lo que no depende del clima (horario fronterizo, decisión binacional, tránsito, condición sanitaria) queda en una capa aparte.
+
+\input{resumen_resultados.tex}
+
+\textbf{Cómo leer el documento.} La sección~\ref{sec:contexto} presenta las rutas, los datos y el protocolo de Lo Barnechea. La sección~\ref{sec:partida} dice de dónde sale cada pieza y por qué ni el protocolo de Lo Barnechea ni el índice de Walker bastan por sí solos. Las secciones~\ref{sec:arquitectura} a~\ref{sec:administrativa} formulan el sistema; cada fórmula va precedida de un recuadro ``en palabras''. Las secciones~\ref{sec:calibracion} y~\ref{sec:contrafactual} lo prueban con julio y agosto de 2026. La~\ref{sec:operacion} explica cómo se opera con pronóstico y en rutas sin protocolo; la~\ref{sec:limites}, lo que todavía no puede hacer.
+
+\newpage
+% ============================================================================
+\section{Contexto: rutas, datos y el protocolo de Lo Barnechea}\label{sec:contexto}
+
+\enpalabras{Dos caminos de alta montaña de Chile central, dos meses de invierno y una regla escrita. La G-21 sube de Lo Barnechea a Farellones y a los centros de esquí; la 60-CH sube de Los Andes al paso internacional Los Libertadores. Las dos se cerraron por nieve en julio y agosto de 2026. La primera se gobierna por el protocolo de Lo Barnechea; la segunda, por decisiones binacionales con Argentina. Aquí el cuadro del protocolo de Lo Barnechea se aplica a las dos, como regla de referencia.}
+
+\paragraph{Las rutas y sus tramos.} Cada ruta se divide en un tramo alto y uno medio, porque la nieve y la isoterma no tratan igual a los 1.000 que a los 3.000 metros (cuadro~\ref{tab:tramos}). La G-21 incluye los accesos G-251 y G-249, que el protocolo de Lo Barnechea cubre junto con ella: unos 47 km de camino con más de 60 curvas y calzada de hasta 7 m. El tramo alto de la 60-CH va de Guardia Vieja al túnel del Cristo Redentor, pasando por Juncal y Portillo.
+
+\begin{table}[H]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{Tramos analizados. Largo de camino y cotas mínima, media y máxima (m s.\,n.\,m.) según el modelo digital de elevación Copernicus.}
+\label{tab:tramos}
+\begin{tabular}{|l|l|l|r|r|r|r|}
+\hline
+Ruta & Tramo & Recorrido & Largo (km) & Mín. & Media & Máx. \\ \hline
+60-CH & alto & Guardia Vieja -- túnel Cristo Redentor & 28,9 & 1.644 & 2.431 & 3.700 \\ \hline
+60-CH & medio & Río Blanco -- Guardia Vieja & 23,7 & 1.021 & 1.289 & 1.645 \\ \hline
+G-21 & alto & Farellones y accesos (G-21, G-249, G-251) & 20,8 & 2.330 & 2.615 & 3.027 \\ \hline
+G-21 & medio & subida de curvas desde Lo Barnechea & 29,6 & 917 & 1.507 & 2.463 \\ \hline
+\end{tabular}
+\end{table}
+
+\paragraph{Los datos meteorológicos.} El análisis no usa estaciones meteorológicas. La meteorología sale de dos reanálisis del Centro Europeo (ECMWF): ERA5-Land, con celdas de unos 9 km, para nieve, lluvia, temperatura y manto; y ERA5, con celdas de unos 31 km, para la isoterma 0\,°C y las ráfagas de viento. Un reanálisis reconstruye, hora a hora, el tiempo que hubo: sirve para revisar lo que pasó, no para anticipar. Cada tramo promedia las celdas que cruza, ponderadas por el largo de camino dentro de cada una, en bloques de 6 horas locales del 1 de julio al 31 de agosto de 2026.
+
+\paragraph{El estado observado.} Para cada hora del periodo, el equipo reconstruyó el estado de cada ruta a partir de comunicados y declaraciones oficiales de cierre y apertura, en cinco categorías: abierto; restringido (un solo sentido, solo carga, solo residentes y trabajadores, ventanas de evacuación o saturación); cierre técnico (pausa programada para despeje con máquinas); cierre meteorológico; y cierre por horario administrativo del complejo fronterizo.
+
+\paragraph{El cuadro del protocolo de Lo Barnechea.} La sección 6 del protocolo de Lo Barnechea define tres alertas. Basta un gatillante para activar una alerta, y manda la más alta que se cumpla (cuadro~\ref{tab:cuadro}). La sección 7 agrega que la Alerta 2 permite cerrar la subida y mantener la bajada, y que la Alerta 3 implica cierre total.
+
+\begin{table}[H]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{Gatillantes del protocolo de Lo Barnechea (sección 6), por alerta. Nieve y lluvia en ventanas de 12 horas; isoterma 0\,°C en m s.\,n.\,m.}
+\label{tab:cuadro}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.9cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+Gatillante & Alerta 1 (preventiva) & Alerta 2 (cierre parcial: solo bajada) & Alerta 3 (cierre total) \\ \hline
+Nieve & más de 1 y menos de 25 cm, con cualquier isoterma & más de 25 y menos de 50 cm, con isoterma entre 1.500 y 2.800 m & más de 1 y menos de 50 cm con isoterma entre 900 y 1.500 m; 50 cm o más con isoterma entre 1.501 y 2.800 m \\ \hline
+Lluvia & -- & presencia de precipitación líquida & 20 mm o más con isoterma sobre 2.800 m \\ \hline
+Visibilidad & más de 50 y hasta 100 m & más de 21 y hasta 50 m & 20 m o menos \\ \hline
+Tránsito de subida (08:00--13:00) & más de 0 y menos de 3.500 vehículos/día & más de 3.500 vehículos/día & -- \\ \hline
+Condición sanitaria & -- & -- & falla de agua o baños por más de 24 h \\ \hline
+\end{tabularx}
+\end{table}
+
+\paragraph{El cuadro regularizado.} El cuadro deja combinaciones sin alerta: por ejemplo, 30 cm con isoterma bajo 1.500 m, o 60 cm con isoterma sobre 2.800 m. Para poder calcularlo en cada bloque, este trabajo lo completa por bandas de isoterma, de modo que más nieve nunca baje la alerta. Con isoterma bajo 1.500 m, cualquier nevada sobre 1 cm es Alerta 3. Entre 1.500 y 2.800 m, los cortes son 1, 25 y 50 cm para las alertas 1, 2 y 3. Sobre 2.800 m, la nieve sobre 1 cm es Alerta 1, la lluvia de 1 mm o más es Alerta 2 y la de 20 mm o más es Alerta 3. Hay una diferencia con el cuadro literal: con isoterma bajo 2.800 m, la regularización no cuenta la ``presencia de precipitación líquida''. En el resto de las combinaciones que el cuadro define, el resultado es el mismo. La visibilidad, el tránsito y la condición sanitaria no están en los reanálisis y quedan fuera del cálculo.
+
+% ============================================================================
+\section{Punto de partida: qué es del protocolo de Lo Barnechea, qué de la literatura y qué es nuestro}\label{sec:partida}
+
+\enpalabras{Ninguna pieza sale de la nada. El cuadro de niveles viene del protocolo de Lo Barnechea; las notas y los pesos, del índice de Walker; la capacidad de despeje, de la literatura canadiense; el umbral de arrastre, de la hidrología de nieve. Lo nuevo es el ensamblaje: la fracción del camino bajo nieve, el piso del protocolo de Lo Barnechea y dos estados que ese protocolo no tiene, ``despejando'' y ``en peligro''.}
+
+\begin{table}[H]
+\centering\small
+\caption{Origen de cada elemento del sistema.}
+\label{tab:origen}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{4.3cm}|>{\raggedright\arraybackslash}X|}
+\hline
+Elemento & Origen \\ \hline
+Umbrales de nieve (1, 25 y 50 cm en 12 h), bandas de isoterma, lluvia 20 mm & Protocolo de Lo Barnechea, sección 6 \\ \hline
+Notas 0--5 por variable y combinación con pesos & Walker, Anderson y Esmaeili (2018), índice de severidad invernal de Nebraska (NEWINS) \\ \hline
+Fijar cortes con datos locales; no adoptar un índice ajeno & Sturges et al. (2020), Clear Roads CR 18-03; Walker et al. (2019) \\ \hline
+Capacidad de despeje $c = d\,s/(p\,\ell)$ y plazos de recuperación & Muresan et al. (2018), cap. 13 \\ \hline
+Pasadas según ancho de calzada; esfuerzo con clima en grilla & Mohammadi, Klein-Paste y Lysbakken (2024) \\ \hline
+Umbral de arrastre $U^{\mathrm{thr}}(T)$ y nieve seca o húmeda & Li y Pomeroy (1997) \\ \hline
+Criterio de nieve arrastrada (5 cm en 72 h) & Matthews et al., citado en Mohammadi y Klein-Paste (2023) \\ \hline
+Estado post-tormenta con pronóstico de reapertura & Cerda et al. (2016), mina Andina (Andes centrales) \\ \hline
+Separar cierre por daño y por peligro; la decisión es del jefe de operaciones & ASTRA (2014), Suiza \\ \hline
+Lluvia acumulada de varios días en el corredor de la 60-CH & Mergili, Marchant y Moreiras (2015) \\ \hline
+\textbf{Fracción del camino bajo nieve $\varphi$, regla híbrida con piso del protocolo de Lo Barnechea, índice de peligro, estados $E_4$ y $E_5$, capa administrativa, contrafactual} & \textbf{Propuesta de este documento} \\ \hline
+\end{tabularx}
+\end{table}
+
+\paragraph{Qué es el índice de Walker.} Walker, Anderson y Esmaeili (2018) construyeron el índice de severidad invernal del Departamento de Transporte de Nebraska. Cada día con nieve recibe una nota de 1 a 6 en siete variables: nieve caída, tasa de nevada, viento, temperatura del aire, fracción del distrito afectada, duración y visibilidad. Las siete notas se promedian con pesos fijos (la nieve pesa 0,80; la visibilidad, 0,01) y dan la categoría del día. La suma de categorías de la temporada es el índice estacional, que sirve para comparar inviernos y evaluar el desempeño del mantenimiento.
+
+\paragraph{Por qué no basta con recalibrar Walker.} Recalibrar Walker da un mejor termómetro, no un sistema de decisión. La salida simple sería tomar el índice de Nebraska, reemplazar sus cortes por cortes chilenos y aplicarlo tal cual. Eso corrige la escala: sin recalibrar, el techo de Walker (17,5 cm de nieve en 24 h) cae dentro de la Alerta 1 del protocolo de Lo Barnechea. Pero no corrige la forma, y la forma falla en cinco puntos.
+
+\paragraph{Mide la tormenta, no el camino.} El índice de Walker clasifica días de nevada para comparar temporadas. No dice qué régimen operacional corresponde ni por cuánto tiempo. Un jefe de operaciones necesita ``cerrar la subida hasta que se despeje'', no ``categoría 5''.
+
+\paragraph{Promedia lo que debería vetar.} Siete notas con pesos fijos, y la nieve se lleva el 80\,\%. Una condición extrema que no sea nieve apenas mueve la categoría: la visibilidad pesa 0,01, aunque el protocolo de Lo Barnechea cierra con visibilidad bajo 20 m sin mirar nada más. En nuestros datos, meter el peligro de avalancha dentro del promedio hace que el sistema nunca cierre la 60-CH (regla C, sección~\ref{sec:resultados}).
+
+\paragraph{No tiene cota.} Walker se diseñó para la llanura de Nebraska. La temperatura entra porque la sal pierde efecto con el frío: más frío, más severo. En la cordillera el problema es otro: hasta qué cota llega la nieve y si llueve sobre el manto. Ahí una isoterma alta con lluvia puede ser peor que una nevada fría. Ninguno de los 19 índices de severidad que revisan Walker et al. (2019) usa la isoterma.
+
+\paragraph{Termina cuando para de nevar.} El evento de Walker es el día con precipitación sólida. Lo que viene después (avalancha, calentamiento, lluvia sobre nieve, despeje) queda fuera. Un alud puede cortar el camino días después de la nevada; para el índice de Walker, ese día no existe.
+
+\paragraph{No sabe de máquinas.} La categoría de Walker describe el impacto sobre el mantenimiento (``despliegue completo'', ``objetivo de servicio no se cumple''), pero no lo calcula. No conecta la severidad con la flota, el largo del tramo ni el tiempo de despeje, que es lo que decide cuándo reabrir.
+
+\paragraph{Qué se toma de Walker.} El procedimiento: notas de 0 a 5 por variable, cortes fijados con datos locales y pesos explícitos. Es la pieza 1 del sistema. Las otras tres (peligro, despeje y estados) cubren lo que Walker no tiene.
+
+\paragraph{Por qué no basta con el protocolo de Lo Barnechea.} El protocolo de Lo Barnechea dice cuándo cerrar, no cuándo abrir. Con los datos de julio y agosto de 2026, su cuadro casi nunca llega a la Alerta 3, y los cierres totales observados ocurrieron con 30 a 50 cm en 12 horas e isoterma entre 1.800 y 2.300 m: condiciones que el cuadro clasifica como Alerta 2. En la 60-CH, aplicado como referencia, el cuadro del tramo alto estuvo en Alerta 2 solo 5 de los 35 días que la ruta pasó cerrada, y nunca en Alerta 3. Nada en el cuadro indicaba cuándo reabrir.
+
+\input{formulacion.tex}
+
+\input{resultados.tex}
+
+% ============================================================================
+\section{Cómo se usaría: pronóstico y rutas sin protocolo}\label{sec:operacion}
+
+\subsection{Con pronóstico}
+\enpalabras{En este documento el sistema corre con reanálisis: reconstruye lo que pasó. Sirve para calibrar y para revisar decisiones, no para operar. Para operar, corre con pronóstico y entra en los mismos plazos que ya fija el protocolo de Lo Barnechea: la reunión de D-7, la de D-3 y el día del evento. La diferencia es que en cada plazo sale, además del nivel de alerta, una hora estimada de reapertura.}
+
+\paragraph{D-7.} Primera reunión de coordinación. Entra GFS o ECMWF por tramo, en tres escenarios (optimista, medio y pesimista, con los percentiles del conjunto). Salen los estados probables y las horas de despeje esperadas.
+
+\paragraph{D-3.} Segunda reunión. Entra el pronóstico actualizado. Salen el estado esperado por bloque de 6 h, la hora estimada de reapertura y la flota necesaria $x^{\mathrm{req}}$ para cumplir un plazo objetivo.
+
+\paragraph{D-0.} El día del evento, la observación reemplaza al pronóstico (estaciones, cámaras, reportes de ruta). El balance $N_t$ se reinicia con la nieve medida en la calzada.
+
+\paragraph{Antes de operar.} Falta una prueba: repetir la verificación de la sección~\ref{sec:resultados} con pronósticos archivados y medir cuánto se degrada el sistema cuando el reanálisis se reemplaza por pronóstico.
+
+\subsection{En rutas del catastro sin protocolo propio}
+\enpalabras{Casi todo el catastro nacional no tiene protocolo ni historial de cierres. El sistema no los necesita: la nieve y la isoterma salen de ERA5, la fracción bajo nieve sale del trazado y un modelo de elevación, y la capacidad de despeje sale de la maquinaria de la provincia. Donde hoy solo hay ``la ruta se cierra cuando nieva mucho'', el sistema entrega estados, duraciones y flota.}
+
+\paragraph{Qué se necesita por tramo.} Los cortes anclados al protocolo de Lo Barnechea (1, 25 y 50 cm) se mantienen; los intermedios salen de cuantiles de la climatología ERA5 del tramo, el mismo procedimiento de Walker. La fracción $\varphi$ sale del trazado del catastro de Vialidad y del modelo de elevación Copernicus. La capacidad $c_k$ sale de la ecuación~\eqref{eq:capacidad}, con la maquinaria asignada y el ancho de calzada. La exposición a avalanchas $e_k$ es hoy un supuesto (1 o 0,5); con un catastro de trayectorias se convierte en dato. Los parámetros pueden variar por tipo de ruta, como en California, Montana y Oregón, que usan coeficientes distintos para montaña, valle y llanura (Walker et al., 2019).
+
+% ============================================================================
+\section{Lo que el sistema no puede hacer todavía}\label{sec:limites}
+
+\paragraph{Dos meses y dos rutas.} La calibración descansa en la G-21 de julio y agosto de 2026, con tres episodios de cierre meteorológico. Los parámetros describen esta temporada; lo transferible es la estructura.
+
+\paragraph{Supuestos sin dato.} El margen de nieve bajo la isoterma ($\delta$), la exposición a avalanchas ($e_k$), el factor de ráfaga ($\gamma$), la fracción redepositada ($\alpha$), los pesos $\beta$ y los cortes intermedios son propuestas. El apéndice~\ref{sec:sensibilidad} mide cuánto mueve cada uno los resultados: solo la exposición los mueve de verdad.
+
+\paragraph{La remoción en masa.} El índice de remoción solo mira la lluvia de 72 horas sobre la cota media del tramo. El 17 de julio de 2026, un aluvión del río Ñilhue sobrepasó las mallas de contención de la G-21 entre los kilómetros 6 y 6,5, y ese índice no pasó de 2 de 5 en el tramo medio. El cierre de esos días lo justificó el peligro de avalancha del tramo alto, no el aluvión. Para ver estos eventos falta un catastro de quebradas activas que cruzan cada ruta.
+
+\paragraph{Los umbrales en el borde.} El cuadro del protocolo de Lo Barnechea tiene cortes duros, y el reanálisis los cruza por poco. El 17 de julio, la nieve de 12 horas en la celda del tramo alto de la 60-CH superó los 50 cm de la Alerta 3 durante cuatro horas, con un máximo de 51,6 cm. Un error de pocos centímetros en ERA5-Land cambia el nivel.
+
+\paragraph{La velocidad de los equipos.} Sin la velocidad de avance en nieve de cada equipo, la capacidad de despeje se calibra en vez de calcularse. La fórmula de Muresan queda lista para cuando Vialidad entregue el dato.
+
+\paragraph{Lo que ERA5 no ve.} Visibilidad, tránsito, estado de la calzada y el lado argentino del paso. ERA5-Land, además, puede sobrestimar la nieve en la alta cordillera: $\varphi$ corrige la cota, no el monto.
+
+\paragraph{El contrafactual no juzga decisiones.} Mide qué parte de un cierre tiene respaldo meteorológico en el reanálisis, no si la decisión fue correcta. Una evaluación de avalanchas en terreno o una condición del lado argentino pueden justificar lo que el modelo no ve.
+
+% ============================================================================
+\begin{thebibliography}{99}\small
+\bibitem{astra} Bundesamt für Strassen ASTRA (2014). \emph{Entscheidungsfindung und Auswertung bei Winterdiensteinsätzen}. Dokumentation ASTRA 86211, V1.00. Berna.
+\bibitem{cerda} Cerda, P., Gallardo, L., Didier, M., Oyarzun Joaquin, M., Mujica Rodrigo y Vera Valero, C. (2016). Avalanche management in a large Chilean copper mine. \emph{Proceedings, International Snow Science Workshop 2016}, Breckenridge, 1348--1351.
+\bibitem{li} Li, L. y Pomeroy, J. W. (1997). Estimates of threshold wind speeds for snow transport using meteorological data. \emph{Journal of Applied Meteorology}, 36, 205--213.
+\bibitem{lob} Municipalidad de Lo Barnechea et al. (2026). \emph{Protocolo cierre de caminos públicos del Centro de Montaña Lo Barnechea}. 3 de julio de 2026.
+\bibitem{mergili} Mergili, M., Marchant Santiago, C. I. y Moreiras, S. M. (2015). Causas, características e impacto de los procesos de remoción en masa, en áreas contrastantes de la región Andina. \emph{Cuadernos de Geografía}, 24(2), 113--131.
+\bibitem{moh23} Mohammadi, N. y Klein-Paste, A. (2023). How to incorporate weather data in simulations of winter road maintenance? \emph{TRB 102nd Annual Meeting}.
+\bibitem{moh24} Mohammadi, N., Klein-Paste, A. y Lysbakken, K. R. (2024). Simulating winter maintenance efforts: A multi-linear regression model. \emph{Cold Regions Science and Technology}, 227, 104307.
+\bibitem{muresan} Muresan, M., Kwon, T. J., Fu, L. y Shi, X. (2018). Strategic planning and management for sustainable winter road maintenance. En X. Shi y L. Fu (Eds.), \emph{Sustainable Winter Road Operations} (cap. 13, 273--308). Wiley.
+\bibitem{sturges} Sturges, L., Fay, L., Clouser, K. y Villwock-Witte, N. (2020). \emph{Evaluation of SSI and WSI Variables}. Clear Roads CR 18-03.
+\bibitem{walker18} Walker, C., Anderson, M. y Esmaeili, B. (2018). \emph{Development of the Nebraska Department of Transportation Winter Severity Index}. NDOT SPR-P1-(17)M054.
+\bibitem{walker19} Walker, C. L., Hasanzadeh, S., Esmaeili, B., Anderson, M. R. y Dao, B. (2019). Developing a winter severity index: A critical review. \emph{Cold Regions Science and Technology}, 160, 139--149.
+\end{thebibliography}
+
+\appendix
+\input{apendice.tex}
+
+\end{document}

@@ -1,0 +1,44 @@
+% Figura 3 de la postulación: balance de despeje y capacidad de la maquinaria y del personal.
+\documentclass[border=4pt]{standalone}
+\input{fig_comun.tex}
+\begin{document}
+\begin{tikzpicture}[font=\footnotesize,
+  paso/.style={draw=txt2, rounded corners=3pt, align=center, fill=white, font=\scriptsize, minimum height=0.9cm, inner sep=3pt}]
+% a) Balance de despeje
+\node[tit] at (0,0) {a) Balance de despeje, $N$ (cm de nieve en la calzada)};
+\node[anchor=north west, inner sep=0pt] (td) at (0,-0.5) {\footnotesize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.25}%
+\begin{tabular}{>{\centering\arraybackslash}p{0.35cm}L{6.9cm}}
+\toprule
+& nieve que quedó en la calzada al cerrar el bloque anterior \\
+$+$ & nieve que cae sobre el camino durante el bloque \\
+$+$ & nieve que el viento deposita sobre el camino \\
+$-$ & nieve que la maquinaria alcanza a sacar en 6 h, con al menos \cdesp\ cm/h (nada si $H = \Hcierre$, porque las cuadrillas no entran) \\
+\midrule
+$=$ & \textbf{$N$: nieve que queda por despejar} \\
+\bottomrule
+\end{tabular}};
+% niveles, justo bajo la tabla
+\path (td.south) ++(0,-0.45) coordinate (yc);
+\coordinate (cx1) at (1.25,0); \coordinate (cx2) at (3.8,0); \coordinate (cx3) at (6.55,0);
+\node[niv, fill=cE1, text=white] at (cx1 |- yc) {restricción\\$N > \Nrest$ cm};
+\node[niv, fill=cE2] at (cx2 |- yc) {cierre parcial\\$N > \Nparc$ cm};
+\node[niv, fill=cE3, text=white, minimum width=2.9cm] (d3) at (cx3 |- yc) {cerrado por despeje\\$N > \Ncierre$ cm (tras un cierre)};
+\node[anchor=north west, align=left, font=\scriptsize, text width=7.9cm, inner sep=0pt] (ent) at ($(0,0 |- d3.south)+(0,-0.25)$)
+  {\textbf{Para qué sirve:} la ruta puede reabrir cuando $N$ baja de \Ncierre\ cm. Con esa meta, el balance responde cada 6 h dos preguntas: cuántas horas faltan para reabrir (la espera hasta que baje el peligro más el tiempo que la maquinaria tarda en bajar $N$ a \Ncierre\ cm) y cuántos equipos y operadores hacen falta para reabrir en el plazo que fije la autoridad.};
+
+% b) De la flota a la capacidad
+\node[tit] at (8.55,0) {b) De la maquinaria y el personal a la capacidad};
+\node[dato, minimum width=3.65cm, font=\scriptsize] (maq) at (10.5,-1.0) {\textbf{Maquinaria}: tipo, número\\y velocidad de avance en nieve};
+\node[dato, minimum width=3.65cm, font=\scriptsize] (per) at (14.35,-1.0) {\textbf{Personal}: operadores\\por turno y horario};
+\node[paso, minimum width=7.5cm] (ope) at (12.43,-2.45) {\textbf{Equipos operativos}: los que tienen operador en el turno};
+\node[paso, minimum width=7.5cm, draw=cN, line width=0.9pt] (cap) at (12.43,-3.75) {\textbf{Capacidad de despeje} $c$ (cm/h) = equipos operativos $\times$ velocidad $\times$\\espesor que mantienen, dividido por pasadas $\times$ largo del tramo};
+\node[paso, minimum width=3.65cm] (hrs) at (10.5,-5.35) {Horas para reabrir};
+\node[paso, minimum width=3.65cm] (flo) at (14.35,-5.35) {Equipos y operadores para\\reabrir en un plazo dado};
+\draw[flecha] (maq) -- (maq |- ope.north);
+\draw[flecha] (per) -- (per |- ope.north);
+\draw[flecha] (ope) -- (cap);
+\draw[flecha] (cap.south -| hrs) -- (hrs);
+\draw[flecha] (cap.south -| flo) -- (flo);
+\draw[flecha] (cap.west) -- node[eti, above]{$c$} ($(td.east)+(0.05,-0.25)$);
+\end{tikzpicture}
+\end{document}

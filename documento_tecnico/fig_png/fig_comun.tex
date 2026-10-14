@@ -1,0 +1,28 @@
+% Preámbulo común de las figuras 1 a 4 de la postulación (se carga con \input en cada figura).
+% Los cortes y umbrales vienen de umbrales_calibrados.tex (lo escribe figuras_postulacion.py).
+\usepackage{fontspec}
+\setmainfont{Cambria}
+\usepackage[table]{xcolor}
+\usepackage{array,booktabs}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds,decorations.pathreplacing}
+\definecolor{fondo}{HTML}{F2F1EC}
+\definecolor{txt2}{HTML}{52514E}
+% estados, ordenados por magnitud: E3 despeje < E4 tormenta < E5 peligro
+\definecolor{cE0}{HTML}{D9D8D2}\definecolor{cE1}{HTML}{1BAF7A}\definecolor{cE2}{HTML}{EDA100}
+\definecolor{cE3}{HTML}{2A78D6}\definecolor{cE4}{HTML}{E34948}\definecolor{cE5}{HTML}{4A3AA7}
+\definecolor{cSV}{HTML}{2A78D6}\definecolor{cH}{HTML}{EB6834}\definecolor{cN}{HTML}{52514E}
+\input{umbrales_calibrados.tex}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}{>{\centering\arraybackslash}p{0.62cm}}
+% encabezado de notas con degradado del color del índice
+\newcommand{\notas}[1]{\cellcolor{#1!12}1 & \cellcolor{#1!28}2 & \cellcolor{#1!45}3 & \cellcolor{#1!65}\textcolor{white}{4} & \cellcolor{#1!85}\textcolor{white}{5}}
+\tikzset{
+  tit/.style={anchor=north west, font=\small\bfseries, inner sep=0pt},
+  caja/.style={draw=#1, line width=0.9pt, rounded corners=3pt, align=center, minimum width=4.2cm, minimum height=1.05cm, fill=white},
+  dato/.style={draw=txt2, dashed, rounded corners=3pt, align=center, minimum width=4.5cm, minimum height=0.85cm},
+  est/.style={rounded corners=2pt, align=center, minimum width=1.98cm, minimum height=1.05cm, font=\scriptsize, text=white, inner sep=1pt},
+  niv/.style={rounded corners=2pt, align=center, minimum width=2.45cm, minimum height=0.62cm, font=\scriptsize, inner sep=1pt},
+  llave/.style={decorate, decoration={brace, amplitude=3pt}, draw=txt2},
+  flecha/.style={-{Stealth[length=2mm]}, thick, draw=txt2},
+  eti/.style={font=\scriptsize, color=txt2, align=center}}

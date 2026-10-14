@@ -1,0 +1,11 @@
+modelo,ruta,exactitud_3clases,kappa_ponderado,aciertos,falsas_alarmas,omisiones,negativos_correctos,POD,FAR,CSI,HSS,n
+híbrida (propuesta),G-21,0.766,0.52,13,11,6,218,0.684,0.458,0.433,0.568,248
+híbrida (propuesta),60-CH,0.467,0.264,72,0,104,36,0.409,0.0,0.409,0.19,212
+Walker pura,G-21,0.875,0.59,13,9,6,220,0.684,0.409,0.464,0.601,248
+Walker pura,60-CH,0.467,0.222,72,0,104,36,0.409,0.0,0.409,0.19,212
+peligro dentro de la severidad,G-21,0.766,0.41,3,2,16,227,0.158,0.4,0.143,0.225,248
+peligro dentro de la severidad,60-CH,0.137,0.055,1,0,175,36,0.006,0.0,0.006,0.002,212
+"protocolo (cuadro, sin persistencia)",G-21,0.794,0.271,0,2,19,227,0.0,1.0,0.0,-0.015,248
+"protocolo (cuadro, sin persistencia)",60-CH,0.137,0.042,1,0,175,36,0.006,0.0,0.006,0.002,212
+persistencia (bloque anterior),G-21,0.984,0.929,18,1,1,227,0.947,0.053,0.9,0.943,247
+persistencia (bloque anterior),60-CH,0.969,0.836,173,3,3,15,0.983,0.017,0.966,0.816,194

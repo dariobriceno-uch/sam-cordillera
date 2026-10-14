@@ -1,0 +1,49 @@
+% Figura 1 de la postulación: arquitectura general del modelo de SAM-Cordillera.
+% Tres bloques, uno por subpunto: severidad y peligro (5.1), despeje (5.2) y estados operacionales (5.3).
+\documentclass[border=4pt]{standalone}
+\input{fig_comun.tex}
+\begin{document}
+\begin{tikzpicture}[font=\footnotesize,
+  bloque/.style={draw=txt2, rounded corners=4pt, fill=fondo, inner xsep=6pt, inner ysep=6pt}]
+% entradas
+\node[dato] (dem) at (2.3,-1.05) {Trazado y modelo\\de elevación de caminos};
+\node[dato, minimum width=5.2cm] (era) at (7.7,-1.05) {Meteorología por tramo en bloques de 6 h\\(reanálisis de datos ERA5, pronósticos\\o estaciones climatológicas)};
+\node[dato] (maq) at (14.2,-1.05) {Maquinaria y personal disponible\\y largo del tramo};
+% índices
+\node[caja=cSV] (sv) at (2.3,-3.55) {\textbf{1. Severidad} $SV$\\¿Cuál es la intensidad\\de la tormenta?};
+\node[caja=cH] (h) at (7.7,-3.55) {\textbf{2. Peligro} $H$\\¿Hay avalancha o\\remoción en masa?};
+\node[caja=cN] (n) at (14.2,-3.55) {\textbf{3. Balance de despeje} $N$\\¿Cuánta nieve queda\\por sacar?};
+\begin{scope}[on background layer]
+\node[bloque, fit=(sv)(h)] (b51) {};
+\node[bloque, fit=(n)] (b52) {};
+\end{scope}
+\draw[flecha] (era) -- (h);
+\draw[flecha] (era.south west) ++(0.4,0) -- (sv.north east);
+\draw[flecha] (era.south east) ++(-0.4,0) -- (n.north west);
+\draw[flecha] (dem) -- node[eti, left, pos=0.45]{fracción bajo\\la línea de nieve} (sv);
+\draw[flecha] (maq) -- node[eti, right, pos=0.45]{capacidad\\de despeje} (n);
+\draw[flecha] (h) -- node[eti, below=1pt]{con $H = \Hcierre$\\no se despeja} (n);
+% estados operacionales, ordenados por magnitud
+\foreach \e/\txt/\col/\x in {0/abierto/black/3.0,
+                             1/abierto con\\restricción\\(cadenas)/white/5.1,
+                             2/cierre parcial\\(solo bajada)/black/7.2,
+                             3/cerrado por\\despeje/white/9.3,
+                             4/cerrado por\\tormenta/white/11.4,
+                             5/cerrado por\\peligro/white/13.5}
+  \node[est, fill=cE\e, text=\col] (e\e) at (\x,-6.95) {\textbf{$E_\e$} \txt};
+\node[font=\footnotesize\bfseries, anchor=south] (tite) at ($(e0.north)!0.5!(e5.north)+(0,0.08)$) {Estado operacional};
+\draw[llave] ($(e0.south east)+(0,-0.08)$) -- node[below=2pt, font=\scriptsize] (g1) {ruta abierta} ($(e0.south west)+(0,-0.08)$);
+\draw[llave] ($(e2.south east)+(0,-0.08)$) -- node[below=2pt, font=\scriptsize] {ruta restringida} ($(e1.south west)+(0,-0.08)$);
+\draw[llave] ($(e5.south east)+(0,-0.08)$) -- node[below=2pt, font=\scriptsize] {ruta cerrada} ($(e3.south west)+(0,-0.08)$);
+\begin{scope}[on background layer]
+\node[bloque, fit=(e0)(e5)(tite)(g1)] (b53) {};
+\end{scope}
+% de los índices al estado
+\coordinate (x51) at (5.0,0);
+\coordinate (x52) at (11.0,0);
+\draw[flecha] (b51.south -| x51) -- (b53.north -| x51);
+\draw[flecha] (b52.south) |- ($(b53.north -| x52)+(0,0.3)$) -- (b53.north -| x52);
+\node[dato, minimum width=9cm, font=\scriptsize, anchor=north] (adm) at ($(b53.south)+(0,-0.7)$) {Capa administrativa (registrada, no modelada): horario fronterizo, tránsito y condición sanitaria};
+\draw[flecha, dashed] (adm.north) -- (b53.south);
+\end{tikzpicture}
+\end{document}

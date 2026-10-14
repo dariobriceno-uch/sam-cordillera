@@ -1,0 +1,57 @@
+% ============================================================================
+\section{Sensibilidad a los supuestos}\label{sec:sensibilidad}
+
+\enpalabras{Cada supuesto sin dato se mueve por separado; el resto queda en su valor propuesto y los parámetros calibrados no cambian. Se mira qué pasa con el ajuste en la G-21 y con la parte del cierre de la 60-CH que queda sin respaldo. Un supuesto que ``mueve poco'' puede quedar como está; uno que ``lo mueve todo'' pide un dato.}
+
+\begin{table}[H]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{Sensibilidad. Kappa y CSI en la G-21; porcentaje de las horas cerradas de la 60-CH sin respaldo para cierre total y porcentaje respaldado por peligro (capacidad calibrada, 6 cm/h).}
+\label{tab:sensibilidad}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Supuesto modificado & Kappa G-21 & CSI G-21 & 60-CH sin respaldo & 60-CH por peligro \\ \hline
+Propuesta (base) & 0,54 & 0,43 & 58\,\% & 36\,\% \\ \hline
+Margen de nieve $\delta$ = 150 m (base 300) & 0,54 & 0,43 & 59\,\% & 36\,\% \\ \hline
+Margen de nieve $\delta$ = 500 m & 0,54 & 0,43 & 56\,\% & 35\,\% \\ \hline
+Exposición de tramos medios = 1 (base 0,5) & 0,54 & 0,43 & 58\,\% & 37\,\% \\ \hline
+Exposición de tramos altos = 0,75 (base 1) & 0,37 & 0,10 & 99\,\% & 0\,\% \\ \hline
+Factor de ráfaga $\gamma$ = 2,0 (base 1,6) & 0,57 & 0,46 & 65\,\% & 29\,\% \\ \hline
+Factor de ráfaga $\gamma$ = 1,3 & 0,50 & 0,39 & 56\,\% & 37\,\% \\ \hline
+Sin nieve arrastrada ($\alpha$ = 0; base 0,10) & 0,54 & 0,43 & 61\,\% & 36\,\% \\ \hline
+Sobrecargas desde 20 cm (base 30) & 0,54 & 0,43 & 58\,\% & 36\,\% \\ \hline
+Sobrecargas desde 50 cm & 0,57 & 0,46 & 61\,\% & 32\,\% \\ \hline
+Pesos de Walker (nieve 0,80; resto 0,04) & 0,55 & 0,43 & 58\,\% & 36\,\% \\ \hline
+\end{tabular}
+\end{table}
+
+\paragraph{Lectura.} Un solo supuesto decide el resultado. El margen de nieve, los pesos y el umbral de las sobrecargas casi no mueven nada; el factor de ráfaga mueve algo (entre 56\,\% y 65\,\% sin respaldo). La exposición del tramo alto a avalanchas lo mueve todo: con 0,75 el peligro nunca llega a 5, desaparece el respaldo de los 19 días ``por peligro'' y la G-21 pierde el cierre por peligro del 17 al 20 de julio (kappa 0,37). Que el valor 1 reproduzca ese cierre apoya usarlo, aunque el corte real se decretó por rodados, nieve y un aluvión, no por una avalancha registrada. El dato correcto es un catastro de trayectorias de avalancha por tramo.
+
+% ============================================================================
+\section{Parámetros y reproducibilidad}\label{sec:parametros}
+
+\begin{table}[H]
+\centering\small
+\caption{Parámetros del sistema. ``Calibrado'' = ajustado con la G-21; ``protocolo'' = tomado del protocolo de Lo Barnechea; ``literatura'' = con fuente; ``supuesto'' = propuesta a confirmar.}
+\label{tab:parametros}
+\begin{tabularx}{\textwidth}{|l|c|l|>{\raggedright\arraybackslash}X|}
+\hline
+Parámetro & Valor & Tipo & Nota \\ \hline
+Umbrales de nieve en 12 h & 1, 25, 50 cm & protocolo & cortes $q_1$, $q_3$, $q_5$ de $S^*$ \\ \hline
+Cortes intermedios y pesos $\beta$ & cuadro~\ref{tab:cortes} & supuesto & procedimiento de Walker; poco sensibles \\ \hline
+Piso del protocolo de Lo Barnechea $v(L)$ & 0, 1, 3, 4 & propuesta & alinea Alerta 1, 2 y 3 con $E_1$, $E_2$ y $E_3$ \\ \hline
+Umbrales de estado & 1; 2,5; 3,5 & propuesta & sobre $SV$ \\ \hline
+Margen de nieve bajo la isoterma $\delta$ & 300 m & supuesto & poco sensible \\ \hline
+Umbral de arrastre $U^{\mathrm{thr}}(T)$ & 9,43 + 0,18$T$ + 0,0033$T^2$ & literatura & Li y Pomeroy (1997), ec. 3 \\ \hline
+Factor de ráfaga $\gamma$ & 1,6 & supuesto & moderadamente sensible \\ \hline
+Nieve mínima para arrastre & 5 cm en 72 h & literatura & Matthews, en Mohammadi y Klein-Paste (2023) \\ \hline
+Fracción redepositada $\alpha$ & 0,10 por bloque & supuesto & poco sensible \\ \hline
+Sobrecargas del peligro & desde 30 cm en 72 h & supuesto & poco sensible \\ \hline
+Exposición a avalanchas $e_k$ & 1 (alto), 0,5 (medio) & supuesto & \textbf{decisivo}; requiere catastro \\ \hline
+Umbral de peligro $H^\star$ & 5 & calibrado & G-21 \\ \hline
+Capacidad de despeje $c$ & 6 cm/h & calibrado & cota inferior; ec.~\eqref{eq:capacidad} para escenarios \\ \hline
+Nieve residual para reabrir $\theta$ & 50 cm & calibrado & poco identificado \\ \hline
+Nieve que exige restricción $\theta_1$ & 5 cm & literatura & cerca del umbral suizo de 3--5 cm (ASTRA, 2014) \\ \hline
+\end{tabularx}
+\end{table}
+
+\paragraph{Reproducibilidad.} Todo el cálculo está programado y se repite con los mismos datos: la lectura de ERA5 y ERA5-Land por tramo, las cuatro piezas, la calibración con la G-21, la verificación, el logit ordinal, el contrafactual de la 60-CH, la sensibilidad y las figuras. Para cada tramo y bloque de 6 horas queda una tabla con las variables meteorológicas, las notas, los índices, el balance de despeje y el estado del modelo, junto al estado observado.

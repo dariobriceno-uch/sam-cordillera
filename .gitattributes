@@ -1,0 +1,13 @@
+# Fin de línea normalizado para texto
+*.py   text eol=lf
+*.R    text eol=lf
+*.md   text eol=lf
+*.tex  text eol=lf
+*.js   text eol=lf
+*.css  text eol=lf
+*.json text eol=lf
+
+# Binarios
+*.grib binary
+*.xlsx binary
+*.xls  binary

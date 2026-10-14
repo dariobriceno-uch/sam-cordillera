@@ -1,0 +1,292 @@
+% ============================================================================
+% Formulación del sistema (secciones 2 a 7). Se incluye desde sistema_condicion_invernal.tex
+% ============================================================================
+
+\section{Arquitectura: cuatro piezas y una capa administrativa}\label{sec:arquitectura}
+
+\enpalabras{El protocolo de Lo Barnechea responde con un solo número cuatro preguntas distintas: cuán dura es la tormenta, si hay peligro, cuánto falta para despejar y qué se hace con el tránsito. Por eso se queda en ``abierto'' o ``cerrado''. La propuesta separa esas preguntas en cuatro piezas encadenadas: la meteorología entra por arriba, pasa por la severidad, el peligro y el balance, y sale como un estado operacional con su hora estimada de reapertura.}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  caja/.style={draw, rounded corners=3pt, align=center, minimum width=3.3cm, minimum height=1.25cm, font=\small, fill=gray!6},
+  dato/.style={draw, dashed, rounded corners=3pt, align=center, minimum width=3.3cm, minimum height=1cm, font=\footnotesize},
+  flecha/.style={-{Stealth[length=2.2mm]}, thick}]
+\node[dato] (era) {ERA5 / ERA5-Land por tramo\\(o pronóstico GFS/ECMWF)};
+\node[caja, below left=1.0cm and 1.2cm of era] (sv) {\textbf{1. Severidad} $SV$\\¿cuán dura es la tormenta?};
+\node[caja, below right=1.0cm and 1.2cm of era] (h) {\textbf{2. Peligro} $H$\\avalancha y remoción};
+\node[caja, below=2.9cm of era] (n) {\textbf{3. Balance de despeje} $N$\\¿cuánta nieve queda?};
+\node[dato, right=0.7cm of n] (maq) {maquinaria, largo,\\ancho y pendiente};
+\node[caja, below=1.0cm of n, minimum width=7cm] (e) {\textbf{4. Máquina de estados} $E_0,\dots,E_5$\\estado operacional y tiempo estimado de reapertura};
+\node[dato, below=0.8cm of e, minimum width=7cm] (adm) {Capa administrativa (exógena): horario del complejo fronterizo,\\acuerdo binacional, tránsito, condición sanitaria};
+\draw[flecha] (era) -- (sv); \draw[flecha] (era) -- (h); \draw[flecha] (era) -- (n);
+\draw[flecha] (sv) |- (e); \draw[flecha] (h) |- (e);
+\draw[flecha] (h) -- node[font=\footnotesize, right, pos=0.4]{$u_t$} (n);
+\draw[flecha] (maq) -- (n); \draw[flecha] (n) -- (e);
+\draw[flecha, dashed] (adm) -- (e);
+\end{tikzpicture}
+\caption{Arquitectura del sistema. Las flechas continuas son cálculos; la discontinua es una capa que se superpone al estado físico pero no se modela.}
+\label{fig:arquitectura}
+\end{figure}
+
+\begin{table}[ht]
+\centering\small
+\caption{Qué pregunta responde cada pieza y qué tenía el protocolo de Lo Barnechea para esa pregunta.}
+\label{tab:piezas}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3.2cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+Pieza & Pregunta & En el protocolo de Lo Barnechea \\ \hline
+1. Severidad $SV$ & ¿Cuán dura es la tormenta en este tramo? & Nivel 1--3 por umbrales de nieve, isoterma y lluvia \\ \hline
+2. Peligro $H$ & ¿Hay riesgo de avalancha o de remoción en masa, aunque ya no nieve? & ``Evaluación técnica'' sin criterio cuantitativo \\ \hline
+3. Balance $N$ & ¿Cuánta nieve queda en la calzada y cuánto demora sacarla? & No existe; remite a un modelo municipal de limpieza aparte \\ \hline
+4. Estados $E$ & ¿Qué régimen operacional corresponde y por cuánto tiempo? & Tres alertas, con cierre parcial (solo bajada) y total \\ \hline
+Capa administrativa & ¿Hay razones no meteorológicas para cerrar? & Tránsito (3.500 veh/día), Waze, condición sanitaria \\ \hline
+\end{tabularx}
+\end{table}
+
+\paragraph{Unidad de cálculo.} Todo se calcula por \textbf{tramo} $k$ (alto y medio de cada ruta) y por \textbf{bloque} $t$ de $\Delta = 6$ horas locales (00--06, 06--12, 12--18 y 18--24). La ventana de 12 horas del protocolo de Lo Barnechea son dos bloques.
+
+\subsection*{Notación}
+\begin{center}\small
+\begin{tabular}{|>{$}l<{$}|l|l|}
+\hline
+\text{Símbolo} & Significado & Unidad \\ \hline
+S_t & nieve caída en 12 h en las celdas ERA5-Land del tramo (agua equivalente $\times 10$) & cm \\ \hline
+Z_t & altura de la isoterma 0\,°C & m s.\,n.\,m. \\ \hline
+\varphi_t & fracción del largo del tramo bajo nieve & -- \\ \hline
+S^*_t & nieve efectiva sobre el camino, $S^*_t = \varphi_t S_t$ & cm \\ \hline
+r_t & tasa de nevada efectiva (nieve efectiva / horas con nieve) & cm/h \\ \hline
+D_t & horas con nieve en las últimas 24 h & h \\ \hline
+G_t & ráfaga máxima del bloque a 10 m (ERA5, \texttt{fg10}) & m/s \\ \hline
+R_t & lluvia en 12 h cuando hay manto ($\ge 10$ cm) & mm \\ \hline
+T_t & temperatura del aire a 2 m & °C \\ \hline
+HN^{72}_t,\ R^{72}_t & nieve nueva y lluvia de las últimas 72 h & cm, mm \\ \hline
+L_t & nivel del protocolo de Lo Barnechea (cuadro regularizado) & 0--3 \\ \hline
+c_{i,t} & nota 0--5 de la variable $i$ & -- \\ \hline
+SV_t,\ H_t & índices de severidad y de peligro & 0--5 \\ \hline
+N_t & nieve por despejar en la calzada & cm \\ \hline
+c_k,\ \theta & capacidad de despeje del tramo y nieve residual para reabrir & cm/h, cm \\ \hline
+E_t & estado operacional & $E_0,\dots,E_5$ \\ \hline
+\end{tabular}
+\end{center}
+
+% ----------------------------------------------------------------------------
+\section{Pieza 1: índice de severidad andino}\label{sec:severidad}
+
+\subsection{De la isoterma a la fracción del camino bajo nieve}
+
+\enpalabras{En Nebraska, Walker mide qué parte del distrito está nevando. En la cordillera esa pregunta la responde la isoterma: hasta qué cota baja la nieve. Con isoterma baja nieva en todo el camino; con isoterma alta, solo en la parte de arriba. La fracción $\varphi$ mide cuánto del tramo queda sobre la línea de nieve y corrige la nieve de ERA5, que se calcula a la cota de la celda y no a la del camino. El protocolo de Lo Barnechea, en cambio, reparte la isoterma en tres bandas fijas y nunca pregunta ``¿cuánto camino quedó bajo nieve?''.}
+
+La nieve no llega a la isoterma: cae unos cientos de metros más abajo. Con un margen $\delta$ (supuesto: $\delta = 300$ m), la fracción del tramo bajo nieve es
+\begin{equation}
+\varphi_t = \sum_{j \in k} \frac{\ell_j}{\ell_k}\; \min\!\left\{1,\ \max\!\left\{0,\ \frac{z^{\max}_j - (Z_t - \delta)}{z^{\max}_j - z^{\min}_j}\right\}\right\},
+\label{eq:phi}
+\end{equation}
+donde $j$ recorre las celdas ERA5-Land que cruza el tramo, $\ell_j$ es el largo de camino dentro de la celda y $z^{\min}_j$, $z^{\max}_j$ son las cotas mínima y máxima del camino en ella (modelo digital de elevación Copernicus). Dentro de cada celda, la cota del camino se supone repartida de manera uniforme. La nieve efectiva sobre el camino es
+\begin{equation}
+S^*_t = \varphi_t\, S_t .
+\end{equation}
+
+\paragraph{Qué reemplaza $\varphi$.} Las tres bandas fijas del protocolo de Lo Barnechea (900--1.500, 1.500--2.800 y sobre 2.800 m). Así, una variable continua ocupa el lugar de tres categorías, y se calcula en cualquier ruta del catastro con su trazado y un modelo de elevación. Una isoterma baja da $\varphi \approx 1$: es el caso que ese protocolo trata como Alerta 3 (``nieve con isoterma entre 900 y 1.500 m'').
+
+\subsection{Variables y notas de 0 a 5}
+
+\enpalabras{Cada variable se convierte en una nota de 0 a 5: sube un punto por cada corte que supera. Los cortes de la nieve se anclan en los del protocolo de Lo Barnechea (1, 25 y 50 cm en 12 h); los intermedios siguen el procedimiento de Walker. La tasa, la duración y la extensión solo puntúan cuando hay evento de nieve (más de 1 cm en 12 h). El viento puntúa también cuando levanta nieve ya caída: ese protocolo no lo mira, aunque la ruta quede ``sin nevar, pero con viento blanco''.}
+
+\begin{equation}
+c_{i,t} = \sum_{j=1}^{5} \mathbf{1}\!\left[x_{i,t} \ge q_{i,j}\right], \qquad c_{i,t} \in \{0,1,\dots,5\},
+\end{equation}
+donde $x_{i,t}$ es el valor de la variable y $q_{i,1} < \dots < q_{i,5}$ sus cortes (cuadro~\ref{tab:cortes}).
+
+\begin{table}[ht]
+\centering\small
+\caption{Cortes de las notas (una nota sube un punto por cada corte superado) y pesos tipo Walker. Las celdas en negrita son umbrales del protocolo de Lo Barnechea; el resto son propuestas de este documento.}
+\label{tab:cortes}
+\begin{tabular}{|l|l|c|c|c|c|c|c|}
+\hline
+Variable $i$ & Unidad & $q_1$ & $q_2$ & $q_3$ & $q_4$ & $q_5$ & Peso $\beta_i$ \\ \hline
+Nieve efectiva 12 h, $S^*$ & cm & \textbf{1} & 10 & \textbf{25} & 40 & \textbf{50} & 0,45 \\ \hline
+Fracción bajo nieve, $\varphi$ & -- & 0,05 & 0,25 & 0,50 & 0,75 & 0,95 & 0,15 \\ \hline
+Tasa efectiva, $r$ & cm/h & 0,5 & 1 & 2 & 3 & 4 & 0,10 \\ \hline
+Duración, $D$ & h en 24 h & 1 & 6 & 12 & 18 & 23 & 0,10 \\ \hline
+Ráfaga, $G$ & m/s & 10 & 15 & 20 & 25 & 30 & 0,10 \\ \hline
+Lluvia sobre manto, $R$ & mm en 12 h & \textbf{1} & 5 & 10 & \textbf{20} & 30 & 0,10 \\ \hline
+\end{tabular}
+\end{table}
+
+\paragraph{Tres cambios respecto de Walker.} La nieve pesa 0,45, no 0,80: en la cordillera la extensión de la nevada y la lluvia sobre nieve tienen consecuencias propias que en Nebraska no existen. La temperatura del aire sale del índice: en Walker cuenta porque la sal pierde efecto con el frío, y aquí entra por dos vías más directas, la isoterma (vía $\varphi$) y el umbral de arrastre (pieza 3). El viento usa ráfagas de ERA5, no el viento medio de ERA5-Land: en nuestros tramos el viento medio tiene mediana cercana a 1 m/s y nunca alcanza un umbral de arrastre (sección~\ref{sec:resultados}).
+
+\subsection{Tres reglas para combinar las notas}
+
+\enpalabras{Walker promedia: una variable extrema pesa poco si no es la nieve. El protocolo de Lo Barnechea toma el máximo: basta un gatillante y manda el más alto. La regla híbrida combina las dos: el índice es el mayor entre el promedio de Walker y un piso que fija ese protocolo. Así nunca queda por debajo de lo que ya exige, pero distingue tormentas que su cuadro ve iguales: para el cuadro, ``26 cm con viento y nevando 20 horas'' es lo mismo que ``26 cm en calma''. El documento calcula también la regla de Walker pura, para que la elección sea informada.}
+
+La suma ponderada es
+\begin{equation}
+W_t = \sum_{i} \beta_i\, c_{i,t}, \qquad \sum_i \beta_i = 1, \qquad 0 \le W_t \le 5 .
+\end{equation}
+El \textbf{piso} (veto) traduce el nivel del protocolo de Lo Barnechea $L_t$ a la escala 0--5:
+\begin{equation}
+v_t = v(L_t), \qquad v(0)=0,\quad v(1)=1,\quad v(2)=3,\quad v(3)=4 .
+\end{equation}
+$L_t$ sale del cuadro regularizado de la sección~\ref{sec:contexto}: el cuadro literal completado por bandas de isoterma, para que más nieve nunca baje la alerta. El cuadro se evalúa en cada hora, con la nieve y la lluvia de las 12 horas anteriores, y $L_t$ es el nivel horario más alto dentro del bloque: así se aplica en la práctica, de forma continua. Las dos reglas que se comparan son
+\begin{align}
+\text{(A) híbrida, propuesta:}\quad & SV^{A}_t = \max\{v_t,\ W_t\}, \label{eq:svA}\\
+\text{(B) Walker pura:}\quad & SV^{B}_t = W_t . \label{eq:svB}
+\end{align}
+
+\paragraph{Monotonía.} Más nieve nunca baja el índice. Cada nota $c_{i,t}$ es no decreciente en su variable, los pesos son positivos y el cuadro regularizado es no decreciente en $S$ y en $R$; por lo tanto $W_t$, $v_t$ y $SV^A_t$ son no decrecientes en la nieve y en la lluvia. El cuadro literal del protocolo de Lo Barnechea no cumple esta propiedad: deja combinaciones sin nivel.
+
+\paragraph{Piso.} La regla A es al menos tan exigente como el protocolo de Lo Barnechea, nunca menos. Como $SV^A_t \ge v_t$ y los umbrales de estado (sección~\ref{sec:estados}) están en $v(1)=1$, $v(2)=3$ y $v(3)=4$, toda situación que ese protocolo lleva a Alerta 1, 2 o 3 produce al menos restricción, cierre parcial o cierre total. La regla B no da esa garantía.
+
+% ----------------------------------------------------------------------------
+\section{Pieza 2: índice de peligro}\label{sec:peligro}
+
+\enpalabras{El peligro corre por otro carril que la severidad. Sube \emph{después} de la tormenta, con calentamiento, con viento que carga las laderas o con lluvia sobre la nieve. Y no baja despejando: baja esperando, o con control de avalanchas. Por eso va en un índice propio, que decide dos cosas: si el camino se cierra por peligro y si las cuadrillas pueden entrar a trabajar. El protocolo de Lo Barnechea deja todo eso en una ``evaluación técnica'' sin criterio numérico.}
+
+\subsection{Avalancha}
+La nota de avalancha combina la nieve nueva de 72 horas en las zonas de partida (la celda ERA5-Land, más alta que el camino), el arrastre por viento y el calentamiento o la lluvia sobre un manto de al menos 30 cm:
+\begin{equation}
+H^{av}_t = \operatorname{red}\!\Big( e_k \cdot \min\big\{5,\ c^{HN}_t + a^{24}_t + \mathbf{1}[\Delta Z^{24}_t \ge 500 \ \lor\ R^{12}_t \ge 5]\cdot\mathbf{1}[h_t \ge 0{,}3]\big\}\Big),
+\end{equation}
+con $c^{HN}_t$ la nota de $HN^{72}_t$ (cortes 10, 20, 30, 50 y 80 cm), $a^{24}_t$ igual a 1 si hubo arrastre en las últimas 24 h, $\Delta Z^{24}_t$ el alza de la isoterma en 24 h, $h_t$ el espesor del manto y $e_k$ un factor de exposición del tramo (supuesto: 1 en los tramos altos y 0,5 en los medios, a falta de un catastro de trayectorias de avalancha). Las dos sobrecargas (arrastre, y calentamiento o lluvia) solo cuentan si $HN^{72}_t \ge 30$ cm: el viento y el calor son críticos sobre nieve reciente, no sobre un manto asentado.
+
+\subsection{Remoción en masa}
+\begin{equation}
+H^{rm}_t = c^{R72}_t \cdot \mathbf{1}\!\left[Z_t > \bar z_k\right],
+\end{equation}
+con $c^{R72}_t$ la nota de la lluvia de 72 h (cortes 10, 20, 40, 60 y 100 mm) y $\bar z_k$ la cota media del tramo.
+
+\paragraph{Por qué 72 horas.} En Guardia Vieja, el 13 de agosto de 1987, un flujo de detritos obligó a reconstruir la ruta internacional (148 mm en el día, 309,5 mm en cinco días; Mergili et al., 2015). La ventana de 12 h del protocolo de Lo Barnechea no capta esa acumulación.
+
+\subsection{Peligro total y su efecto}
+\begin{equation}
+H_t = \max\{H^{av}_t,\ H^{rm}_t\}, \qquad u_t = \mathbf{1}\!\left[H_t < H^{\star}\right].
+\end{equation}
+Con $H_t \ge H^\star$ el camino pasa a cierre por peligro (si no está ya en cierre por tormenta) y las cuadrillas no despejan ($u_t = 0$). El umbral $H^\star$ se calibra con la G-21 entre 3, 4 y 5; el resultado es $H^\star = 5$ (sección~\ref{sec:calibracion}).
+
+\subsection{Alternativa: el peligro dentro de la severidad}\label{sec:peligro_dentro}
+\enpalabras{El peligro también puede entrar como una variable más del índice, sin estado propio. Es más simple, pero junta en un número dos cosas que se resuelven distinto: la tormenta se despeja, el peligro se espera. Se calcula como tercera regla, para comparar.}
+\begin{equation}
+\text{(C)}\quad SV^{C}_t = \max\big\{v_t,\ 0{,}85\, W_t + 0{,}15\, H_t\big\},
+\end{equation}
+sin estado $E_5$ y sin interrumpir el despeje. La comparación está en la sección~\ref{sec:resultados}.
+
+% ----------------------------------------------------------------------------
+\section{Pieza 3: balance de despeje}\label{sec:balance}
+
+\enpalabras{Esta pieza convierte el modelo en un sistema de mantenimiento. En cada bloque entra a la calzada la nieve que cae y la que trae el viento, y sale la que la maquinaria alcanza a despejar, si se puede trabajar. Lo que queda es la nieve por despejar. Cuando baja del umbral, el camino se puede reabrir. La duración del cierre deja de ser una constante: sale de la nieve, del peligro y de la maquinaria. El protocolo de Lo Barnechea, en cambio, deriva esa pregunta a ``un modelo paramétrico de limpieza'' que vive fuera del cuadro.}
+
+\begin{equation}
+N_t = \max\big\{0,\ N_{t-1} + S^{*,6h}_t + A_t - u_t\, c_k\, \Delta\big\},
+\label{eq:balance}
+\end{equation}
+donde $S^{*,6h}_t$ es la nieve efectiva caída en el bloque, $A_t$ la nieve redepositada por el viento y $c_k$ la capacidad de despeje del tramo.
+
+\subsection{Capacidad de despeje en función de la maquinaria}
+Una máquina que recorre un tramo de largo $\ell_k$ en $p_k$ pasadas a velocidad $s$ tarda $C = p_k \ell_k / s$ en completar un ciclo, y mantiene la calzada bajo una profundidad $d$ mientras la nieve no caiga más rápido que $d/C$ (Muresan et al., 2018, ec. 13.2--13.3). Con varias máquinas $m$:
+\begin{equation}
+c_k = \sum_{m \in \mathcal{M}_k} \frac{d\, s_m}{p_k\, \ell_k} .
+\label{eq:capacidad}
+\end{equation}
+El número de pasadas sale del ancho de calzada, como en Noruega (Mohammadi et al., 2024): bajo 6 m, una pasada por sentido; entre 6 y 16 m, dos.
+
+\paragraph{El dato que falta.} La velocidad de avance en nieve $s_m$ de cada tipo de equipo (cargador frontal, fresadora, bulldozer) no está en el inventario de maquinaria; hay que pedirla a Vialidad. Mientras tanto, $c_k$ se calibra con los cierres observados de la G-21 (sección~\ref{sec:calibracion}) y la ecuación~\eqref{eq:capacidad} se usa al revés, para traducir capacidades a flotas.
+
+\subsection{Arrastre por viento}
+Li y Pomeroy (1997, ec. 3) estiman el viento a 10 m que inicia el transporte de nieve seca, en función de la temperatura a 2 m:
+\begin{equation}
+U^{\mathrm{thr}}_t = 9{,}43 + 0{,}18\, T_t + 0{,}0033\, T_t^2 \quad [\text{m/s}].
+\end{equation}
+La relación se ajustó con viento medio horario y aquí se usan ráfagas, así que el umbral se escala por un factor de ráfaga $\gamma$ (supuesto: $\gamma = 1{,}6$). Hay arrastre cuando
+\begin{equation}
+a_t = \mathbf{1}\big[G_t \ge \gamma\, U^{\mathrm{thr}}_t\big] \cdot \mathbf{1}\big[\text{nieve seca}\big] \cdot \mathbf{1}\big[HN^{*,72}_t \ge 5\ \text{cm}\big],
+\end{equation}
+donde ``nieve seca'' significa que en las últimas 24 h la temperatura no llegó a 0\,°C y no llovió (definición de Li y Pomeroy, 1997), y los 5 cm en 72 h son el criterio de Matthews citado por Mohammadi y Klein-Paste (2023). La nieve redepositada es una fracción de la nieve reciente: $A_t = \alpha\, HN^{*,72}_t\, a_t$ (supuesto: $\alpha = 0{,}10$ por bloque).
+
+\subsection{Tiempo de reapertura y flota necesaria}
+\enpalabras{Del balance salen dos números que hoy nadie calcula: cuántas horas faltan para reabrir y cuántas máquinas harían falta para reabrir en un plazo dado. La pregunta deja de ser ``¿abrimos o no?'' y pasa a ser ``¿a qué hora, y con cuántos equipos?''.}
+\begin{equation}
+\widehat{T}^{\mathrm{reap}}_t = T^{\mathrm{espera}}_t + \frac{\max\{N_t - \theta,\ 0\}}{c_k},
+\qquad
+x^{\mathrm{req}} = \left\lceil \frac{(N_t - \theta)\, p_k\, \ell_k}{d\, \bar s\ T^{\mathrm{obj}}} \right\rceil ,
+\end{equation}
+donde $T^{\mathrm{espera}}_t$ es el tiempo hasta que el peligro baje de $H^\star$ (cero si ya está bajo) y $T^{\mathrm{obj}}$ el plazo objetivo.
+
+\paragraph{Qué plazo pedir.} Hay una referencia publicada (Muresan et al., 2018, tabla 13.2): Ontario exige recuperar la calzada en 8, 16 o 24 h según la clase de camino, en el 90\,\% de los eventos.
+
+% ----------------------------------------------------------------------------
+\section{Pieza 4: máquina de estados}\label{sec:estados}
+
+\enpalabras{El camino está siempre en uno de seis estados. Se entra a un cierre por la magnitud de la tormenta o del peligro, y se sale por fase: cuando deja de nevar, el cierre por tormenta pasa a cierre técnico, que dura lo que tarde la maquinaria en bajar la nieve bajo el umbral. Esta es la diferencia de fondo con el protocolo de Lo Barnechea, que no distingue entre ``está nevando'' y ``ya paró, pero falta despejar''.}
+
+\begin{table}[ht]
+\centering\small
+\caption{Estados operacionales. La correspondencia con el protocolo de Lo Barnechea y con lo observado está en las dos últimas columnas.}
+\label{tab:estados}
+\begin{tabularx}{\textwidth}{|c|>{\raggedright\arraybackslash}p{3.3cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}p{2.6cm}|}
+\hline
+Estado & Nombre & Qué implica & Protocolo de Lo Barnechea & Observado \\ \hline
+$E_0$ & Abierto & Operación normal & Sin alerta & abierto \\ \hline
+$E_1$ & Abierto con restricción & Cadenas, horarios, convoy & Alerta 1 & abierto o restringido \\ \hline
+$E_2$ & Cierre parcial & Solo bajada; suben emergencias y suministros & Alerta 2 & restringido \\ \hline
+$E_3$ & Cierre total meteorológico & Cerrado mientras dura la tormenta & Alerta 3 & cerrado (meteo) \\ \hline
+$E_4$ & Cierre técnico / despeje & Ya no nieva; trabajan las máquinas & no existe & cierre técnico o cerrado \\ \hline
+$E_5$ & Cierre por peligro & Avalancha o remoción; cuadrillas fuera & ``evaluación técnica'' & cerrado (p.\,ej. alud) \\ \hline
+\end{tabularx}
+\end{table}
+
+Las reglas de transición se evalúan en orden, en cada bloque:
+\begin{equation}
+E_t =
+\begin{cases}
+E_3 & \text{si } SV_t \ge 3{,}5,\\
+E_5 & \text{si no, y } H_t \ge H^\star,\\
+E_4 & \text{si no, y } E_{t-1} \in \{E_3, E_4, E_5\} \ \text{y}\ N_t > \theta,\\
+E_2 & \text{si no, y } SV_t \ge 2{,}5,\\
+E_1 & \text{si no, y } \big(SV_t \ge 1 \ \text{o}\ N_t > \theta_1\big),\\
+E_0 & \text{en otro caso,}
+\end{cases}
+\label{eq:estados}
+\end{equation}
+con $\theta_1 = 5$ cm (nieve en calzada que ya exige cadenas, cerca del umbral suizo de despeje de 3--5 cm; ASTRA, 2014).
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  est/.style={draw, circle, minimum size=1.35cm, align=center, font=\small, fill=gray!6},
+  f/.style={-{Stealth[length=2mm]}, thick}, lab/.style={font=\scriptsize, align=center}]
+\node[est] (e0) at (0,0) {$E_0$\\abierto};
+\node[est] (e1) at (3.3,0) {$E_1$\\restr.};
+\node[est] (e2) at (6.6,0) {$E_2$\\parcial};
+\node[est] (e3) at (9.9,0) {$E_3$\\tormenta};
+\node[est] (e4) at (6.6,-3.3) {$E_4$\\despeje};
+\node[est] (e5) at (9.9,-3.3) {$E_5$\\peligro};
+\draw[f] (e0) -- node[lab, above]{$SV\ge1$} (e1);
+\draw[f] (e1) -- node[lab, above]{$SV\ge2{,}5$} (e2);
+\draw[f] (e2) -- node[lab, above]{$SV\ge3{,}5$} (e3);
+\draw[f] (e3) -- node[lab, right]{$H\ge H^\star$} (e5);
+\draw[f] (e3) -- node[lab, above left, pos=0.45]{deja de nevar\\y $N>\theta$} (e4);
+\draw[f] (e5) -- node[lab, below=12pt]{$H<H^\star$ y $N>\theta$} (e4);
+\draw[f] (e4) -- node[lab, below left, pos=0.5]{$N\le\theta$} (e1);
+\draw[f, bend left=40] (e1) to node[lab, below=1pt]{$SV<1$ y $N\le\theta_1$} (e0);
+\end{tikzpicture}
+\caption{Transiciones principales. Se entra a los cierres por magnitud ($SV$ o $H$) y se sale por fase y balance ($N$).}
+\label{fig:estados}
+\end{figure}
+
+\paragraph{Estado de la ruta.} El estado observado es de la ruta completa; el modelado, el del tramo en peor situación, con el orden de gravedad $E_0 < E_1 < E_2 < E_4 < E_3 < E_5$.
+
+\paragraph{Duración.} La duración es un resultado, no un parámetro. Un cierre dura la suma de sus bloques en $E_3$, $E_4$ y $E_5$, y esa suma sale de la tormenta, del peligro y de la capacidad de despeje.
+
+% ----------------------------------------------------------------------------
+\section{Capa administrativa y datos que hoy no tenemos}\label{sec:administrativa}
+
+\enpalabras{Hay cierres que no dependen del clima: el horario del complejo fronterizo, un acuerdo con Argentina, la saturación del tránsito o la falta de agua en Farellones. El protocolo de Lo Barnechea los mezcla con los gatillantes meteorológicos, de modo que ``nieva mucho'' y ``no hay agua arriba'' llevan al mismo cierre. Aquí van a una capa aparte: se superponen al estado físico, se registran por separado y no entran a la calibración.}
+
+\paragraph{Horario y acuerdo binacional.} Los bloques observados como ``cerrado por horario'' en la 60-CH se excluyen de la verificación. La decisión binacional de mantener el paso cerrado no se modela: es lo que el contrafactual de la sección~\ref{sec:contrafactual} compara con la condición física.
+
+\paragraph{Tránsito y congestión.} El protocolo de Lo Barnechea usa 3.500 vehículos/día entre 08:00 y 13:00 y velocidades Waze bajo 5 km/h por 2 horas. No hay esos datos para julio y agosto de 2026. Cuando existan, entran como gatillantes de $E_1$ o $E_2$, no del índice de severidad.
+
+\paragraph{Condición sanitaria.} Falla de agua o baños por más de 24 h (Alerta 3). Es un gatillante del destino, no del camino.
+
+\paragraph{Visibilidad.} Está en el protocolo de Lo Barnechea (100, 50 y 20 m) pero no en ERA5. Cuando haya observación o pronóstico, entra como veto adicional $v_t$, con los mismos umbrales.

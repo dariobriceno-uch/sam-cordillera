@@ -1,0 +1,24 @@
+# Python y R
+__pycache__/
+*.pyc
+.Rhistory
+.RData
+.Rproj.user/
+
+# Índices de cfgrib (se regeneran al leer los GRIB)
+*.idx
+
+# Intermedios de LaTeX
+documento_tecnico/**/*.aux
+documento_tecnico/**/*.log
+documento_tecnico/**/*.out
+documento_tecnico/**/*.toc
+documento_tecnico/**/*.synctex.gz
+documento_tecnico/**/*.fdb_latexmk
+documento_tecnico/**/*.fls
+
+# Sistema y Office
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*
